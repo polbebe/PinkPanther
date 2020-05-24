@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.5.1-0-g916b5db  Build Version: 1.5.7152.31018
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="Leg_Test">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.00067316 0.013433 -0.004129"
+        rpy="0 0 0" />
+      <mass
+        value="0.085101" />
+      <inertia
+        ixx="1.602E-05"
+        ixy="-1.3706E-08"
+        ixz="2.3448E-08"
+        iyy="2.6033E-05"
+        iyz="-1.8252E-06"
+        izz="1.9135E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Leg_Test/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Leg_Test/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="first_link">
+    <inertial>
+      <origin
+        xyz="0.0077236 0.0065127 0.052325"
+        rpy="0 0 0" />
+      <mass
+        value="0.12074" />
+      <inertia
+        ixx="3.1368E-05"
+        ixy="5.4557E-07"
+        ixz="3.2822E-07"
+        iyy="2.8486E-05"
+        iyz="-8.1503E-07"
+        izz="2.5863E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Leg_Test/meshes/first_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Leg_Test/meshes/first_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="armpit"
+    type="revolute">
+    <origin
+      xyz="-0.0059477 0.0027538 0.008673"
+      rpy="1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="first_link" />
+    <axis
+      xyz="1 -5.102E-05 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="second_link">
+    <inertial>
+      <origin
+        xyz="0.063983 0.054565 0.093129"
+        rpy="0 0 0" />
+      <mass
+        value="0.24824" />
+      <inertia
+        ixx="6.5305E-05"
+        ixy="-6.5296E-06"
+        ixz="-6.9826E-08"
+        iyy="0.000221"
+        iyz="4.6482E-10"
+        izz="0.00020519" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Leg_Test/meshes/second_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Leg_Test/meshes/second_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="shoulder"
+    type="revolute">
+    <origin
+      xyz="-0.016735 -0.09862 -0.037281"
+      rpy="0 0 -0.37764" />
+    <parent
+      link="first_link" />
+    <child
+      link="second_link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="third_link">
+    <inertial>
+      <origin
+        xyz="-0.041201 -0.0012569 1.8154E-06"
+        rpy="0 0 0" />
+      <mass
+        value="0.12094" />
+      <inertia
+        ixx="2.6285E-05"
+        ixy="6.7835E-06"
+        ixz="-7.2854E-09"
+        iyy="0.0002634"
+        iyz="3.5228E-09"
+        izz="0.00025318" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Leg_Test/meshes/third_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 0.47059 0.82353 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Leg_Test/meshes/third_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="knee"
+    type="revolute">
+    <origin
+      xyz="0.14752 0.02261 0.093051"
+      rpy="0 0 0.80006" />
+    <parent
+      link="second_link" />
+    <child
+      link="third_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+</robot>

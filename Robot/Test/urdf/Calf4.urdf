@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.5.1-0-g916b5db  Build Version: 1.5.7152.31018
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="Calf4">
+  <link
+    name="Test">
+    <inertial>
+      <origin xyz="-0.040981 -2.59190000000008E-06 -0.0012596" rpy="0 0 0" />
+      <mass value="0.03016" />
+      <inertia
+        ixx="6.5663E-06"
+        ixy="1.6484999999999E-09"
+        ixz="1.6903E-06"
+        iyy="6.2742E-05"
+        iyz="5.89710000000156E-10"
+        izz="6.5294E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="1.5707963267949 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Test/meshes/Test.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 0.47059 0.82353 1" />
+        <texture
+          filename="package://Test/textures/" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="1.5707963267949 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Test/meshes/Test.STL" />
+      </geometry>
+    </collision>
+  </link>
+</robot>

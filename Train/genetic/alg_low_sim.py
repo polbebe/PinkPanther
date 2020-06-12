@@ -141,7 +141,7 @@ def evaluate_fitness(v, vars, gui=False, steps=1000):
 
     number_of_joints = p.getNumJoints(robotId)
 
-    timediff = 1./2400.
+    timediff = 1./240.
 
     # torque info based off of https://github.com/bulletphysics/bullet3/blob/master/examples/pybullet/examples/inverse_dynamics.py
     # id_revolute_joints = [0, 9, 6, 3, 1, 10, 7, 4, 2, 11, 8, 5]

@@ -15,7 +15,7 @@ def init_population(n=1000):
     return [init_individual() for i in range(n)]
 
 
-def choose_fittest(pop, k=100):
+def choose_fittest(pop, k):
 
     physicsClient = p.connect(p.DIRECT)
 
@@ -73,22 +73,16 @@ def genetic(e=10, n=1000):
 
         new_pop = []
 
-        fit = choose_fittest(pop, k=20)
+        fit = choose_fittest(pop, 300)
 
         fit_scores = [j[1] for j in fit]
         fit_pop = [j[0] for j in fit]
 
         best_e_score = fit_scores[0]
 
-
-
-
-
         if best_e_score > best_score:
             best_score = best_e_score
             best_weights = fit_pop[0]
-
-
 
         print("Best Epoch Weights: {}".format(fit_pop[0]))
         print("Best Overall Weights: {}".format(best_weights))
@@ -147,7 +141,10 @@ def evaluate_fitness(v, vars, gui=False, steps=1000):
     # id_revolute_joints = [0, 9, 6, 3, 1, 10, 7, 4, 2, 11, 8, 5]
     id_revolute_joints = [1, 10, 7, 4, 2, 11, 8, 5]
 
-    motor_labels = {0: "LEFT FRONT ARMPIT", 1: "LEFT FRONT SHOULDER", 2: "LEFT FRONT KNEE", 3:"RIGHT FRONT ARMPIT", 4: "RIGHT FRONT SHOULDER", 5:"RIGHT FRONT KNEE", 6:"LEFT BACK ARMPIT", 7:"LEFT BACK SHOULDER", 8:"LEFT BACK KNEE", 9:"RIGHT BACK ARMPIT", 10:"RIGHT BACK SHOULDER", 11:"RIGHT BACK KNEE"}
+    motor_labels = {0: "LEFT FRONT ARMPIT", 1: "LEFT FRONT SHOULDER", 2: "LEFT FRONT KNEE",
+    				3:"RIGHT FRONT ARMPIT", 4: "RIGHT FRONT SHOULDER", 5:"RIGHT FRONT KNEE",
+    				6:"LEFT BACK ARMPIT", 7:"LEFT BACK SHOULDER", 8:"LEFT BACK KNEE",
+    				9:"RIGHT BACK ARMPIT", 10:"RIGHT BACK SHOULDER", 11:"RIGHT BACK KNEE"}
 
     maxz = 0
 
@@ -176,7 +173,6 @@ def evaluate_fitness(v, vars, gui=False, steps=1000):
             maxz = robotPos[2]
 
         if gui:
-            # time.sleep(1./1000.)
             time.sleep(timediff)
         else:
             pass
@@ -187,9 +183,7 @@ def evaluate_fitness(v, vars, gui=False, steps=1000):
 
 if __name__ == "__main__":
 
-    weights, score = genetic(e=10000, n=100)
-
-    # GUI SIMULATION
+    weights, score = genetic(e=10000, n=1000)
 
     physicsClient = p.connect(p.GUI)
 

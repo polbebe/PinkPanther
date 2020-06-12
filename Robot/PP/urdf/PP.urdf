@@ -5,6 +5,14 @@
 <robot
   name="PP">
 
+  <material name="white">
+    <color rgba="0.9499 0.9499 0.9499 1"/>
+  </material>
+
+  <material name="light-pink">
+    <color rgba="0.7725 0.5411 0.7725 1"/>
+  </material>
+
   <link
     name="base_link">
     <inertial>
@@ -29,6 +37,7 @@
         <mesh
           filename="package://PP/meshes/base_link.STL" />
       </geometry>
+      <material name="white"/>
     </visual>
     <collision>
       <origin
@@ -40,6 +49,7 @@
       </geometry>
     </collision>
   </link>
+
   <link
     name="lf_shoulder_link">
     <inertial>
@@ -64,11 +74,7 @@
         <mesh
           filename="package://PP/meshes/lf_shoulder_link.STL" />
       </geometry>
-      <material
-        name="">
-        <color
-          rgba="0.79216 0.81961 0.93333 1" />
-      </material>
+      <material name="light-pink"/>
     </visual>
     <collision>
       <origin
@@ -80,6 +86,7 @@
       </geometry>
     </collision>
   </link>
+
   <joint
     name="LF_ARMPIT"
     type="revolute">
@@ -98,6 +105,7 @@
       effort="1000"
       velocity="0.5" />
   </joint>
+
   <link
     name="lf_thigh_link">
     <inertial>
@@ -123,10 +131,7 @@
           filename="package://PP/meshes/lf_thigh_link.STL" />
       </geometry>
       <material
-        name="">
-        <color
-          rgba="0.79216 0.81961 0.93333 1" />
-      </material>
+        name="light-pink"/>
     </visual>
     <collision>
       <origin
@@ -138,6 +143,7 @@
       </geometry>
     </collision>
   </link>
+
   <joint
     name="LF_ELBOW"
     type="revolute">
@@ -156,6 +162,7 @@
       effort="1000"
       velocity="0.5" />
   </joint>
+
   <link
     name="lf_calf_link">
     <inertial>
@@ -181,10 +188,7 @@
           filename="package://PP/meshes/lf_calf_link.STL" />
       </geometry>
       <material
-        name="">
-        <color
-          rgba="0.79216 0.81961 0.93333 1" />
-      </material>
+        name="light-pink"/>
     </visual>
     <collision>
       <origin
@@ -196,6 +200,7 @@
       </geometry>
     </collision>
   </link>
+
   <joint
     name="LF_KNEE"
     type="revolute">
@@ -214,6 +219,7 @@
       effort="1000"
       velocity="0.5" />
   </joint>
+
   <link
     name="rf_shoulder_link">
     <inertial>
@@ -239,10 +245,7 @@
           filename="package://PP/meshes/rf_shoulder_link.STL" />
       </geometry>
       <material
-        name="">
-        <color
-          rgba="0.79216 0.81961 0.93333 1" />
-      </material>
+        name="light-pink"/>
     </visual>
     <collision>
       <origin
@@ -254,6 +257,7 @@
       </geometry>
     </collision>
   </link>
+
   <joint
     name="RF_ARMPIT"
     type="revolute">
@@ -272,6 +276,7 @@
       effort="1000"
       velocity="0.5" />
   </joint>
+
   <link
     name="rf_thigh_link">
     <inertial>
@@ -297,10 +302,7 @@
           filename="package://PP/meshes/rf_thigh_link.STL" />
       </geometry>
       <material
-        name="">
-        <color
-          rgba="0.79216 0.81961 0.93333 1" />
-      </material>
+        name="light-pink"/>
     </visual>
     <collision>
       <origin
@@ -312,6 +314,7 @@
       </geometry>
     </collision>
   </link>
+
   <joint
     name="RF_ELBOW"
     type="revolute">
@@ -330,6 +333,7 @@
       effort="1000"
       velocity="0.5" />
   </joint>
+
   <link
     name="rf_calf_link">
     <inertial>
@@ -355,10 +359,7 @@
           filename="package://PP/meshes/rf_calf_link.STL" />
       </geometry>
       <material
-        name="">
-        <color
-          rgba="0.79216 0.81961 0.93333 1" />
-      </material>
+        name="light-pink"/>
     </visual>
     <collision>
       <origin
@@ -413,10 +414,7 @@
           filename="package://PP/meshes/lb_shoulder_link.STL" />
       </geometry>
       <material
-        name="">
-        <color
-          rgba="0.79216 0.81961 0.93333 1" />
-      </material>
+        name="light-pink"/>
     </visual>
     <collision>
       <origin
@@ -471,10 +469,7 @@
           filename="package://PP/meshes/lb_thigh_link.STL" />
       </geometry>
       <material
-        name="">
-        <color
-          rgba="0.79216 0.81961 0.93333 1" />
-      </material>
+        name="light-pink"/>
     </visual>
     <collision>
       <origin
@@ -529,10 +524,7 @@
           filename="package://PP/meshes/lb_calf_link.STL" />
       </geometry>
       <material
-        name="">
-        <color
-          rgba="0.79216 0.81961 0.93333 1" />
-      </material>
+        name="light-pink"/>
     </visual>
     <collision>
       <origin
@@ -586,11 +578,7 @@
         <mesh
           filename="package://PP/meshes/rb_shoulder_link.STL" />
       </geometry>
-      <material
-        name="">
-        <color
-          rgba="1 1 1 1" />
-      </material>
+      <material name="light-pink"/>
     </visual>
     <collision>
       <origin
@@ -645,10 +633,7 @@
           filename="package://PP/meshes/rb_thigh_link.STL" />
       </geometry>
       <material
-        name="">
-        <color
-          rgba="0.79216 0.81961 0.93333 1" />
-      </material>
+        name="light-pink"/>
     </visual>
     <collision>
       <origin
@@ -703,10 +688,7 @@
           filename="package://PP/meshes/rb_calf_link.STL" />
       </geometry>
       <material
-        name="">
-        <color
-          rgba="0.79216 0.81961 0.93333 1" />
-      </material>
+        name="light-pink"/>
     </visual>
     <collision>
       <origin

@@ -10,7 +10,7 @@ elbow = LX16A(12)
 knee = LX16A(11)
 
 # knee.angleLimitWrite(20,240)
-# shoulder.angleLimitWrite(90,240)
+# elbow.angleLimitWrite(90,240)
 
 i = 0
 

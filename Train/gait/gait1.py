@@ -27,24 +27,24 @@ for i in range (10000):
     #p.setJointMotorControl2(robotId, 6, controlMode=mode, targetPosition=tarPosA)
     #p.setJointMotorControl2(robotId, 3, controlMode=mode, targetPosition=-tarPosA)
 
-    shoulders_one = 0.5*m.sin(i*0.1)
+    shoulders_one = 0.2*m.sin(i*0.1)
     p.setJointMotorControl2(robotId, 1, controlMode=mode, targetPosition=shoulders_one)
     p.setJointMotorControl2(robotId, 10, controlMode=mode, targetPosition=shoulders_one)
 
-    shoulders_two = -0.5*m.sin(i*0.1)
+    shoulders_two = -0.2*m.sin(i*0.1)
     p.setJointMotorControl2(robotId, 7, controlMode=mode, targetPosition=shoulders_two)
     p.setJointMotorControl2(robotId, 4, controlMode=mode, targetPosition=shoulders_two)
 
-    knees_one = 0.3*m.sin(i*0.1)
+    knees_one = 0.2*m.sin(i*0.1)
     p.setJointMotorControl2(robotId, 2, controlMode=mode, targetPosition=knees_one)
     p.setJointMotorControl2(robotId, 11, controlMode=mode, targetPosition=knees_one)
 
-    knees_two = -0.3*m.sin(i*0.1)
+    knees_two = -0.2*m.sin(i*0.1)
     p.setJointMotorControl2(robotId, 8, controlMode=mode, targetPosition=knees_two)
     p.setJointMotorControl2(robotId, 5, controlMode=mode, targetPosition=knees_two)
 
     # time.sleep(1./2400.)
-    time.sleep(1./1000.)
+    time.sleep(1./24.)
 
     # robotPos, robotOrn = p.getBasePositionAndOrientation(robot)
     # if i%100==0:

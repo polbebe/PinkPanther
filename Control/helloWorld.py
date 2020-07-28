@@ -5,6 +5,10 @@ from math import sin, cos
 # This will be different for different computers
 # On Windows, try the ports COM1, COM2, COM3, etc...
 # On Raspbian, try each port in /dev/
+
+# To test:
+# import serial.tools.list_ports
+# print(serial.tools.list_ports.comports())
 LX16A.initialize("COM3")
 
 # There should two servos connected, with IDs 1 and 2

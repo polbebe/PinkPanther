@@ -102,8 +102,8 @@
     <limit
       lower="-0.6"
       upper="0.6"
-      effort="1000"
-      velocity="0.5" />
+      effort="10"
+      velocity="0.188" />
   </joint>
 
   <link
@@ -159,8 +159,8 @@
     <limit
       lower="-1"
       upper="1.2"
-      effort="1000"
-      velocity="0.5" />
+      effort="10"
+      velocity="0.188" />
   </joint>
 
   <link
@@ -216,8 +216,8 @@
     <limit
       lower="-0.6"
       upper="1.5"
-      effort="1000"
-      velocity="0.5" />
+      effort="10"
+      velocity="0.188" />
   </joint>
 
   <link
@@ -273,8 +273,8 @@
     <limit
       lower="-0.6"
       upper="0.6"
-      effort="1000"
-      velocity="0.5" />
+      effort="10"
+      velocity="0.188" />
   </joint>
 
   <link
@@ -330,8 +330,8 @@
     <limit
       lower="-1"
       upper="1.2"
-      effort="1000"
-      velocity="0.5" />
+      effort="10"
+      velocity="0.188" />
   </joint>
 
   <link
@@ -386,8 +386,8 @@
     <limit
       lower="-0.6"
       upper="1.5"
-      effort="1000"
-      velocity="0.5" />
+      effort="10"
+      velocity="0.188" />
   </joint>
   <link
     name="lb_shoulder_link">
@@ -441,8 +441,8 @@
     <limit
       lower="-0.6"
       upper="0.6"
-      effort="1000"
-      velocity="0.5" />
+      effort="10"
+      velocity="0.188" />
   </joint>
   <link
     name="lb_thigh_link">
@@ -496,8 +496,8 @@
     <limit
       lower="-1"
       upper="1.2"
-      effort="1000"
-      velocity="0.5" />
+      effort="10"
+      velocity="0.188" />
   </joint>
   <link
     name="lb_calf_link">
@@ -551,8 +551,8 @@
     <limit
       lower="-0.6"
       upper="1.5"
-      effort="1000"
-      velocity="0.5" />
+      effort="10"
+      velocity="0.188" />
   </joint>
   <link
     name="rb_shoulder_link">
@@ -605,8 +605,8 @@
     <limit
       lower="-0.6"
       upper="0.6"
-      effort="1000"
-      velocity="0.5" />
+      effort="10"
+      velocity="0.188" />
   </joint>
   <link
     name="rb_thigh_link">
@@ -660,8 +660,8 @@
     <limit
       lower="-1"
       upper="1.2"
-      effort="1000"
-      velocity="0.5" />
+      effort="10"
+      velocity="0.188" />
   </joint>
   <link
     name="rb_calf_link">
@@ -715,7 +715,7 @@
     <limit
       lower="-0.6"
       upper="1.5"
-      effort="1000"
-      velocity="0.5" />
+      effort="10"
+      velocity="0.188" />
   </joint>
 </robot>

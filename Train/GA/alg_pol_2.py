@@ -214,7 +214,7 @@ def genetic(e, n, k):
         for j in range(90):
             x = random.randint(0, k-1)
             y = random.randint(0, k-1)
-            crosses.append(crossover(fit_pop[x], fit_pop[y], p=0.6))
+            crosses.append(crossover(fit_pop[x], fit_pop[y], p=0.4))
 
         # Populate with crossed k-best from previous population
         new_pop += crosses
@@ -248,7 +248,7 @@ if __name__ == "__main__":
     plt.errorbar(st_epochs, st_scores, yerr=standard_errors, fmt='+', color = "red", capsize=2)
     plt.plot(epochs, scores, linewidth = 2.5, color = "green")
     # plt.plot(epochs, speeds, linewidth = 0.5, color = "blue")
-    plt.title("Genetic Algorithm {} - Population 100, k-best 20, xo 0.6, mut 0.001".format(version))
+    plt.title("Genetic Algorithm {} - Population 100, k-best 20, xo 0.4, mut 0.001, new 10".format(version))
     plt.ylabel("Fitness score")
     plt.xlabel("Epoch")
 

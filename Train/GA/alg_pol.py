@@ -48,6 +48,9 @@ def evaluate_fitness(v, robotId, mode, r_pos1, r_orn1):
     maxz=0
     maxy=0
 
+    # Define max force of motors!!!
+    maxForce = 4
+
     # t_start = time.time()
 
     # Simulate using values given
@@ -56,32 +59,32 @@ def evaluate_fitness(v, robotId, mode, r_pos1, r_orn1):
         p.stepSimulation()
 
         armpit_lf = v[0] + v[1]*m.sin(i*v[36] + v[2])
-        p.setJointMotorControl2(robotId, 0, controlMode=mode, targetPosition=armpit_lf)
+        p.setJointMotorControl2(robotId, 0, controlMode=mode, targetPosition=armpit_lf, force=maxForce)
         elbow_lf = v[3] + v[4]*m.sin(i*v[36] + v[5])
-        p.setJointMotorControl2(robotId, 1, controlMode=mode, targetPosition=elbow_lf)
+        p.setJointMotorControl2(robotId, 1, controlMode=mode, targetPosition=elbow_lf, force=maxForce)
         knee_lf = v[6] + v[7]*m.sin(i*v[36] + v[8])
-        p.setJointMotorControl2(robotId, 2, controlMode=mode, targetPosition=knee_lf)
+        p.setJointMotorControl2(robotId, 2, controlMode=mode, targetPosition=knee_lf, force=maxForce)
 
         armpit_rf = v[9] + v[10]*m.sin(i*v[36] + v[11])
-        p.setJointMotorControl2(robotId, 3, controlMode=mode, targetPosition=armpit_rf)
+        p.setJointMotorControl2(robotId, 3, controlMode=mode, targetPosition=armpit_rf, force=maxForce)
         elbow_rf = v[12] + v[13]*m.sin(i*v[36] + v[14])
-        p.setJointMotorControl2(robotId, 4, controlMode=mode, targetPosition=elbow_rf)
+        p.setJointMotorControl2(robotId, 4, controlMode=mode, targetPosition=elbow_rf, force=maxForce)
         knee_rf = v[15] + v[16]*m.sin(i*v[36] + v[17])
-        p.setJointMotorControl2(robotId, 5, controlMode=mode, targetPosition=knee_rf)
+        p.setJointMotorControl2(robotId, 5, controlMode=mode, targetPosition=knee_rf, force=maxForce)
 
         armpit_lb = v[18] + v[19]*m.sin(i*v[36] + v[20])
-        p.setJointMotorControl2(robotId, 6, controlMode=mode, targetPosition=armpit_lb)
+        p.setJointMotorControl2(robotId, 6, controlMode=mode, targetPosition=armpit_lb, force=maxForce)
         elbow_lb = v[21] + v[22]*m.sin(i*v[36] + v[23])
-        p.setJointMotorControl2(robotId, 7, controlMode=mode, targetPosition=elbow_lb)
+        p.setJointMotorControl2(robotId, 7, controlMode=mode, targetPosition=elbow_lb, force=maxForce)
         knee_lb = v[24] + v[25]*m.sin(i*v[36] + v[26])
-        p.setJointMotorControl2(robotId, 8, controlMode=mode, targetPosition=knee_lb)
+        p.setJointMotorControl2(robotId, 8, controlMode=mode, targetPosition=knee_lb, force=maxForce)
 
         armpit_rb = v[27] + v[28]*m.sin(i*v[36] + v[29])
-        p.setJointMotorControl2(robotId, 9, controlMode=mode, targetPosition=armpit_rb)
+        p.setJointMotorControl2(robotId, 9, controlMode=mode, targetPosition=armpit_rb, force=maxForce)
         elbow_rb = v[30] + v[31]*m.sin(i*v[36] + v[32])
-        p.setJointMotorControl2(robotId, 10, controlMode=mode, targetPosition=elbow_rb)
+        p.setJointMotorControl2(robotId, 10, controlMode=mode, targetPosition=elbow_rb, force=maxForce)
         knee_rb = v[33] + v[34]*m.sin(i*v[36] + v[35])
-        p.setJointMotorControl2(robotId, 11, controlMode=mode, targetPosition=knee_rb)
+        p.setJointMotorControl2(robotId, 11, controlMode=mode, targetPosition=knee_rb, force=maxForce)
 
         # Update with highest z-value of simulation
         robotPos, robotOrn = p.getBasePositionAndOrientation(robotId)
@@ -206,10 +209,10 @@ def genetic(e, n, k):
 
         # Crossover
         crosses = []
-        for j in range(90):
+        for j in range(40):
             x = random.randint(0, k-1)
             y = random.randint(0, k-1)
-            crosses.append(crossover(fit_pop[x], fit_pop[y], p=0.6))
+            crosses.append(crossover(fit_pop[x], fit_pop[y], p=0.4))
 
         # Populate with crossed k-best from previous population
         new_pop += crosses
@@ -232,18 +235,18 @@ def genetic(e, n, k):
 if __name__ == "__main__":
 
     # Call genetic algorithm and get best values & score as well as arrays to plot progress
-    values, score, scores, epochs, standard_errors, st_epochs, st_scores = genetic(1000, 100, 10)
+    values, score, scores, epochs, standard_errors, st_epochs, st_scores = genetic(700, 50, 10)
 
     # print("MAX SCORE WAS {}".format(score))
 
     # Keep track of version easily
-    version = "0.0.3"
+    version = "0.1.0"
 
     # Plot - Graph, Errorbars & Labels
     plt.errorbar(st_epochs, st_scores, yerr=standard_errors, fmt='+', color = "red", capsize=2)
     plt.plot(epochs, scores, linewidth = 2.5, color = "green")
     # plt.plot(epochs, speeds, linewidth = 0.5, color = "blue")
-    plt.title("Genetic Algorithm {} - Population 100, k-best 10, xo 0.6, mut 0.001".format(version))
+    plt.title("Genetic Algorithm {} - Population 50, k-best 10, xo 0.4, mut 0.001, new 10".format(version))
     plt.ylabel("Fitness score")
     plt.xlabel("Epoch")
 

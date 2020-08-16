@@ -28,22 +28,22 @@ s41 = LX16A(41)
 
 # LEFT
 # FRONT
-s10.moveTimeWaitWrite(120, 1000)
-s12.moveTimeWaitWrite(140, 1000)
-s11.moveTimeWaitWrite(150, 1000)
+s10.moveTimeWaitWrite(120, 100)
+s12.moveTimeWaitWrite(140, 100)
+s11.moveTimeWaitWrite(180, 200)
 # BACK
-s30.moveTimeWaitWrite(120, 1000)
-s32.moveTimeWaitWrite(140, 1000)
-s31.moveTimeWaitWrite(150, 1000)
+s30.moveTimeWaitWrite(120, 100)
+s32.moveTimeWaitWrite(140, 100)
+s31.moveTimeWaitWrite(180, 200)
 
 # RIGHT
 # FRONT
-s20.moveTimeWaitWrite(120, 1000)
-s22.moveTimeWaitWrite(100, 1000)
-s21.moveTimeWaitWrite(90, 1000)
+s20.moveTimeWaitWrite(120, 100)
+s22.moveTimeWaitWrite(100, 100)
+s21.moveTimeWaitWrite(60, 200)
 # BACK
-s40.moveTimeWaitWrite(120, 1000)
-s42.moveTimeWaitWrite(100, 1000)
-s41.moveTimeWaitWrite(90, 1000)
+s40.moveTimeWaitWrite(120, 100)
+s42.moveTimeWaitWrite(100, 100)
+s41.moveTimeWaitWrite(60, 200)
 
 LX16A.moveStartAll()

@@ -22,9 +22,13 @@ for i in range (10):
 robotPos1, robotOrn1 = p.getBasePositionAndOrientation(robotId)
 
 # Define version
-version = "0.1.0"
+version= "0.1.1"
 
+# Read v values from those saved from simulation
+df = pd.read_csv('Hardcoded_{}.csv'.format(version))
+v = df['Best Values'].to_numpy()
 
+"""
 v =[0.1, 0, 0, 
     -0.2, 0.1, 0, 
     0.3, 0.1, 1, 
@@ -42,6 +46,7 @@ v =[0.1, 0, 0,
     0.3, 0.2, 0, 
 
     0.1]
+    """
 
 for i in range (2000):
     p.stepSimulation()

@@ -2,9 +2,6 @@ from lx16a import *
 import math as m
 import time
 
-# Test with pyserial for ports
-# python -m serial.tools.miniterm
-
 # Initialize the port that the controller board is connected to
 # LX16A.initialize("COM3")
 LX16A.initialize("/dev/ttyUSB0")
@@ -30,21 +27,24 @@ s40 = LX16A(40)
 s42 = LX16A(42)
 s41 = LX16A(41)
 
+# LEFT
+# FRONT
 s10.moveTimeWaitWrite(120, 1000)
 s12.moveTimeWaitWrite(120, 1000)
-s11.moveTimeWaitWrite(120, 1000)
-
-s20.moveTimeWaitWrite(120, 1000)
-s22.moveTimeWaitWrite(120, 1000)
-s21.moveTimeWaitWrite(120, 1000)
-
+s11.moveTimeWaitWrite(150, 1000)
+# BACK
 s30.moveTimeWaitWrite(120, 1000)
 s32.moveTimeWaitWrite(120, 1000)
-s31.moveTimeWaitWrite(120, 1000)
+s31.moveTimeWaitWrite(150, 1000)
 
+# RIGHT
+# FRONT
+s20.moveTimeWaitWrite(120, 1000)
+s22.moveTimeWaitWrite(120, 1000)
+s21.moveTimeWaitWrite(90, 1000)
+# BACK
 s40.moveTimeWaitWrite(120, 1000)
 s42.moveTimeWaitWrite(120, 1000)
-s41.moveTimeWaitWrite(120, 1000)
+s41.moveTimeWaitWrite(90, 1000)
 
 LX16A.moveStartAll()
-# LX16A.moveStopAll()

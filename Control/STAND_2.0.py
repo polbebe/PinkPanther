@@ -3,7 +3,8 @@ import math as m
 import time
 
 # Initialize the port that the controller board is connected to
-LX16A.initialize("COM3")
+# LX16A.initialize("COM3")
+LX16A.initialize("/dev/ttyUSB0")
 
 # Initialize ALL servos
 # Front Left
@@ -39,9 +40,9 @@ s30.moveTimeWrite(120, 100)
 
 targ32 = -0.2
 if targ32>=0:
-	pos32 = 140 - (targ32/1.2)*65
+    pos32 = 140 - (targ32/1.2)*65
 else:
-	pos32 = (abs(targ32)/1)*25 + 140
+    pos32 = (abs(targ32)/1)*25 + 140
 s32.moveTimeWrite(pos32, 100)
 
 
@@ -51,9 +52,9 @@ s32.moveTimeWrite(pos32, 100)
 # BACK
 targ31 = 0.3
 if targ31>=0:
-	pos31 = (targ31/1.5)*60 + 180
+    pos31 = (targ31/1.5)*60 + 180
 else:
-	pos31 = 180 - (abs(targ31)/0.6)*40
+    pos31 = 180 - (abs(targ31)/0.6)*40
 s31.moveTimeWrite(pos31)
 
 
@@ -64,9 +65,9 @@ s40.moveTimeWrite(120, 100)
 
 targ42 = -0.2
 if targ42>=0:
-	pos42 = (targ42/1.2)*65 + 100
+    pos42 = (targ42/1.2)*65 + 100
 else:
-	pos42 = 100 - (abs(targ42)/1)*25
+    pos42 = 100 - (abs(targ42)/1)*25
 s42.moveTimeWrite(pos42, 100)
 
 
@@ -74,9 +75,9 @@ s42.moveTimeWrite(pos42, 100)
 # BACK
 targ41 = 0.3
 if targ41>=0:
-	pos41 = 60 - (targ41/1.5)*60
+    pos41 = 60 - (targ41/1.5)*60
 else:
-	pos41 = (abs(targ41)/0.6)*60 + 60
+    pos41 = (abs(targ41)/0.6)*60 + 60
 s41.moveTimeWrite(pos41)
 
 
@@ -89,18 +90,18 @@ s10.moveTimeWrite(120, 100)
 
 targ12 = -0.2
 if targ12>=0:
-	pos12 = 140 - (targ12/1.2)*65
+    pos12 = 140 - (targ12/1.2)*65
 else:
-	pos12 = (abs(targ12)/1)*25 + 140
+    pos12 = (abs(targ12)/1)*25 + 140
 s12.moveTimeWrite(pos12, 100)
 
 # LEFT
 # FRONT
 targ11 = 0.3
 if targ11>=0:
-	pos11 = (targ11/1.5)*60 + 180
+    pos11 = (targ11/1.5)*60 + 180
 else:
-	pos11 = 180 - (abs(targ11)/0.6)*40
+    pos11 = 180 - (abs(targ11)/0.6)*40
 s11.moveTimeWrite(pos11, 100)
 
 
@@ -112,9 +113,9 @@ s20.moveTimeWrite(120, 100)
 
 targ22 = -0.2
 if targ22>=0:
-	pos22 = (targ22/1.2)*65 + 100
+    pos22 = (targ22/1.2)*65 + 100
 else:
-	pos22 = 100 - (abs(targ22)/1)*25
+    pos22 = 100 - (abs(targ22)/1)*25
 s22.moveTimeWrite(pos22, 100)
 
 
@@ -122,18 +123,18 @@ s22.moveTimeWrite(pos22, 100)
 # FRONT
 targ21 = 0.3
 if targ21>=0:
-	pos21 = 60 - (targ21/1.5)*60
+    pos21 = 60 - (targ21/1.5)*60
 else:
-	pos21 = (abs(targ21)/0.6)*60 + 60
+    pos21 = (abs(targ21)/0.6)*60 + 60
 s21.moveTimeWrite(pos21, 100)
 
 # LEFT
 # BACK
 targ31 = 0.3
 if targ31>=0:
-	pos31 = (targ31/1.5)*60 + 180
+    pos31 = (targ31/1.5)*60 + 180
 else:
-	pos31 = 180 - (abs(targ31)/0.6)*40
+    pos31 = 180 - (abs(targ31)/0.6)*40
 s31.moveTimeWrite(pos31)
 
 
@@ -144,9 +145,9 @@ s40.moveTimeWrite(120, 100)
 
 targ42 = -0.2
 if targ42>=0:
-	pos42 = (targ42/1.2)*65 + 100
+    pos42 = (targ42/1.2)*65 + 100
 else:
-	pos42 = 100 - (abs(targ42)/1)*25
+    pos42 = 100 - (abs(targ42)/1)*25
 s42.moveTimeWrite(pos42, 100)
 
 
@@ -154,7 +155,7 @@ s42.moveTimeWrite(pos42, 100)
 # BACK
 targ41 = 0.3
 if targ41>=0:
-	pos41 = 60 - (targ41/1.5)*60
+    pos41 = 60 - (targ41/1.5)*60
 else:
-	pos41 = (abs(targ41)/0.6)*60 + 60
+    pos41 = (abs(targ41)/0.6)*60 + 60
 s41.moveTimeWrite(pos41)

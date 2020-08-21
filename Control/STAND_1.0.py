@@ -3,7 +3,8 @@ import math as m
 import time
 
 # Initialize the port that the controller board is connected to
-LX16A.initialize("COM3")
+# LX16A.initialize("COM3")
+LX16A.initialize("/dev/ttyUSB0")
 
 # Initialize ALL servos
 # Front Left
@@ -32,9 +33,9 @@ s10.moveTimeWaitWrite(120, 1000)
 s12.moveTimeWaitWrite(140, 1000)
 s11.moveTimeWaitWrite(150, 1000)
 # BACK
-s30.moveTimeWaitWrite(120, 1000)
-s32.moveTimeWaitWrite(140, 1000)
-s31.moveTimeWaitWrite(150, 1000)
+s30.moveTimeWaitWrite(120, 2000)
+s32.moveTimeWaitWrite(140, 2000)
+s31.moveTimeWaitWrite(150, 2000)
 
 # RIGHT
 # FRONT
@@ -42,8 +43,8 @@ s20.moveTimeWaitWrite(120, 1000)
 s22.moveTimeWaitWrite(100, 1000)
 s21.moveTimeWaitWrite(90, 1000)
 # BACK
-s40.moveTimeWaitWrite(120, 1000)
-s42.moveTimeWaitWrite(100, 1000)
-s41.moveTimeWaitWrite(90, 1000)
+s40.moveTimeWaitWrite(120, 2000)
+s42.moveTimeWaitWrite(100, 2000)
+s41.moveTimeWaitWrite(90, 2000)
 
 LX16A.moveStartAll()

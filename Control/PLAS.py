@@ -6,8 +6,8 @@ import time
 # python -m serial.tools.miniterm
 
 # Initialize the port that the controller board is connected to
-LX16A.initialize("COM3")
-# LX16A.initialize("/dev/ttyUSB0")
+# LX16A.initialize("COM3")
+LX16A.initialize("/dev/ttyUSB0")
 
 # Initialize ALL servos
 # Front Left

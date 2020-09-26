@@ -30,7 +30,7 @@ s40 = LX16A(40)
 s42 = LX16A(42)
 s41 = LX16A(41)
 
-s10.moveTimeWaitWrite(120, 1000)
+s10.moveTimeWaitWrite(125, 1000)
 
 
 LX16A.moveStartAll()

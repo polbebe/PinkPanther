@@ -8,7 +8,7 @@ import numpy as np
 # Initialize the port that the controller board is connected to
 LX16A.initialize("/dev/ttyUSB0")
 
-
+'''
 # LEFT
 # FRONT
 s10 = LX16A(10)
@@ -28,7 +28,7 @@ s21 = LX16A(21)
 s40 = LX16A(40)
 s42 = LX16A(42)
 s41 = LX16A(41)
-
+'''
 
 version= "0.2.1"
 
@@ -99,37 +99,46 @@ i = 0
 
 while i<400:
     
-    s10.moveTimeWrite(130)
+    #s10.moveTimeWrite(130)
     
     # LEFT FRONT
     # Move servo 12 (elbow)
-    s12.moveTimeWrite(servo12(v[3] + v[4]*m.sin(i*v[36] + v[5])))
+    #s12.moveTimeWrite(servo12(v[3] + v[4]*m.sin(i*v[36] + v[5])))
+    print(v[3] + v[4]*m.sin(i*v[36] + v[5]))
     # Move servo 11 (knee)
-    s11.moveTimeWrite(servo11(v[6] + v[7]*m.sin(i*v[36] + v[8])))
+    #s11.moveTimeWrite(servo11(v[6] + v[7]*m.sin(i*v[36] + v[8])))
+    print(v[6] + v[7]*m.sin(i*v[36] + v[8]))
 
     # LEFT BACK
     # Move servo 32 (elbow)
-    s32.moveTimeWrite(servo32(v[21] + v[22]*m.sin(i*v[36] + v[23])))
+    #s32.moveTimeWrite(servo32(v[21] + v[22]*m.sin(i*v[36] + v[23])))
+    print(v[21] + v[22]*m.sin(i*v[36] + v[23]))
     # Move servo 31 (knee)
-    s31.moveTimeWrite(servo31(v[24] + v[25]*m.sin(i*v[36] + v[26])))
+    #s31.moveTimeWrite(servo31(v[24] + v[25]*m.sin(i*v[36] + v[26])))
+    print(v[24] + v[25]*m.sin(i*v[36] + v[26]))
 
     # RIGHT FRONT
     # Move servo 22 (elbow)
-    s22.moveTimeWrite(servo22(v[12] + v[13]*m.sin(i*v[36] + v[14])))
+    #s22.moveTimeWrite(servo22(v[12] + v[13]*m.sin(i*v[36] + v[14])))
+    print(v[12] + v[13]*m.sin(i*v[36] + v[14]))
     # Move servo 21 (knee)
-    s21.moveTimeWrite(servo21(v[15] + v[16]*m.sin(i*v[36] + v[17])))
+    #s21.moveTimeWrite(servo21(v[15] + v[16]*m.sin(i*v[36] + v[17])))
+    print(v[15] + v[16]*m.sin(i*v[36] + v[17]))
 
     # RIGHT BACK
     # Move servo 42 (elbow)
-    s42.moveTimeWrite(servo42(v[30] + v[31]*m.sin(i*v[36] + v[32])))
+    #s42.moveTimeWrite(servo42(v[30] + v[31]*m.sin(i*v[36] + v[32])))
+    print(v[30] + v[31]*m.sin(i*v[36] + v[32]))
     # Move servo 41 (knee)
-    s41.moveTimeWrite(servo41(v[33] + v[34]*m.sin(i*v[36] + v[35])))
+    #s41.moveTimeWrite(servo41(v[33] + v[34]*m.sin(i*v[36] + v[35])))
+    print(v[33] + v[34]*m.sin(i*v[36] + v[35]))
     
     i += 1
 
 
 time.sleep(0.1)
 
+'''
 s10.moveTimeWaitWrite(120, 1400)
 s12.moveTimeWaitWrite(120, 1400)
 s11.moveTimeWaitWrite(120, 1400)
@@ -142,5 +151,6 @@ s21.moveTimeWaitWrite(120, 1400)
 
 s42.moveTimeWaitWrite(120, 1400)
 s41.moveTimeWaitWrite(120, 1400)
+'''
 
 LX16A.moveStartAll()

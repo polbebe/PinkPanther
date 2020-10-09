@@ -73,7 +73,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
 		# Move servo 41 (knee)
 		s41.moveTimeWrite(pos[11]) #print(pos[11])
 
-		time.sleep(0.01)
+		time.sleep(0.001)
 
 
 time.sleep(0.1)

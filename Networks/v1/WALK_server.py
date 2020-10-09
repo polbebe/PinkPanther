@@ -3,11 +3,11 @@ import socket
 import numpy as np
 import pandas as pd
 import math as m
+import time as t
 
 HOST = '192.168.1.29'   # Standard loopback interface address (localhost)
                         # Mac - 192.168.1.29
 PORT = 65432            # Port to listen on (non-privileged ports are > 1023)
-
 
 # Functions for servo position conversion
 def servo12(targ12):
@@ -66,7 +66,6 @@ def servo41(targ41):
         pos41 = (abs(targ41)/0.6)*60 + 60
     return pos41
 
-
 version= "0.2.1"
 
 # Read v values from those saved from simulation
@@ -75,7 +74,6 @@ v = np.array(df['Best Values'], dtype=np.float32)
 # Create positons array that will be calculated on each step
 # and sent to client
 pos = np.zeros(12, dtype=np.float32)
-
 
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     # Create network connection
@@ -88,7 +86,9 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     with conn:
         print('Connected by: ', addr)
         i = 0
-        while i<400:
+        max_time = 400
+        t_init = t.time()
+        while i<max_time:
             # Receive connection from client
             data = conn.recv(1024)
             # Calculate servo positions
@@ -107,7 +107,12 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             # Prepare and send position data to client
             pos_data = pos.tobytes()
             conn.sendall(pos_data)
-
+            # Calculate the actions/second
+            if (i%max_time == 0):
+                t_final = t.time()
+                t_diff=t_final-t_init
+                actions_per_sec = max_time/t_diff
+                print("{} Actions/Second".format(actions_per_sec))
             i += 1
 
 

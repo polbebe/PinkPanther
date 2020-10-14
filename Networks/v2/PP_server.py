@@ -27,7 +27,7 @@ class NetEnv(gym.Env):
 
         print('Waiting for connection...')
 
-        self.conn, addr = s.accept()
+        self.conn, addr = self.s.accept()
 
         print('Connected by: ', addr)
 
@@ -51,10 +51,61 @@ class NetEnv(gym.Env):
 
     def step(self, action):
 
-        pos = np.zeros(12, dtype=np.float32)
+        # Functions for servo position conversion
+        def servo12(targ12):
+            if targ12>=0:
+                pos12 = 140 - (targ12/1.2)*65
+            else:
+                pos12 = (abs(targ12)/1)*25 + 140
+            return pos12
+        def servo11(targ11):
+            if targ11>=0:
+                pos11 = (targ11/1.5)*60 + 180
+            else:
+                pos11 = 180 - (abs(targ11)/0.6)*40
+            return pos11
+        def servo32(targ32):
+            if targ32>=0:
+                pos32 = 140 - (targ32/1.2)*65
+            else:
+                pos32 = (abs(targ32)/1)*25 + 140
+            return pos32
+        def servo31(targ31):
+            if targ31>=0:
+                pos31 = (targ31/1.5)*60 + 180
+            else:
+                pos31 = 180 - (abs(targ31)/0.6)*40
+            return pos31
+        def servo22(targ22):
+            if targ22>=0:
+                pos22 = (targ22/1.2)*65 + 100
+            else:
+                pos22 = 100 - (abs(targ22)/1)*25
+            return pos22
+        def servo21(targ21):
+            if targ21>=0:
+                pos21 = 60 - (targ21/1.5)*60
+            else:
+                pos21 = (abs(targ21)/0.6)*60 + 60
+            return pos21
+        def servo42(targ42):
+            if targ42>=0:
+                pos42 = (targ42/1.2)*65 + 100
+            else:
+                pos42 = 100 - (abs(targ42)/1)*25
+            return pos42
+        def servo41(targ41):
+            if targ41>=0:
+                pos41 = 60 - (targ41/1.5)*60
+            else:
+                pos41 = (abs(targ41)/0.6)*60 + 60
+            return pos41
 
         # Receive motor positions
-        self.motor_inputs = np.frombuffer(self.conn.recv(1024), dtype=np.float32)
+        motor_in = self.conn.recv(1024)
+        self.motor_inputs = np.frombuffer(motor_in, dtype=np.float32)
+
+        pos = np.zeros(12, dtype=np.float32)
 
         # Calculate servo positions
         #pos[0] = 0
@@ -70,61 +121,11 @@ class NetEnv(gym.Env):
         pos[10] = servo42(v[30] + v[31]*m.sin(self.i*v[36] + v[32]))
         pos[11] = servo41(v[33] + v[34]*m.sin(self.i*v[36] + v[35]))
         # Prepare and send position data to client
-        conn.sendall(pos.tobytes())
+        self.conn.sendall(pos.tobytes())
 
         self.i += 1
 
         return self.motor_inputs
-
-        # Functions for servo position conversion
-    def servo12(targ12):
-        if targ12>=0:
-            pos12 = 140 - (targ12/1.2)*65
-        else:
-            pos12 = (abs(targ12)/1)*25 + 140
-        return pos12
-    def servo11(targ11):
-        if targ11>=0:
-            pos11 = (targ11/1.5)*60 + 180
-        else:
-            pos11 = 180 - (abs(targ11)/0.6)*40
-        return pos11
-    def servo32(targ32):
-        if targ32>=0:
-            pos32 = 140 - (targ32/1.2)*65
-        else:
-            pos32 = (abs(targ32)/1)*25 + 140
-        return pos32
-    def servo31(targ31):
-        if targ31>=0:
-            pos31 = (targ31/1.5)*60 + 180
-        else:
-            pos31 = 180 - (abs(targ31)/0.6)*40
-        return pos31
-    def servo22(targ22):
-        if targ22>=0:
-            pos22 = (targ22/1.2)*65 + 100
-        else:
-            pos22 = 100 - (abs(targ22)/1)*25
-        return pos22
-    def servo21(targ21):
-        if targ21>=0:
-            pos21 = 60 - (targ21/1.5)*60
-        else:
-            pos21 = (abs(targ21)/0.6)*60 + 60
-        return pos21
-    def servo42(targ42):
-        if targ42>=0:
-            pos42 = (targ42/1.2)*65 + 100
-        else:
-            pos42 = 100 - (abs(targ42)/1)*25
-        return pos42
-    def servo41(targ41):
-        if targ41>=0:
-            pos41 = 60 - (targ41/1.5)*60
-        else:
-            pos41 = (abs(targ41)/0.6)*60 + 60
-        return pos41
 
 
 if __name__ == '__main__':
@@ -133,7 +134,7 @@ if __name__ == '__main__':
     start = time.time()
     
     motor_inputs = env.reset()
-    print('motor_inputs')
+    print(motor_inputs)
     
     # Read v values from those saved from simulation
     version= "0.2.1"
@@ -143,7 +144,8 @@ if __name__ == '__main__':
     # Walk 
     for i in range(400):
         motor_inputs = env.step(v)
-        print('motor_inputs')
+        print(motor_inputs)
+        print()
         sys.stdout.write(str(i)+' in: '+str(round(time.time()-start,3))+' Averaging: '+str(round(i/(time.time()-start),2))+' actions/s\r')
     
     print('Done')

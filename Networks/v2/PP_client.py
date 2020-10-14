@@ -59,7 +59,8 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
 		s.sendall(motor_inputs.tobytes())
 		
 		# Get position data from server
-		pos = np.frombuffer(s.recv(1024), dtype=np.float32)
+		p = s.recv(1024)
+		pos = np.frombuffer(p, dtype=np.float32)
 		# If there's no more data break the loop
 		if not pos:
 			break

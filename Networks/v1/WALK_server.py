@@ -3,7 +3,8 @@ import socket
 import numpy as np
 import pandas as pd
 import math as m
-import time as t
+import time
+import sys
 
 HOST = '192.168.1.29'   # Standard loopback interface address (localhost)
                         # Mac - 192.168.1.29
@@ -87,7 +88,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         print('Connected by: ', addr)
         i = 0
         max_time = 400
-        start = t.time()
+        start = time.time()
         while i<max_time:
             # Receive connection from client
             data = conn.recv(1024)
@@ -110,5 +111,6 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             # Calculate the actions/second
             sys.stdout.write(str(i)+' in: '+str(round(time.time()-start,3))+' Averaging: '+str(round(i/(time.time()-start),2))+' actions/s\r')
             i += 1
+        print(str(i)+' in: '+str(round(time.time()-start,3))+' Averaging: '+str(round(i/(time.time()-start),2))+' actions/s')
 
 

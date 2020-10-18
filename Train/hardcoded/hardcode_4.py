@@ -22,13 +22,13 @@ for i in range (10):
 robotPos1, robotOrn1 = p.getBasePositionAndOrientation(robotId)
 
 # Define version
-version= "0.1.1"
+version= "0.1.0"
 
 # Read v values from those saved from simulation
 df = pd.read_csv('Hardcoded_{}.csv'.format(version))
 v = df['Best Values'].to_numpy()
 
-"""
+
 v =[0.1, 0, 0, 
     -0.2, 0.1, 0, 
     0.3, 0.1, 1, 
@@ -46,7 +46,7 @@ v =[0.1, 0, 0,
     0.3, 0.2, 0, 
 
     0.1]
-    """
+    
 
 for i in range (2000):
     p.stepSimulation()
@@ -135,8 +135,9 @@ print("Speed: ", s, "[m/s]")
 print("Distance: ", dis, "[m]")
 
 p.disconnect()
-
+"""
 # Save values for later simulating
 # Save best values as csv for simulation
 df = pd.DataFrame({"Best Values" : v})
 df.to_csv("Hardcoded_{}.csv".format(version), index=[0])
+"""

@@ -22,7 +22,7 @@ for i in range (10):
 robotPos1, robotOrn1 = p.getBasePositionAndOrientation(robotId)
 
 # Define version
-version = "0.0.1"
+version = "bunny"
 
 """
 v =[0, 0.15, 0, 
@@ -62,10 +62,10 @@ v =[0, 0, 0,
 
     0.1]
 
-for i in range (10000):
+for i in range (1000):
     p.stepSimulation()
 
-    if(i<1000):
+    if(i<100):
         armpit_lf=0
         elbow_lf=-0.1
         knee_lf=0.1
@@ -147,5 +147,5 @@ p.disconnect()
 
 # Save values for later simulating
 # Save best values as csv for simulation
-#df = pd.DataFrame({"Best Values" : values})
-#df.to_csv("GA_Test_{}.csv".format(version), index=[0])
+df = pd.DataFrame({"Best Values" : v})
+df.to_csv("Hardcoded_{}.csv".format(version), index=[0])

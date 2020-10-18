@@ -1,0 +1,743 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.5.1-0-g916b5db  Build Version: 1.5.7152.31018
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="CML_PP_2">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.00454071999132188 0.0652075601364906 -6.47897566883711E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.140325255511383" />
+      <inertia
+        ixx="0.000366286276832393"
+        ixy="-7.63809950386849E-05"
+        ixz="-7.33485979630507E-08"
+        iyy="0.00109187006228455"
+        iyz="-5.95557864844877E-08"
+        izz="0.000945919015213186" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://CML_PP_2/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 0.470588235294118 0.823529411764706 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://CML_PP_2/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="lf_shoulder_link">
+    <inertial>
+      <origin
+        xyz="-0.03075 0.010763 0.045764"
+        rpy="0 0 0" />
+      <mass
+        value="0.0824" />
+      <inertia
+        ixx="1.9553E-05"
+        ixy="2.0818E-07"
+        ixz="3.2177E-07"
+        iyy="1.9067E-05"
+        iyz="-9.6011E-07"
+        izz="2.1806E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://CML_PP_2/meshes/lf_shoulder_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://CML_PP_2/meshes/lf_shoulder_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LF_ARMPIT"
+    type="revolute">
+    <origin
+      xyz="0.086416 0.04808 0.020486"
+      rpy="1.5666 -5.102E-05 3.1416" />
+    <parent
+      link="base_link" />
+    <child
+      link="lf_shoulder_link" />
+    <axis
+      xyz="1 -5.102E-05 0" />
+    <limit
+      lower="-1"
+      upper="1.2"
+      effort="10"
+      velocity="0.188" />
+  </joint>
+  <link
+    name="lf_thigh_link">
+    <inertial>
+      <origin
+        xyz="0.0599963195132601 -0.0341838745475905 0.0323773610686816"
+        rpy="0 0 0" />
+      <mass
+        value="0.204666877949787" />
+      <inertia
+        ixx="5.26405535315348E-05"
+        ixy="-6.8704284753317E-06"
+        ixz="-9.11945491837271E-09"
+        iyy="0.000207700436426374"
+        iyz="4.2930970887599E-10"
+        izz="0.000196694952417644" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://CML_PP_2/meshes/lf_thigh_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://CML_PP_2/meshes/lf_thigh_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LF_ELBOW"
+    type="revolute">
+    <origin
+      xyz="-0.029275 -0.014657 0.021201"
+      rpy="0 0 -0.43549" />
+    <parent
+      link="lf_shoulder_link" />
+    <child
+      link="lf_thigh_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="lf_calf_link">
+    <inertial>
+      <origin
+        xyz="-0.0562746607594241 -0.0312019222312566 0.0300902624876031"
+        rpy="0 0 0" />
+      <mass
+        value="0.124150378027878" />
+      <inertia
+        ixx="2.71331254270731E-05"
+        ixy="6.52330853460604E-06"
+        ixz="-6.70500134135691E-09"
+        iyy="0.000259455346859976"
+        iyz="3.49049560417254E-09"
+        izz="0.000248912943667171" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://CML_PP_2/meshes/lf_calf_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://CML_PP_2/meshes/lf_calf_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LF_KNEE"
+    type="revolute">
+    <origin
+      xyz="0.14707 -0.034829 0.0022602"
+      rpy="0 0 0.93771" />
+    <parent
+      link="lf_thigh_link" />
+    <child
+      link="lf_calf_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="rf_shoulder_link">
+    <inertial>
+      <origin
+        xyz="-0.0308384266119752 0.0107591399959096 -0.0455633350384645"
+        rpy="0 0 0" />
+      <mass
+        value="0.0823973983278599" />
+      <inertia
+        ixx="1.95529735579707E-05"
+        ixy="2.08060114847763E-07"
+        ixz="-3.21733563476553E-07"
+        iyy="1.90663268901384E-05"
+        iyz="9.72946409374894E-07"
+        izz="2.18055627830236E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://CML_PP_2/meshes/rf_shoulder_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://CML_PP_2/meshes/rf_shoulder_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RF_ARMPIT"
+    type="revolute">
+    <origin
+      xyz="0.086926 -0.04808 0.020486"
+      rpy="1.5736 5.102E-05 3.1416" />
+    <parent
+      link="base_link" />
+    <child
+      link="rf_shoulder_link" />
+    <axis
+      xyz="1 5.102E-05 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="rf_thigh_link">
+    <inertial>
+      <origin
+        xyz="0.059996319544716 -0.0341838862880749 -0.0326354177099718"
+        rpy="0 0 0" />
+      <mass
+        value="0.204666659119259" />
+      <inertia
+        ixx="5.26405020771446E-05"
+        ixy="-6.87045925823285E-06"
+        ixz="-9.16134381790125E-09"
+        iyy="0.000207700318237006"
+        iyz="4.24645067196462E-10"
+        izz="0.000196694737864689" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://CML_PP_2/meshes/rf_thigh_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://CML_PP_2/meshes/rf_thigh_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RF_ELBOW"
+    type="revolute">
+    <origin
+      xyz="-0.029276 -0.01466 -0.020328"
+      rpy="0 0 -0.42784" />
+    <parent
+      link="rf_shoulder_link" />
+    <child
+      link="rf_thigh_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="rf_calf_link">
+    <inertial>
+      <origin
+        xyz="-0.0562746594086836 -0.031201912312426 -0.0304061026125255"
+        rpy="0 0 0" />
+      <mass
+        value="0.124150283030027" />
+      <inertia
+        ixx="2.71331044981176E-05"
+        ixy="6.52340639611651E-06"
+        ixz="-7.24574922911349E-09"
+        iyy="0.000259454989110842"
+        iyz="3.51796278658808E-09"
+        izz="0.000248912583960562" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://CML_PP_2/meshes/rf_calf_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://CML_PP_2/meshes/rf_calf_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RF_KNEE"
+    type="revolute">
+    <origin
+      xyz="0.14707 -0.034829 -0.0017563"
+      rpy="0 0 0.93378" />
+    <parent
+      link="rf_thigh_link" />
+    <child
+      link="rf_calf_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="lb_shoulder_link">
+    <inertial>
+      <origin
+        xyz="0.0268112424173798 0.0107596960598041 0.0457636308417059"
+        rpy="0 0 0" />
+      <mass
+        value="0.0823995961404889" />
+      <inertia
+        ixx="1.95534937544981E-05"
+        ixy="2.08177132098458E-07"
+        ixz="3.21769091341543E-07"
+        iyy="1.90668948433689E-05"
+        iyz="-9.60105437391402E-07"
+        izz="2.18057213002159E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://CML_PP_2/meshes/lb_shoulder_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://CML_PP_2/meshes/lb_shoulder_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LB_ARMPIT"
+    type="revolute">
+    <origin
+      xyz="-0.090843 0.04808 0.020486"
+      rpy="1.5668 -5.102E-05 -3.1416" />
+    <parent
+      link="base_link" />
+    <child
+      link="lb_shoulder_link" />
+    <axis
+      xyz="1 -5.102E-05 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="lb_thigh_link">
+    <inertial>
+      <origin
+        xyz="0.0599962531882521 -0.0341838743931865 0.0323774662751334"
+        rpy="0 0 0" />
+      <mass
+        value="0.204667094970786" />
+      <inertia
+        ixx="5.26405893727808E-05"
+        ixy="-6.87037873543066E-06"
+        ixz="-9.16501184768238E-09"
+        iyy="0.000207700430481537"
+        iyz="4.05445574988923E-10"
+        izz="0.00019669493307742" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://CML_PP_2/meshes/lb_thigh_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://CML_PP_2/meshes/lb_thigh_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LB_ELBOW"
+    type="revolute">
+    <origin
+      xyz="0.028287 -0.014659 0.021201"
+      rpy="0 0 -0.46494" />
+    <parent
+      link="lb_shoulder_link" />
+    <child
+      link="lb_thigh_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="lb_calf_link">
+    <inertial>
+      <origin
+        xyz="-0.0562746283337435 -0.0312019131985416 0.0300903536116096"
+        rpy="0 0 0" />
+      <mass
+        value="0.124150345082354" />
+      <inertia
+        ixx="2.71331212983521E-05"
+        ixy="6.52346284637176E-06"
+        ixz="-6.71092220781009E-09"
+        iyy="0.000259455087280996"
+        iyz="3.48846832947796E-09"
+        izz="0.000248912689473426" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://CML_PP_2/meshes/lb_calf_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://CML_PP_2/meshes/lb_calf_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LB_KNEE"
+    type="revolute">
+    <origin
+      xyz="0.14707 -0.034829 0.0022602"
+      rpy="0 0 0.97678" />
+    <parent
+      link="lb_thigh_link" />
+    <child
+      link="lb_calf_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="rb_shoulder_link">
+    <inertial>
+      <origin
+        xyz="0.0267231655282443 0.010762075261042 -0.0455633379422673"
+        rpy="0 0 0" />
+      <mass
+        value="0.0823973934424499" />
+      <inertia
+        ixx="1.95529733228597E-05"
+        ixy="2.08060157237355E-07"
+        ixz="-3.21734054822652E-07"
+        iyy="1.90663267893416E-05"
+        iyz="9.72946591497496E-07"
+        izz="2.18055626025945E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://CML_PP_2/meshes/rb_shoulder_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://CML_PP_2/meshes/rb_shoulder_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RB_ARMPIT"
+    type="revolute">
+    <origin
+      xyz="-0.090333 -0.04808 0.020486"
+      rpy="1.5701 5.102E-05 -3.1416" />
+    <parent
+      link="base_link" />
+    <child
+      link="rb_shoulder_link" />
+    <axis
+      xyz="1 5.102E-05 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="rb_thigh_link">
+    <inertial>
+      <origin
+        xyz="0.0599962641867017 -0.0341838839492449 -0.0322633194933277"
+        rpy="0 0 0" />
+      <mass
+        value="0.204666926145609" />
+      <inertia
+        ixx="5.26405352597993E-05"
+        ixy="-6.87043903505302E-06"
+        ixz="-9.13736190376255E-09"
+        iyy="0.000207700313943162"
+        iyz="3.89261437438861E-10"
+        izz="0.000196694776060325" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://CML_PP_2/meshes/rb_thigh_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://CML_PP_2/meshes/rb_thigh_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RB_ELBOW"
+    type="revolute">
+    <origin
+      xyz="0.028285 -0.014657 -0.0207"
+      rpy="0 0 -0.46283" />
+    <parent
+      link="rb_shoulder_link" />
+    <child
+      link="rb_thigh_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="rb_calf_link">
+    <inertial>
+      <origin
+        xyz="-0.0562746202737299 -0.031201906093811 -0.0300128862017215"
+        rpy="0 0 0" />
+      <mass
+        value="0.124150292571281" />
+      <inertia
+        ixx="2.71331103837322E-05"
+        ixy="6.52354994917408E-06"
+        ixz="-6.97162935785568E-09"
+        iyy="0.000259454856699454"
+        iyz="3.50104288566227E-09"
+        izz="0.0002489124593" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://CML_PP_2/meshes/rb_calf_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://CML_PP_2/meshes/rb_calf_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RB_KNEE"
+    type="revolute">
+    <origin
+      xyz="0.14707 -0.034829 -0.0017774"
+      rpy="0 0 0.9789" />
+    <parent
+      link="rb_thigh_link" />
+    <child
+      link="rb_calf_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+</robot>

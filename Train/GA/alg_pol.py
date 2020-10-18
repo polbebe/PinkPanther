@@ -120,7 +120,7 @@ def choose_fittest(pop):
     planeId = p.loadURDF("../plane/plane.urdf")
     robotStartPos = [0,0,0.2]
     robotStartOrientation = p.getQuaternionFromEuler([0,0,0])
-    robotId = p.loadURDF("../../robot/PP/urdf/PP.urdf", robotStartPos, robotStartOrientation)
+    robotId = p.loadURDF("../../robot/PinkPanther_CML/urdf/PinkPanther_CML.urdf", robotStartPos, robotStartOrientation)
     mode = p.POSITION_CONTROL
     for i in range (10):
         p.stepSimulation()

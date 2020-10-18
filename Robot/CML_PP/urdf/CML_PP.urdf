@@ -6,7 +6,7 @@
   name="CML_PP">
   <link
     name="base_link">
-    <inertial>
+    <inertial>s
       <origin
         xyz="0.00110283058906126 0.00423744435255097 8.24583983667333E-05"
         rpy="0 0 0" />
@@ -22,11 +22,11 @@
     </inertial>
     <visual>
       <origin
-        xyz="0 0 0"
+        xyz="0.00110283058906126 0.00423744435255097 8.24583983667333E-05"
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://CML_PP/meshes/base_link.STL" />
+          filename="package://CML_PP/meshes/low_qual/base_link.STL" />
       </geometry>
       <material
         name="">
@@ -36,11 +36,11 @@
     </visual>
     <collision>
       <origin
-        xyz="0 0 0"
+        xyz="0.00110283058906126 0.00423744435255097 8.24583983667333E-05"
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://CML_PP/meshes/base_link.STL" />
+          filename="package://CML_PP/meshes/low_qual/base_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -66,7 +66,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://CML_PP/meshes/lf_shoulder_link.STL" />
+          filename="package://CML_PP/meshes/low_qual/lf_shoulder_link.STL" />
       </geometry>
       <material
         name="">
@@ -80,7 +80,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://CML_PP/meshes/lf_shoulder_link.STL" />
+          filename="package://CML_PP/meshes/low_qual/lf_shoulder_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -124,7 +124,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://CML_PP/meshes/lf_thigh_link.STL" />
+          filename="package://CML_PP/meshes/low_qual/lf_thigh_link.STL" />
       </geometry>
       <material
         name="">
@@ -138,7 +138,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://CML_PP/meshes/lf_thigh_link.STL" />
+          filename="package://CML_PP/meshes/low_qual/lf_thigh_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -182,7 +182,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://CML_PP/meshes/lf_calf_link.STL" />
+          filename="package://CML_PP/meshes/low_qual/lf_calf_link.STL" />
       </geometry>
       <material
         name="">
@@ -196,7 +196,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://CML_PP/meshes/lf_calf_link.STL" />
+          filename="package://CML_PP/meshes/low_qual/lf_calf_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -240,7 +240,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://CML_PP/meshes/rf_shoulder_link.STL" />
+          filename="package://CML_PP/meshes/low_qual/rf_shoulder_link.STL" />
       </geometry>
       <material
         name="">
@@ -254,7 +254,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://CML_PP/meshes/rf_shoulder_link.STL" />
+          filename="package://CML_PP/meshes/low_qual/rf_shoulder_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -298,7 +298,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://CML_PP/meshes/rf_thigh_link.STL" />
+          filename="package://CML_PP/meshes/low_qual/rf_thigh_link.STL" />
       </geometry>
       <material
         name="">
@@ -312,7 +312,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://CML_PP/meshes/rf_thigh_link.STL" />
+          filename="package://CML_PP/meshes/low_qual/rf_thigh_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -356,7 +356,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://CML_PP/meshes/rf_calf_link.STL" />
+          filename="package://CML_PP/meshes/low_qual/rf_calf_link.STL" />
       </geometry>
       <material
         name="">
@@ -370,7 +370,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://CML_PP/meshes/rf_calf_link.STL" />
+          filename="package://CML_PP/meshes/low_qual/rf_calf_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -414,7 +414,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://CML_PP/meshes/lb_shoulder_link.STL" />
+          filename="package://CML_PP/meshes/low_qual/lb_shoulder_link.STL" />
       </geometry>
       <material
         name="">
@@ -428,7 +428,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://CML_PP/meshes/lb_shoulder_link.STL" />
+          filename="package://CML_PP/meshes/low_qual/lb_shoulder_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -472,7 +472,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://CML_PP/meshes/lb_thigh_link.STL" />
+          filename="package://CML_PP/meshes/low_qual/lb_thigh_link.STL" />
       </geometry>
       <material
         name="">
@@ -486,7 +486,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://CML_PP/meshes/lb_thigh_link.STL" />
+          filename="package://CML_PP/meshes/low_qual/lb_thigh_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -530,7 +530,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://CML_PP/meshes/lb_calf_link.STL" />
+          filename="package://CML_PP/meshes/low_qual/lb_calf_link.STL" />
       </geometry>
       <material
         name="">
@@ -544,7 +544,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://CML_PP/meshes/lb_calf_link.STL" />
+          filename="package://CML_PP/meshes/low_qual/lb_calf_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -588,7 +588,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://CML_PP/meshes/rb_shoulder_link.STL" />
+          filename="package://CML_PP/meshes/low_qual/rb_shoulder_link.STL" />
       </geometry>
       <material
         name="">
@@ -602,7 +602,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://CML_PP/meshes/rb_shoulder_link.STL" />
+          filename="package://CML_PP/meshes/low_qual/rb_shoulder_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -646,7 +646,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://CML_PP/meshes/rb_thigh_link.STL" />
+          filename="package://CML_PP/meshes/low_qual/rb_thigh_link.STL" />
       </geometry>
       <material
         name="">
@@ -660,7 +660,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://CML_PP/meshes/rb_thigh_link.STL" />
+          filename="package://CML_PP/meshes/low_qual/rb_thigh_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -704,7 +704,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://CML_PP/meshes/rb_calf_link.STL" />
+          filename="package://CML_PP/meshes/low_qual/rb_calf_link.STL" />
       </geometry>
       <material
         name="">
@@ -718,7 +718,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://CML_PP/meshes/rb_calf_link.STL" />
+          filename="package://CML_PP/meshes/low_qual/rb_calf_link.STL" />
       </geometry>
     </collision>
   </link>

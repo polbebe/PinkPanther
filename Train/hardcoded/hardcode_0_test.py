@@ -11,9 +11,8 @@ p.setGravity(0,0,-10)
 planeId = p.loadURDF("../plane/plane.urdf")
 robotStartPos = [0,0,0.2]
 robotStartOrientation = p.getQuaternionFromEuler([0,0,0])
-robotId = p.loadURDF("../../robot/PP/urdf/PP.urdf", robotStartPos, robotStartOrientation)
+robotId = p.loadURDF("../../robot/PinkPanther_CML/urdf/PinkPanther_CML.urdf", robotStartPos, robotStartOrientation)
 mode = p.POSITION_CONTROL
-maxForce = 2
 
 # Calculate speed
 t_start = time.time()
@@ -45,7 +44,7 @@ v =[0, 0.15, 0,
 for i in range (10000):
     p.stepSimulation()
 
-    if(i<1000):
+    if(i<10):
         armpit_lf=0
         elbow_lf=-0.1
         knee_lf=0.1
@@ -62,52 +61,52 @@ for i in range (10000):
         elbow_rb=-0.1
         knee_rb=0.1
 
-        p.setJointMotorControl2(robotId, 0, controlMode=mode, targetPosition=armpit_lf, force=maxForce)
-        p.setJointMotorControl2(robotId, 1, controlMode=mode, targetPosition=elbow_lf, force=maxForce)
-        p.setJointMotorControl2(robotId, 2, controlMode=mode, targetPosition=knee_lf, force=maxForce)
+        p.setJointMotorControl2(robotId, 0, controlMode=mode, targetPosition=armpit_lf)
+        p.setJointMotorControl2(robotId, 1, controlMode=mode, targetPosition=elbow_lf)
+        p.setJointMotorControl2(robotId, 2, controlMode=mode, targetPosition=knee_lf)
 
-        p.setJointMotorControl2(robotId, 3, controlMode=mode, targetPosition=armpit_rf, force=maxForce)
-        p.setJointMotorControl2(robotId, 4, controlMode=mode, targetPosition=elbow_rf, force=maxForce)
-        p.setJointMotorControl2(robotId, 5, controlMode=mode, targetPosition=knee_rf, force=maxForce)
+        p.setJointMotorControl2(robotId, 3, controlMode=mode, targetPosition=armpit_rf)
+        p.setJointMotorControl2(robotId, 4, controlMode=mode, targetPosition=elbow_rf)
+        p.setJointMotorControl2(robotId, 5, controlMode=mode, targetPosition=knee_rf)
 
-        p.setJointMotorControl2(robotId, 6, controlMode=mode, targetPosition=armpit_lb, force=maxForce)
-        p.setJointMotorControl2(robotId, 7, controlMode=mode, targetPosition=elbow_lb, force=maxForce)
-        p.setJointMotorControl2(robotId, 8, controlMode=mode, targetPosition=knee_lb, force=maxForce)
+        p.setJointMotorControl2(robotId, 6, controlMode=mode, targetPosition=armpit_lb)
+        p.setJointMotorControl2(robotId, 7, controlMode=mode, targetPosition=elbow_lb)
+        p.setJointMotorControl2(robotId, 8, controlMode=mode, targetPosition=knee_lb)
 
-        p.setJointMotorControl2(robotId, 9, controlMode=mode, targetPosition=armpit_rb, force=maxForce)
-        p.setJointMotorControl2(robotId, 10, controlMode=mode, targetPosition=elbow_rb, force=maxForce)
-        p.setJointMotorControl2(robotId, 11, controlMode=mode, targetPosition=knee_rb, force=maxForce)
+        p.setJointMotorControl2(robotId, 9, controlMode=mode, targetPosition=armpit_rb)
+        p.setJointMotorControl2(robotId, 10, controlMode=mode, targetPosition=elbow_rb)
+        p.setJointMotorControl2(robotId, 11, controlMode=mode, targetPosition=knee_rb)
 
         time.sleep(1./240.)
 
     else:
         armpit_lf = v[0] + v[1]*m.sin(i*v[36] + v[2])
-        p.setJointMotorControl2(robotId, 0, controlMode=mode, targetPosition=armpit_lf, force=maxForce)
+        p.setJointMotorControl2(robotId, 0, controlMode=mode, targetPosition=armpit_lf)
         elbow_lf = v[3] + v[4]*m.sin(i*v[36] + v[5])
-        p.setJointMotorControl2(robotId, 1, controlMode=mode, targetPosition=elbow_lf, force=maxForce)
+        p.setJointMotorControl2(robotId, 1, controlMode=mode, targetPosition=elbow_lf)
         knee_lf = v[6] + v[7]*m.sin(i*v[36] + v[8])
-        p.setJointMotorControl2(robotId, 2, controlMode=mode, targetPosition=knee_lf, force=maxForce)
+        p.setJointMotorControl2(robotId, 2, controlMode=mode, targetPosition=knee_lf)
         
         armpit_rf = v[9] + v[10]*m.sin(i*v[36] + v[11])
-        p.setJointMotorControl2(robotId, 3, controlMode=mode, targetPosition=armpit_rf, force=maxForce)
+        p.setJointMotorControl2(robotId, 3, controlMode=mode, targetPosition=armpit_rf)
         elbow_rf = v[12] + v[13]*m.sin(i*v[36] + v[14])
-        p.setJointMotorControl2(robotId, 4, controlMode=mode, targetPosition=elbow_rf, force=maxForce)
+        p.setJointMotorControl2(robotId, 4, controlMode=mode, targetPosition=elbow_rf)
         knee_rf = v[15] + v[16]*m.sin(i*v[36] + v[17])
-        p.setJointMotorControl2(robotId, 5, controlMode=mode, targetPosition=knee_rf, force=maxForce)
+        p.setJointMotorControl2(robotId, 5, controlMode=mode, targetPosition=knee_rf)
         
         armpit_lb = v[18] + v[19]*m.sin(i*v[36] + v[20])
-        p.setJointMotorControl2(robotId, 6, controlMode=mode, targetPosition=armpit_lb, force=maxForce)
+        p.setJointMotorControl2(robotId, 6, controlMode=mode, targetPosition=armpit_lb)
         elbow_lb = v[21] + v[22]*m.sin(i*v[36] + v[23])
-        p.setJointMotorControl2(robotId, 7, controlMode=mode, targetPosition=elbow_lb, force=maxForce)
+        p.setJointMotorControl2(robotId, 7, controlMode=mode, targetPosition=elbow_lb)
         knee_lb = v[24] + v[25]*m.sin(i*v[36] + v[26])
-        p.setJointMotorControl2(robotId, 8, controlMode=mode, targetPosition=knee_lb, force=maxForce)
+        p.setJointMotorControl2(robotId, 8, controlMode=mode, targetPosition=knee_lb)
         
         armpit_rb = v[27] + v[28]*m.sin(i*v[36] + v[29])
-        p.setJointMotorControl2(robotId, 9, controlMode=mode, targetPosition=armpit_rb, force=maxForce)
+        p.setJointMotorControl2(robotId, 9, controlMode=mode, targetPosition=armpit_rb)
         elbow_rb = v[30] + v[31]*m.sin(i*v[36] + v[32])
-        p.setJointMotorControl2(robotId, 10, controlMode=mode, targetPosition=elbow_rb, force=maxForce)
+        p.setJointMotorControl2(robotId, 10, controlMode=mode, targetPosition=elbow_rb)
         knee_rb = v[33] + v[34]*m.sin(i*v[36] + v[35])
-        p.setJointMotorControl2(robotId, 11, controlMode=mode, targetPosition=knee_rb, force=maxForce)
+        p.setJointMotorControl2(robotId, 11, controlMode=mode, targetPosition=knee_rb)
         
         time.sleep(1./240.)
 

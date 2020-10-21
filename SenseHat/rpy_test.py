@@ -41,9 +41,10 @@ while True:
     roll = o["roll"]
     x,y = move_marble(pitch,roll,x,y)
     # Add dot to screen
-    screen[x][y] = w
+    screen[y][x] = w
     # Display screen
     sense.set_pixels(sum(screen,[]))
+    screen[y][x] = b
 
 
 '''

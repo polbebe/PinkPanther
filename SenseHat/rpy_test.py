@@ -28,6 +28,10 @@ def move_marble(pitch, roll, x, y):
 	elif 359 > roll > 181 and y != 0:
 		new_y -= 1
 
+# Set initial position of Dot
+x, y = 3
+screen[x][y] = w
+
 while True:
 	# Get Roll & Pitch from sense hat
 	o = sense.get_orientation()

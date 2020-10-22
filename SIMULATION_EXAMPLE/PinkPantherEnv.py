@@ -6,22 +6,21 @@ import math as m
 import numpy as np
 
 class PinkPantherEnv(gym.Env):
-    def __init__(self):
-        # physicsClient = p.connect(p.GUI)
-        physicsClient = p.connect(p.DIRECT)
-        p.setAdditionalSearchPath(pybullet_data.getDataPath())
-        p.setGravity(0,0,-10)
-        planeId = p.loadURDF("plane/plane.urdf")
-        robotStartPos = [0,0,0.2]
-        robotStartOrientation = p.getQuaternionFromEuler([0,0,0])
-        self.robotid = p.loadURDF("PinkPanther_CML/urdf/PinkPanther_CML.urdf", robotStartPos, robotStartOrientation)
+    def __init__(self, render=False):
+        if render:
+            physicsClient = p.connect(p.GUI)
+            self.render = True
+            self.APS=60
+        else:
+            self.render = False
+            physicsClient = p.connect(p.DIRECT)
+
         self.mode = p.POSITION_CONTROL
         self.maxForce = 4
+        self.reset()
 
-    # def render(self, mode='human', close=False):
-    #     if mode == 'human':
-    #         physicsClient = p.connect(p.GUI)
-    #         self.render = True
+    def _render(self, mode='human', close=False):
+        pass
 
     def get_obs(self):
         self.last_p = self.p
@@ -34,15 +33,22 @@ class PinkPantherEnv(gym.Env):
         return obs
 
     def act(self, action):
-        p.stepSimulation()
+        n_sim_steps = int(240/self.APS)
+        for i in range(n_sim_steps):
+            p.stepSimulation()
         for i in range(len(action)):
             p.setJointMotorControl2(self.robotid, i, controlMode=self.mode, targetPosition=action[i], force=self.maxForce)
         if self.render:
-            time.sleep(1./60.)
-        # print('Acted')
-        # time.sleep(1./240.)
+            time.sleep(1./self.APS)
 
     def reset(self):
+        p.resetSimulation()
+        p.setAdditionalSearchPath(pybullet_data.getDataPath())
+        p.setGravity(0,0,-10)
+        planeId = p.loadURDF("plane/plane.urdf")
+        robotStartPos = [0,0,0.2]
+        robotStartOrientation = p.getQuaternionFromEuler([0,0,0])
+        self.robotid = p.loadURDF("PinkPanther_CML/urdf/PinkPanther_CML.urdf", robotStartPos, robotStartOrientation)
         self.p, self.q = p.getBasePositionAndOrientation(self.robotid)
         self.p, self.q = np.array(self.p), np.array(self.q)
         self.i = 0
@@ -90,11 +96,18 @@ if __name__ == '__main__':
                         armpit_lb, elbow_lb, knee_lb, armpit_rb, elbow_rb, knee_rb])
         return act
 
-    env = PinkPantherEnv()
-    obs = env.reset()
+    env = PinkPantherEnv(render=True)
     ep_r = 0
-    for i in range(1000):
-        action = get_act(i)
-        obs, r, done, info = env.step(action)
-        ep_r += r
-    print(ep_r)
+    start = time.time()
+    for j in range(100):
+        obs = env.reset()
+
+        print(time.time()-start)
+        for i in range(1000):
+            action = get_act(i)
+            obs, r, done, info = env.step(action)
+            ep_r += r
+        print(ep_r)
+        print(time.time()-start)
+        print('')
+        ep_r = 0

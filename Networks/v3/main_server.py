@@ -13,8 +13,8 @@ from threading import Thread
 class NetEnv(gym.Env):
 
     def __init__(self, port):
-        HOST = '192.168.1.29'   # Standard loopback interface address (localhost)
-                                # Mac - 192.168.1.29
+        HOST = '192.168.1.201'  # Standard loopback interface address (localhost)
+                                # Mac Terminal - ipconfig getifaddr en0
         PORT = port             # Port to listen on (non-privileged ports are > 1023)
 
         self.motor_inputs = None
@@ -123,7 +123,7 @@ class NetEnv(gym.Env):
         # Prepare and send position data to client
         self.conn.sendall(pos.tobytes())
 
-        self.i += 1
+        self.i += 5
 
         return self.motor_inputs
 

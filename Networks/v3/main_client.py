@@ -47,6 +47,8 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
 
     # Start walking
     while True:
+        # Get rpy inputs
+        o = sense.get_orientation()
         # Calculate motor_inputs
         #motor_inputs[0] = 0
         motor_inputs[1] = s12.getPhysicalPos() #- x.getVirtualPos()
@@ -61,7 +63,6 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         motor_inputs[10] = s42.getPhysicalPos() #- x.getVirtualPos()
         motor_inputs[11] = s41.getPhysicalPos() #- x.getVirtualPos()
 
-        o = sense.get_orientation()
         # Roll
         motor_inputs[12] = o["roll"]
         # Pitch

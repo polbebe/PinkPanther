@@ -1,24 +1,22 @@
+import gym
+import gym.spaces as spaces
+import sys
+
 import socket
+
 import numpy as np
 import pandas as pd
 import math as m
 import time
-import gym
-import gym.spaces as spaces
-import sys
-import torch
-from _thread import *
 
 class NetEnv(gym.Env):
 
-    def __init__(self, port):
-        HOST = '192.168.1.29'   # Standard loopback interface address (localhost)
-                                # Mac - 192.168.1.29
-        PORT = port             # Port to listen on (non-privileged ports are > 1023)
-
-        # Master array with all robot inputs from clients
-        self.robot_inputs = None
-        self.robot_outputs = np.zeros(15, dtype=np.float32)
+    def __init__(self):
+        # Socket Conneciton
+        # MAC find WiFi IP - ipconfig getifaddr en0
+        HOST = '192.168.1.29'
+        # Port to listen on (non-privileged ports are > 1023)
+        PORT = 65432
 
         print('Connected')
 
@@ -28,40 +26,35 @@ class NetEnv(gym.Env):
 
         print('Waiting for connection[s]...')
         
-        self.s.listen(4)
+        # Wait for client to join socket
+        self.s.listen()
         self.conn, addr = self.s.accept()
-        print('Connected by: ', addr)
+        print('Connected by: ', addr)        
 
+        # Robot State values that will be bounced with client
+        self.robot_state = None
+        # Servo positions that will be added to robot_state when sent to client
+        self.servo_pos = np.zeros(12, dtype=np.float32)
+
+        # Start counter for waling robot
         self.i = 0
 
-        # Read v values from those saved from simulation
-        #version= "0.2.1"
-        #df = pd.read_csv('V/Hardcoded_{}.csv'.format(version))
-        #v = np.array(df['Best Values'], dtype=np.float32)
-
-
-    def threaded_client(self):
-        self.conn.send(str.encode('Welcome to the Server\n'))
-        while True:
-            data = self.conn.recv(2048)
-            reply = 'Server Says: ' + data.decode('utf-8')
-        if not data:
-            break
-            self.conn.sendall(str.encode(reply))
-        self.conn.close()
-
+        # Read chosen V values from simulation
+        version= "0.2.1"
+        df = pd.read_csv('V/Hardcoded_{}.csv'.format(version))
+        self.v = np.array(df['Best Values'], dtype=np.float32)
 
     def reset(self):
         # Make robot stand up
         input('Press enter to begin episode: ')
         self.i = 0
 
-        self.robot_inputs = None
+        self.robot_state = None
 
-        return self.robot_inputs
+        return self.robot_state
 
 
-    def step(self, action):
+    def step(self):
 
         # Functions for servo position conversion
         def servo12(targ12):
@@ -113,49 +106,50 @@ class NetEnv(gym.Env):
                 pos41 = (abs(targ41)/0.6)*60 + 60
             return pos41
 
-        # Receive motor positions
-        robot_in = self.conn.recv(1024)
-        self.robot_inputs = np.frombuffer(robot_in, dtype=np.float32)
+        # Receive Robot State from client
+        self.robot_state = np.frombuffer(self.conn.recv(1024), dtype=np.float32)
 
-        # Calculate servo positions
-        #self.robot_outputs[0] = 0
-        self.robot_outputs[1] = servo12(v[3] + v[4]*m.sin(self.i*v[36] + v[5]))
-        self.robot_outputs[2] = servo11(v[6] + v[7]*m.sin(self.i*v[36] + v[8]))
-        #self.robot_outputs[3] = 0
-        self.robot_outputs[4] = servo22(v[12] + v[13]*m.sin(self.i*v[36] + v[14]))
-        self.robot_outputs[5] = servo21(v[15] + v[16]*m.sin(self.i*v[36] + v[17]))
-        #self.robot_outputs[6] = 0
-        self.robot_outputs[7] = servo32(v[21] + v[22]*m.sin(self.i*v[36] + v[23]))
-        self.robot_outputs[8] = servo31(v[24] + v[25]*m.sin(self.i*v[36] + v[26]))
-        #self.robot_outputs[9] = 0
-        self.robot_outputs[10] = servo42(v[30] + v[31]*m.sin(self.i*v[36] + v[32]))
-        self.robot_outputs[11] = servo41(v[33] + v[34]*m.sin(self.i*v[36] + v[35]))
+        # Calculate servo positions to send
+        #self.servo_pos[0] = 0
+        self.servo_pos[1] = servo12(self.v[3] + self.v[4]*m.sin(self.i*self.v[36] + self.v[5]))
+        self.servo_pos[2] = servo11(self.v[6] + self.v[7]*m.sin(self.i*self.v[36] + self.v[8]))
+        #self.servo_pos[3] = 0
+        self.servo_pos[4] = servo22(self.v[12] + self.v[13]*m.sin(self.i*self.v[36] + self.v[14]))
+        self.servo_pos[5] = servo21(self.v[15] + self.v[16]*m.sin(self.i*self.v[36] + self.v[17]))
+        #self.servo_pos[6] = 0
+        self.servo_pos[7] = servo32(self.v[21] + self.v[22]*m.sin(self.i*self.v[36] + self.v[23]))
+        self.servo_pos[8] = servo31(self.v[24] + self.v[25]*m.sin(self.i*self.v[36] + self.v[26]))
+        #self.servo_pos[9] = 0
+        self.servo_pos[10] = servo42(self.v[30] + self.v[31]*m.sin(self.i*self.v[36] + self.v[32]))
+        self.servo_pos[11] = servo41(self.v[33] + self.v[34]*m.sin(self.i*self.v[36] + self.v[35]))
 
         # Prepare and send position data to clients
-        self.conn.sendall(self.robot_outputs.tobytes())
+        self.conn.sendall(self.servo_pos.tobytes())
 
+        # Update counter
         self.i += 1
 
-        return self.robot_inputs
+        return self.robot_state
 
 
 if __name__ == '__main__':
-    env = NetEnv(65432)
+    # Construct MAIN SERVER object
+    env = NetEnv()
 
+    # Reste environment
+    r_state = env.reset()
+
+    # Keep track of time for average actions/second calculation
     start = time.time()
     
-    robot_inputs = env.reset()
-    # print(motor_inputs)
-    
-    # Read v values from those saved from simulation
-    version= "0.2.1"
-    df = pd.read_csv('V/Hardcoded_{}.csv'.format(version))
-    v = np.array(df['Best Values'], dtype=np.float32)
-    
-    # Walk
+    # Walk the robot
     for i in range(400):
-        robot_inputs = env.step(v)
-        #print(motor_inputs)
+        # Return current robot state on every loop
+        r_state = env.step()
+        # Print only every 10 loops
+        if i%10 == 0:
+            print(r_state)
+        # Keep track of number of actions/second
         sys.stdout.write(str(i)+' in: '+str(round(time.time()-start,3))+' Averaging: '+str(round(i/(time.time()-start),2))+' actions/s\r')
     
     print('Done')

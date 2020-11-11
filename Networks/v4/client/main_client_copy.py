@@ -1,5 +1,4 @@
-from imu_client import *
-from servo_client import *
+from test_client import *
 
 import socket
 
@@ -28,18 +27,17 @@ class Listener():
 		self.socket = True
 
 		# Initialize both IMU client and SERVO client
-		self.imu = ImuData()
-		self.servo = ServoData()
+		self.test = ImuData()
 
 	# Read and return Robot state
 	def read(self):
 		# Read SERVO values and add them to Robot State
-		self.robot_state[:12] = self.servo.read()
-
-		# Read IMU values and add them to Robot State
-		self.robot_state[12:] = self.imu.read()
+		self.robot_state[:12] = self.test.read()
 
 		return self.robot_state
+
+	def is_true(self):
+		return self.socket
 
 	# Interaction with server on every step of the robot
 	def step(self):
@@ -52,23 +50,18 @@ class Listener():
 
 		# If there's no more data being received, break the loop
 		if not p:
-			print('shit')
 			self.socket = False
 			return None
 
-		# Else write 
-		self.servo.write(self.pos)
-
-	# Check whether socket should still be running
-	def is_true(self):
-		return self.socket
+		# Else confirm reception 
+		print(self.pos)
 
 if __name__ == '__main__':
 	# Construct MAIN CLIENT object
 	client = Listener()
 
-	# While the server is communicating
 	while client.is_true() == True:
+		print(2)
 		# Perform a step for the robot
 		client.step()
 		

@@ -1,4 +1,6 @@
 import numpy as np
+from threading import Thread
+
 class ImuData():
 	def __init__(self):
 		# Imu values that will be updated

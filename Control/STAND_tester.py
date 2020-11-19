@@ -118,3 +118,21 @@ s42.moveTimeWaitWrite(servo42(elbow_rb), 200)
 s41.moveTimeWaitWrite(servo41(knee_rb), 200)
 
 LX16A.moveStartAll()
+
+
+# Return actual positions
+print("Servo 10: {}".format(s10.getPhysicalPos()))
+print("Servo 12: {}".format(s12.getPhysicalPos()))
+print("Servo 11: {}".format(s11.getPhysicalPos()))
+
+print("Servo 30: {}".format(s30.getPhysicalPos()))
+print("Servo 32: {}".format(s32.getPhysicalPos()))
+print("Servo 31: {}".format(s31.getPhysicalPos()))
+
+print("Servo 20: {}".format(s20.getPhysicalPos()))
+print("Servo 22: {}".format(s22.getPhysicalPos()))
+print("Servo 21: {}".format(s21.getPhysicalPos()))
+
+print("Servo 40: {}".format(s40.getPhysicalPos()))
+print("Servo 42: {}".format(s42.getPhysicalPos()))
+print("Servo 41: {}".format(s41.getPhysicalPos()))

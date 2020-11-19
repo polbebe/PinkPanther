@@ -16,7 +16,7 @@ mode = p.POSITION_CONTROL
 maxForce = 4
 
 
-for i in range (1000):
+for i in range (10000):
 	p.stepSimulation()
 
 	armpit_lf=0

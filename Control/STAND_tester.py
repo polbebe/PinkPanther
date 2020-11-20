@@ -34,13 +34,13 @@ armpit_rf=0
 elbow_rf=0
 knee_rf=0
 
-armpit_lb=0
-elbow_lb=0
-knee_lb=0
+armpit_lb=-0.6
+elbow_lb=1.2
+knee_lb=-0.6
 
-armpit_rb=0
-elbow_rb=0
-knee_rb=0
+armpit_rb=0.6
+elbow_rb=1
+knee_rb=-0.6
 
 
 # Simulation 2 Reality converter functions
@@ -120,21 +120,20 @@ s41.moveTimeWaitWrite(servo41(knee_rb), 200)
 
 LX16A.moveStartAll()
 
-for i in numpy.arange(10):
-    # Return actual positions
-    print("Servo 10: {}".format(s10.getPhysicalPos()))
-    print("Servo 12: {}".format(s12.getPhysicalPos()))
-    print("Servo 11: {}".format(s11.getPhysicalPos()))
+time.sleep(3)
 
-    print("Servo 30: {}".format(s30.getPhysicalPos()))
-    print("Servo 32: {}".format(s32.getPhysicalPos()))
-    print("Servo 31: {}".format(s31.getPhysicalPos()))
+print("Servo 10: {}".format(s10.getPhysicalPos()))
+print("Servo 12: {}".format(s12.getPhysicalPos()))
+print("Servo 11: {}".format(s11.getPhysicalPos()))
 
-    print("Servo 20: {}".format(s20.getPhysicalPos()))
-    print("Servo 22: {}".format(s22.getPhysicalPos()))
-    print("Servo 21: {}".format(s21.getPhysicalPos()))
+print("Servo 30: {}".format(s30.getPhysicalPos()))
+print("Servo 32: {}".format(s32.getPhysicalPos()))
+print("Servo 31: {}".format(s31.getPhysicalPos()))
 
-    print("Servo 40: {}".format(s40.getPhysicalPos()))
-    print("Servo 42: {}".format(s42.getPhysicalPos()))
-    print("Servo 41: {}".format(s41.getPhysicalPos()))
-    time.sleep(2)
+print("Servo 20: {}".format(s20.getPhysicalPos()))
+print("Servo 22: {}".format(s22.getPhysicalPos()))
+print("Servo 21: {}".format(s21.getPhysicalPos()))
+
+print("Servo 40: {}".format(s40.getPhysicalPos()))
+print("Servo 42: {}".format(s42.getPhysicalPos()))
+print("Servo 41: {}".format(s41.getPhysicalPos()))

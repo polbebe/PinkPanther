@@ -26,126 +26,126 @@ s41 = LX16A(41)
 
 # Simulation Targets
 armpit_lf=0
-elbow_lf=0
-knee_lf=0
+elbow_lf=0.2
+knee_lf=0.12
 
 armpit_rf=0
-elbow_rf=0
-knee_rf=0
+elbow_rf=0.2
+knee_rf=0.12
 
 armpit_lb=0
-elbow_lb=0
-knee_lb=0
+elbow_lb=0.2
+knee_lb=0.12
 
 armpit_rb=0
-elbow_rb=0
-knee_rb=0
+elbow_rb=0.2
+knee_rb=0.12
 
 
 # Simulation 2 Reality converter functions
 # FRONT LEFT
 def servo10(targ):
-	if targ>=0:
-		pos = 120 - (targ/0.3)*20
-	else:
-		pos = 120 + abs(targ/0.3)*20
-	return pos
+    if targ>=0:
+        pos = 120 - (targ/0.3)*20
+    else:
+        pos = 120 + abs(targ/0.3)*20
+    return pos
 
 def servo12(targ):
-	if targ>=0.45:
-		pos = 125 - ((targ-0.45)/0.75)*40
-	elif targ<0.45 and targ>0:
-		pos = 125 + ((0.45-targ)/0.45)*24
-	elif targ<=0:
-		pos = 149 + abs(targ/0.3)*16
-	return pos
+    if targ>=0.45:
+        pos = 125 - ((targ-0.45)/0.75)*40
+    elif targ<0.45 and targ>0:
+        pos = 125 + ((0.45-targ)/0.45)*24
+    elif targ<=0:
+        pos = 149 + abs(targ/0.3)*16
+    return pos
 
 def servo11(targ):
-	if targ>=0.3:
-		pos = 190 + ((targ-0.3)/0.9)*50
-	elif targ<0.3 and targ>0:
-		pos = 190 - ((0.3-targ)/0.3)*(50/3)
-	elif targ<=0:
-		pos = (520/3) - abs(targ/0.6)*(100/3)
-	return pos
+    if targ>=0.3:
+        pos = 190 + ((targ-0.3)/0.9)*50
+    elif targ<0.3 and targ>0:
+        pos = 190 - ((0.3-targ)/0.3)*(50/3)
+    elif targ<=0:
+        pos = (520/3) - abs(targ/0.6)*(100/3)
+    return pos
 
 # BACK LEFT
 def servo30(targ):
-	if targ>=0:
-		pos = 120 + (targ/0.3)*20
-	else:
-		pos = 120 - abs(targ/0.3)*20
-	return pos
+    if targ>=0:
+        pos = 120 + (targ/0.3)*20
+    else:
+        pos = 120 - abs(targ/0.3)*20
+    return pos
 
 def servo32(targ):
-	if targ>=0.45:
-		pos = 125 - ((targ-0.45)/0.75)*40
-	elif targ<0.45 and targ>0:
-		pos = 125 + ((0.45-targ)/0.45)*24
-	elif targ<=0:
-		pos = 149 + abs(targ/0.3)*16
-	return pos
+    if targ>=0.45:
+        pos = 125 - ((targ-0.45)/0.75)*40
+    elif targ<0.45 and targ>0:
+        pos = 125 + ((0.45-targ)/0.45)*24
+    elif targ<=0:
+        pos = 149 + abs(targ/0.3)*16
+    return pos
 
 def servo31(targ):
-	if targ>=0.3:
-		pos = 190 + ((targ-0.3)/0.9)*50
-	elif targ<0.3 and targ>0:
-		pos = 190 - ((0.3-targ)/0.3)*(50/3)
-	elif targ<=0:
-		pos = (520/3) - abs(targ/0.6)*(100/3)
-	return pos
+    if targ>=0.3:
+        pos = 190 + ((targ-0.3)/0.9)*50
+    elif targ<0.3 and targ>0:
+        pos = 190 - ((0.3-targ)/0.3)*(50/3)
+    elif targ<=0:
+        pos = (520/3) - abs(targ/0.6)*(100/3)
+    return pos
 
 # FRONT RIGHT
 def servo20(targ):
-	if targ>=0:
-		pos = 120 - (targ/0.3)*20
-	else:
-		pos = 120 + abs(targ/0.3)*20
-	return pos
+    if targ>=0:
+        pos = 120 - (targ/0.3)*20
+    else:
+        pos = 120 + abs(targ/0.3)*20
+    return pos
 
 def servo22(targ):
-	if targ>=0.45:
-		pos = 112.5 + ((targ-0.45)/0.75)*37.5
-	elif targ<0.45 and targ>0:
-		pos = 112.5 - ((0.45-targ)/0.45)*22.5
-	elif targ<=0:
-		pos = 90 - abs(targ/0.3)*15
-	return pos
+    if targ>=0.45:
+        pos = 112.5 + ((targ-0.45)/0.75)*37.5
+    elif targ<0.45 and targ>0:
+        pos = 112.5 - ((0.45-targ)/0.45)*22.5
+    elif targ<=0:
+        pos = 90 - abs(targ/0.3)*15
+    return pos
 
 def servo21(targ):
-	if targ>=0.3:
-		pos = 50 - ((targ-0.3)/0.9)*50
-	elif targ<0.3 and targ>0:
-		pos = 50 + ((0.3-targ)/0.3)*(50/3)
-	elif targ<=0:
-		pos = (200/3) + abs(targ/0.6)*(100/3)
-	return pos
+    if targ>=0.3:
+        pos = 50 - ((targ-0.3)/0.9)*50
+    elif targ<0.3 and targ>0:
+        pos = 50 + ((0.3-targ)/0.3)*(50/3)
+    elif targ<=0:
+        pos = (200/3) + abs(targ/0.6)*(100/3)
+    return pos
 
 # BACK RIGHT
 def servo40(targ):
-	if targ>=0:
-		pos = 120 - (targ/0.3)*20
-	else:
-		pos = 120 + abs(targ/0.3)*20
-	return pos
+    if targ>=0:
+        pos = 120 - (targ/0.3)*20
+    else:
+        pos = 120 + abs(targ/0.3)*20
+    return pos
 
 def servo42(targ):
-	if targ>=0.45:
-		pos = 112.5 + ((targ-0.45)/0.75)*37.5
-	elif targ<0.45 and targ>0:
-		pos = 112.5 - ((0.45-targ)/0.45)*22.5
-	elif targ<=0:
-		pos = 90 - abs(targ/0.3)*15
-	return pos
+    if targ>=0.45:
+        pos = 112.5 + ((targ-0.45)/0.75)*37.5
+    elif targ<0.45 and targ>0:
+        pos = 112.5 - ((0.45-targ)/0.45)*22.5
+    elif targ<=0:
+        pos = 90 - abs(targ/0.3)*15
+    return pos
 
 def servo41(targ):
-	if targ>=0.3:
-		pos = 50 - ((targ-0.3)/0.9)*50
-	elif targ<0.3 and targ>0:
-		pos = 50 + ((0.3-targ)/0.3)*(50/3)
-	elif targ<=0:
-		pos = (200/3) + abs(targ/0.6)*(100/3)
-	return pos
+    if targ>=0.3:
+        pos = 50 - ((targ-0.3)/0.9)*50
+    elif targ<0.3 and targ>0:
+        pos = 50 + ((0.3-targ)/0.3)*(50/3)
+    elif targ<=0:
+        pos = (200/3) + abs(targ/0.6)*(100/3)
+    return pos
 
 
 # LEFT FRONT

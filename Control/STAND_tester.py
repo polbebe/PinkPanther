@@ -37,8 +37,8 @@ elbow_rf=0
 knee_rf=0
 
 armpit_lb=0
-elbow_lb=1.2
-knee_lb=-0.6
+elbow_lb=0
+knee_lb=0
 
 armpit_rb=0
 elbow_rb=0
@@ -108,20 +108,19 @@ s10.moveTimeWaitWrite(120, 500)
 s12.moveTimeWaitWrite(servo12(elbow_lf), 500)
 s11.moveTimeWaitWrite(servo11(knee_lf), 500)
 # LEFT BACK
-s30.moveTimeWaitWrite(120, 200)
-#s32.moveTimeWaitWrite(servo32(elbow_lb), 200)
-s32.moveTimeWaitWrite(160, 200)
-#s31.moveTimeWaitWrite(servo31(knee_lb), 200)
-s31.moveTimeWaitWrite(240, 200)
+s30.moveTimeWaitWrite(120, 500)
+s32.moveTimeWaitWrite(servo32(elbow_lb), 500)
+# s32.moveTimeWaitWrite(160, 200)
+s31.moveTimeWrite(servo31(knee_lb), 500)
 # RIGHT FRONT
 s20.moveTimeWaitWrite(120, 500)
 s22.moveTimeWaitWrite(servo22(elbow_rf), 500)
 s21.moveTimeWaitWrite(servo21(knee_rf), 500)
 # RIGHT BACK
-s40.moveTimeWaitWrite(120, 200)
-s42.moveTimeWaitWrite(servo42(elbow_rb), 200)
+s40.moveTimeWaitWrite(120, 500)
+s42.moveTimeWaitWrite(servo42(elbow_rb), 500)
 #s42.moveTimeWaitWrite(120, 200)
-s41.moveTimeWaitWrite(servo41(knee_rb), 200)
+s41.moveTimeWaitWrite(servo41(knee_rb), 500)
 #s41.moveTimeWaitWrite(120, 200)
 
 LX16A.moveStartAll()

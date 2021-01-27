@@ -104,8 +104,11 @@ if __name__ == '__main__':
 
         print(time.time()-start)
         for i in range(1000):
+            s_time = time.time()
             action = get_act(i)
             obs, r, done, info = env.step(action)
+            used_time = time.time() - s_time
+            print("Step time: {}".format(used_time))
             ep_r += r
         print(ep_r)
         print(time.time()-start)

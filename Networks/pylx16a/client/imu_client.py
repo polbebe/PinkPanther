@@ -23,7 +23,3 @@ class ImuData():
         self.imu_values[2] = o["yaw"]
 
         return self.imu_values
-
-if __name__ == '__main__':
-    # Construct IMU object and allow use of methods
-    i = ImuData()

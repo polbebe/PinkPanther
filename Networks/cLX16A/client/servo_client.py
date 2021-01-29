@@ -45,7 +45,7 @@ class ServoData():
         
         # Move all servos to their corresponding position
         # LEFT front
-        self.motor.move(10, 130, 100)
+        #self.motor.move(10, pos[0], 100)
         self.motor.move(12, pos[1], 100)
         self.motor.move(11, pos[2], 100)
         # LEFT back

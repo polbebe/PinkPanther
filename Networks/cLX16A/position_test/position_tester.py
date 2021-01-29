@@ -30,7 +30,10 @@ motor.setServoMode(40)
 motor.setServoMode(42)
 motor.setServoMode(41)
 
-#low_lim, high_lim = motor.getPositionLimits(11)
+
+for i in range(40,43,1):
+    motor.setPositionLimits(i, 0, 1000)
+    print('{}: {}'.format(i, motor.getPositionLimits(i)))
 
 motor.move(10, 500, 300)
 motor.move(12, 621, 300)
@@ -42,7 +45,7 @@ motor.move(31, 721, 300)
 
 motor.move(20, 500, 300)
 motor.move(22, 375, 300)
-motor.move(21, 279, 300)
+motor.move(21, 499, 300)
 
 motor.move(40, 500, 300)
 motor.move(42, 375, 300)

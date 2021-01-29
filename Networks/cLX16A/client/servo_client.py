@@ -37,12 +37,11 @@ class ServoData():
         self.motor.setServoMode(40)
         self.motor.setServoMode(42)
         self.motor.setServoMode(41)
-
-        print(self.motor.getPositionLimits(11))
         
     # Write new current SERVO Values
     def write(self, pos):
         
+        print(pos)
         # Move all servos to their corresponding position
         # LEFT front
         #self.motor.move(10, pos[0], 100)

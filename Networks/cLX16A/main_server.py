@@ -62,49 +62,49 @@ class NetEnv(gym.Env):
                 pos12 = (140 - (targ12/1.2)*65)*(25/6)
             else:
                 pos12 = ((abs(targ12)/1)*25 + 140)*(25/6)
-            return round(pos12)
+            return int(round(pos12))
         def servo11(targ11):
             if targ11>=0:
                 pos11 = ((targ11/1.5)*60 + 180)*(25/6)
             else:
                 pos11 = (180 - (abs(targ11)/0.6)*40)*(25/6)
-            return round(pos11)
+            return int(round(pos11))
         def servo32(targ32):
             if targ32>=0:
                 pos32 = (140 - (targ32/1.2)*65)*(25/6)
             else:
                 pos32 = ((abs(targ32)/1)*25 + 140)*(25/6)
-            return round(pos32)
+            return int(round(pos32))
         def servo31(targ31):
             if targ31>=0:
                 pos31 = ((targ31/1.5)*60 + 180)*(25/6)
             else:
                 pos31 = (180 - (abs(targ31)/0.6)*40)*(25/6)
-            return round(pos31)
+            return int(round(pos31))
         def servo22(targ22):
             if targ22>=0:
                 pos22 = ((targ22/1.2)*65 + 100)*(25/6)
             else:
                 pos22 = (100 - (abs(targ22)/1)*25)*(25/6)
-            return round(pos22)
+            return int(round(pos22))
         def servo21(targ21):
             if targ21>=0:
                 pos21 = (60 - (targ21/1.5)*60)*(25/6)
             else:
                 pos21 = ((abs(targ21)/0.6)*60 + 60)*(25/6)
-            return round(pos21)
+            return int(round(pos21))
         def servo42(targ42):
             if targ42>=0:
                 pos42 = ((targ42/1.2)*65 + 100)*(25/6)
             else:
                 pos42 = (100 - (abs(targ42)/1)*25)*(25/6)
-            return round(pos42)
+            return int(round(pos42))
         def servo41(targ41):
             if targ41>=0:
                 pos41 = (60 - (targ41/1.5)*60)*(25/6)
             else:
                 pos41 = ((abs(targ41)/0.6)*60 + 60)*(25/6)
-            return round(pos41)
+            return int(round(pos41))
 
         # Receive Robot State from client
         self.robot_state = np.frombuffer(self.conn.recv(1024), dtype=np.float32)

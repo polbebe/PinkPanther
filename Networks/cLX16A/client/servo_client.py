@@ -41,6 +41,7 @@ class ServoData():
     # Write new current SERVO Values
     def write(self, pos):
         
+        pos = pos.astype(int)
         print(pos)
         # Move all servos to their corresponding position
         # LEFT front

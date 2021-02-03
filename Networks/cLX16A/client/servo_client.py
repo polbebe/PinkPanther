@@ -41,25 +41,25 @@ class ServoData():
     # Write new current SERVO Values
     def write(self, pos):
         
-        pos = pos.astype(int)
+        #pos = pos.astype(int)
         print(pos)
         # Move all servos to their corresponding position
         # LEFT front
         #self.motor.move(10, pos[0], 100)
-        self.motor.move(12, pos[1], 100)
-        self.motor.move(11, pos[2], 100)
+        self.motor.move(12, pos[1], 300)
+        self.motor.move(11, pos[2], 300)
         # LEFT back
         #self.motor.move(30, pos[6], 100)
-        self.motor.move(32, pos[7], 100)
-        self.motor.move(31, pos[8], 100)
+        self.motor.move(32, pos[7], 300)
+        self.motor.move(31, pos[8], 300)
         # RIGHT front
         #self.motor.move(20, pos[3], 100)
-        self.motor.move(22, pos[4], 100)
-        self.motor.move(21, pos[5], 100)
+        self.motor.move(22, pos[4], 300)
+        self.motor.move(21, pos[5], 300)
         # RIGTH back
         #self.motor.move(40, pos[9], 100)
-        self.motor.move(42, pos[10], 100)
-        self.motor.move(41, pos[11], 100)
+        self.motor.move(42, pos[10], 300)
+        self.motor.move(41, pos[11], 300)
 
     # Read and return SERVO Values
     def read(self):

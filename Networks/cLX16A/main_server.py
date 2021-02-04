@@ -14,7 +14,7 @@ class NetEnv(gym.Env):
     def __init__(self):
         # Socket Conneciton
         # MAC find WiFi IP - ipconfig getifaddr en0
-        HOST = '192.168.1.201'
+        HOST = '192.168.1.29'
         # Port to listen on (non-privileged ports are > 1023)
         PORT = 65432
 
@@ -34,7 +34,7 @@ class NetEnv(gym.Env):
         # Robot State values that will be bounced with client
         self.robot_state = None
         # Servo positions that will be added to robot_state when sent to client
-        self.servo_pos = np.zeros(12, dtype=np.int) #float32
+        self.servo_pos = np.zeros(12, dtype=np.float32)
 
         # Start counter for waling robot
         self.i = 0

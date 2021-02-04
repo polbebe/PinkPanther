@@ -1,7 +1,7 @@
 ################################################################################
 #
-# Before runing the program for the first time:
-#   Please complie lx16a.c to .so file first!
+# Before running the program for the first time:
+#   Please compile lx16a.c to .so file first!
 #   You can use the command as:  gcc -g -o lx16a.so -shared -fPIC lx16a.c
 #   The name of lx16a.so can be changed as you like, remember to
 #   modify the value 'lib'.

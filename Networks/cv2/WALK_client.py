@@ -42,13 +42,25 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     # Connect to network
     s.connect((HOST, PORT))
 
-    # Check message
-    check = np.arange(1, dtype=np.float32)
-    check_data = check.tobytes()
+    servo_values = np.zeros(12, dtype=np.float64)
 
     # Start walking
     while True:
-        s.sendall(check_data)
+        # Get position data to be sent back
+        servo_values[0] = motor.readPosition(10)
+        servo_values[1] = motor.readPosition(12)
+        servo_values[2] = motor.readPosition(11)
+        servo_values[3] = motor.readPosition(20)
+        servo_values[4] = motor.readPosition(22)
+        servo_values[5] = motor.readPosition(21)
+        servo_values[6] = motor.readPosition(30)
+        servo_values[7] = motor.readPosition(32)
+        servo_values[8] = motor.readPosition(31)
+        servo_values[9] = motor.readPosition(40)
+        servo_values[10] = motor.readPosition(42)
+        servo_values[11] = motor.readPosition(41)
+        # Send state
+        s.sendall(servo_values)
         # Get position data from server
         pos_data = s.recv(1024)
         pos = np.frombuffer(pos_data, dtype=np.float32)

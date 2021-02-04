@@ -85,7 +85,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
 		while i<max_time:
 			# Receive connection from client
 			data = conn.recv(1024)
-			print(data.tobytes())
+			print(np.frombuffer(data, dtype=np.float32))
 			# Calculate servo positions
 			#pos[0] = 0
 			pos[1] = servo12(v[3] + v[4]*m.sin(i*v[36] + v[5]))

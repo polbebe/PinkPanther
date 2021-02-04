@@ -39,23 +39,23 @@ motor.setServoMode(41)
 
 # Initialize socket
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-	# Connect to network
-	s.connect((HOST, PORT))
+    # Connect to network
+    s.connect((HOST, PORT))
 
-	# Check message
-	check = np.arange(1, dtype=np.float32)
-	check_data = check.tobytes()
+    # Check message
+    check = np.arange(1, dtype=np.float32)
+    check_data = check.tobytes()
 
-	# Start walking
-	while True:
-		s.sendall(check_data)
-		# Get position data from server
-		pos_data = s.recv(1024)
-		pos = np.frombuffer(pos_data, dtype=np.float32)
-		# If there's no more data break the loop
-		if not pos_data:
-			break
-		# Move all servos to their corresponding position
+    # Start walking
+    while True:
+        s.sendall(check_data)
+        # Get position data from server
+        pos_data = s.recv(1024)
+        pos = np.frombuffer(pos_data, dtype=np.float32)
+        # If there's no more data break the loop
+        if not pos_data:
+            break
+        # Move all servos to their corresponding position
         # LEFT front
         #motor.move(10, pos[0], 100)
         motor.move(12, int(pos[1]), 0)
@@ -63,17 +63,17 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         # LEFT back
         #motor.move(30, pos[6], 100)
         motor.move(32, int(pos[7]), 0)
-        motor.move(31, int(pos[8]), 300)
+        motor.move(31, int(pos[8]), 0)
         # RIGHT front
         #motor.move(20, pos[3], 100)
         motor.move(22, int(pos[4]), 0)
-        motor.move(21, int(pos[5]), 300)
+        motor.move(21, int(pos[5]), 0)
         # RIGTH back
         #motor.move(40, pos[9], 100)
         motor.move(42, int(pos[10]), 0)
         motor.move(41, int(pos[11]), 0)
 
-		time.sleep(0.001)
+        time.sleep(0.001)
 
 
 time.sleep(0.1)

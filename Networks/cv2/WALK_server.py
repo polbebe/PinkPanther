@@ -80,7 +80,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
 	with conn:
 		print('Connected by: ', addr)
 		i = 0
-		max_time = 400
+		max_time = 1200
 		start = time.time()
 		while i<max_time:
 			# Receive connection from client
@@ -104,7 +104,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
 			conn.sendall(pos_data)
 			# Calculate the actions/second
 			sys.stdout.write(str(i)+' in: '+str(round(time.time()-start,3))+' Averaging: '+str(round(i/(time.time()-start),2))+' actions/s\r')
-			i += 1
+			i += 3
 		print(str(i)+' in: '+str(round(time.time()-start,3))+' Averaging: '+str(round(i/(time.time()-start),2))+' actions/s')
 
 

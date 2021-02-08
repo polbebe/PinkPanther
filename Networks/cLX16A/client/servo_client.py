@@ -2,6 +2,7 @@ from ServoMotor import *
 
 import numpy as np
 import sys
+import time
 
 class ServoData():
     # Constructor method
@@ -59,6 +60,8 @@ class ServoData():
         #self.motor.move(40, pos[9], 100)
         self.motor.move(42, int(pos[10]), 0)
         self.motor.move(41, int(pos[11]), 0)
+        
+        time.sleep(0.01)
 
     # Read and return SERVO Values
     def read(self):

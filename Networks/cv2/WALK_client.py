@@ -70,20 +70,20 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         # Move all servos to their corresponding position
         # LEFT front
         #motor.move(10, pos[0], 100)
-        motor.move(12, int(pos[1]), 0)
-        motor.move(11, int(pos[2]), 0)
+        motor.move(12, int(pos[1]), 1000)
+        motor.move(11, int(pos[2]), 1000)
         # LEFT back
         #motor.move(30, pos[6], 100)
-        motor.move(32, int(pos[7]), 0)
-        motor.move(31, int(pos[8]), 0)
+        motor.move(32, int(pos[7]), 1000)
+        motor.move(31, int(pos[8]), 1000)
         # RIGHT front
         #motor.move(20, pos[3], 100)
-        motor.move(22, int(pos[4]), 0)
-        motor.move(21, int(pos[5]), 0)
+        motor.move(22, int(pos[4]), 1000)
+        motor.move(21, int(pos[5]), 1000)
         # RIGTH back
         #motor.move(40, pos[9], 100)
-        motor.move(42, int(pos[10]), 0)
-        motor.move(41, int(pos[11]), 0)
+        motor.move(42, int(pos[10]), 1000)
+        motor.move(41, int(pos[11]), 1000)
 
         #time.sleep()
 

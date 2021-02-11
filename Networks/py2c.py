@@ -12,6 +12,6 @@ print("pyLX16A: {}".format(pypos))
 
 for i in pypos:
 	a = int(i)
-	cpos.append(round(a*(25/6))
+	cpos.append(round(a*(25/6)))
 
 print("cLX16A: {}".format(cpos))

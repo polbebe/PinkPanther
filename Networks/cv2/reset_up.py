@@ -28,37 +28,7 @@ motor.setServoMode(40)
 motor.setServoMode(42)
 motor.setServoMode(41)
 
-pos = [500, 583, 625, 500, 417, 375, 500, 583, 625, 500, 417, 375]
-motor.move(10, int(pos[0]), 1000)
-motor.move(12, int(pos[1]), 1000)
-motor.move(11, int(pos[2]), 1000)
-motor.move(30, int(pos[6]), 1000)
-motor.move(32, int(pos[7]), 1000)
-motor.move(31, int(pos[8]), 1000)
-motor.move(20, int(pos[3]), 1000)
-motor.move(22, int(pos[4]), 1000)
-motor.move(21, int(pos[5]), 1000)
-motor.move(40, int(pos[9]), 1000)
-motor.move(42, int(pos[10]), 1000)
-motor.move(41, int(pos[11]), 1000)
-
-pos = [500, 500, 625, 500, 500, 375, 500, 500, 625, 500, 500, 375]
-motor.move(10, int(pos[0]), 1000)
-motor.move(12, int(pos[1]), 1000)
-motor.move(11, int(pos[2]), 1000)
-motor.move(30, int(pos[6]), 1000)
-motor.move(32, int(pos[7]), 1000)
-motor.move(31, int(pos[8]), 1000)
-motor.move(20, int(pos[3]), 1000)
-motor.move(22, int(pos[4]), 1000)
-motor.move(21, int(pos[5]), 1000)
-motor.move(40, int(pos[9]), 1000)
-motor.move(42, int(pos[10]), 1000)
-motor.move(41, int(pos[11]), 1000)
-
-#time.sleep(1.5)
-
-pos = [500, 583, 750, 500, 417, 250, 500, 583, 750, 500, 417, 250]
+pos = [510, 583, 750, 500, 417, 250, 500, 583, 750, 500, 417, 250]
 motor.move(10, int(pos[0]), 1000)
 motor.move(12, int(pos[1]), 1000)
 motor.move(11, int(pos[2]), 1000)

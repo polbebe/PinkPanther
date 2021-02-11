@@ -25,7 +25,7 @@ try:
 except:
     import queue as Queue
 
-IMG_SIZE    = 1280,720          # 640,480 or 1280,720 or 1920,1080
+IMG_SIZE    = 640,480          # 640,480 or 1280,720 or 1920,1080
 IMG_FORMAT  = QImage.Format_RGB888
 DISP_SCALE  = 2                # Scaling factor for display image
 DISP_MSEC   = 50                # Delay between display cycles

@@ -46,7 +46,7 @@ EQUALS = =
 CMAKE_SOURCE_DIR = /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master
+CMAKE_BINARY_DIR = /home/pi/PinkPanther/Apriltag/apriltag-master
 
 # Utility rule file for apriltag_python.
 
@@ -58,21 +58,21 @@ CMakeFiles/apriltag_python: apriltag.cpython-37m-arm-linux-gnueabihf.so
 
 apriltag.cpython-37m-arm-linux-gnueabihf.so: libapriltag.so
 apriltag.cpython-37m-arm-linux-gnueabihf.so: apriltag_pywrap.o
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating apriltag.cpython-37m-arm-linux-gnueabihf.so"
-	arm-linux-gnueabihf-gcc -pthread -shared -Wl,-O1 -Wl,-Bsymbolic-functions -Wl,-z,relro -lpython3.7m -Wl,-z,relro -Wl,-rpath,lib apriltag_pywrap.o /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/libapriltag.so.3.1.0 -o apriltag.cpython-37m-arm-linux-gnueabihf.so
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pi/PinkPanther/Apriltag/apriltag-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating apriltag.cpython-37m-arm-linux-gnueabihf.so"
+	arm-linux-gnueabihf-gcc -pthread -shared -Wl,-O1 -Wl,-Bsymbolic-functions -Wl,-z,relro -lpython3.7m -Wl,-z,relro -Wl,-rpath,lib apriltag_pywrap.o /home/pi/PinkPanther/Apriltag/apriltag-master/libapriltag.so.3.1.0 -o apriltag.cpython-37m-arm-linux-gnueabihf.so
 
-apriltag_pywrap.o: apriltag_pywrap.c
+apriltag_pywrap.o: /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/apriltag_pywrap.c
 apriltag_pywrap.o: apriltag_detect.docstring.h
 apriltag_pywrap.o: apriltag_py_type.docstring.h
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating apriltag_pywrap.o"
-	/usr/bin/cc -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -Wall -g -fstack-protector-strong -Wformat -Werror=format-security -g -flto -fuse-linker-plugin -ffat-lto-objects -fPIC -I/usr/include/python3.7m -I/usr/lib/python3/dist-packages/numpy/core/include -Wno-strict-prototypes -I/home/pi/Desktop/PinkPanther/Apriltag/apriltag-master -c -o apriltag_pywrap.o /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/apriltag_pywrap.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pi/PinkPanther/Apriltag/apriltag-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating apriltag_pywrap.o"
+	/usr/bin/cc -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -Wall -g -fstack-protector-strong -Wformat -Werror=format-security -g -flto -fuse-linker-plugin -ffat-lto-objects -fPIC -I/usr/include/python3.7m -I/usr/lib/python3/dist-packages/numpy/core/include -Wno-strict-prototypes -I/home/pi/PinkPanther/Apriltag/apriltag-master -c -o apriltag_pywrap.o /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/apriltag_pywrap.c
 
 apriltag_detect.docstring.h:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating apriltag_detect.docstring.h"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pi/PinkPanther/Apriltag/apriltag-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating apriltag_detect.docstring.h"
 	< /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/apriltag_detect.docstring sed 's/"/\\"/g; s/^/"/; s/$$/\\n"/;' > apriltag_detect.docstring.h
 
 apriltag_py_type.docstring.h:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating apriltag_py_type.docstring.h"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pi/PinkPanther/Apriltag/apriltag-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating apriltag_py_type.docstring.h"
 	< /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/apriltag_py_type.docstring sed 's/"/\\"/g; s/^/"/; s/$$/\\n"/;' > apriltag_py_type.docstring.h
 
 apriltag_python: CMakeFiles/apriltag_python
@@ -94,6 +94,6 @@ CMakeFiles/apriltag_python.dir/clean:
 .PHONY : CMakeFiles/apriltag_python.dir/clean
 
 CMakeFiles/apriltag_python.dir/depend:
-	cd /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/CMakeFiles/apriltag_python.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/pi/PinkPanther/Apriltag/apriltag-master && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master /home/pi/PinkPanther/Apriltag/apriltag-master /home/pi/PinkPanther/Apriltag/apriltag-master /home/pi/PinkPanther/Apriltag/apriltag-master/CMakeFiles/apriltag_python.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/apriltag_python.dir/depend
 

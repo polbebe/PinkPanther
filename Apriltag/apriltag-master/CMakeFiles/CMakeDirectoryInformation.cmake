@@ -3,7 +3,7 @@
 
 # Relative path conversion top directories.
 set(CMAKE_RELATIVE_PATH_TOP_SOURCE "/home/pi/Desktop/PinkPanther/Apriltag/apriltag-master")
-set(CMAKE_RELATIVE_PATH_TOP_BINARY "/home/pi/Desktop/PinkPanther/Apriltag/apriltag-master")
+set(CMAKE_RELATIVE_PATH_TOP_BINARY "/home/pi/PinkPanther/Apriltag/apriltag-master")
 
 # Force unix paths in dependencies.
 set(CMAKE_FORCE_UNIX_PATHS 1)

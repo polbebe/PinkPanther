@@ -52,7 +52,7 @@ set_target_properties(apriltag::apriltag PROPERTIES
 # Import target "apriltag::apriltag" for configuration "Release"
 set_property(TARGET apriltag::apriltag APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
 set_target_properties(apriltag::apriltag PROPERTIES
-  IMPORTED_LOCATION_RELEASE "/home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/libapriltag.so.3.1.0"
+  IMPORTED_LOCATION_RELEASE "/home/pi/PinkPanther/Apriltag/apriltag-master/libapriltag.so.3.1.0"
   IMPORTED_SONAME_RELEASE "libapriltag.so.3"
   )
 

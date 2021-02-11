@@ -46,7 +46,7 @@ EQUALS = =
 CMAKE_SOURCE_DIR = /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master
+CMAKE_BINARY_DIR = /home/pi/PinkPanther/Apriltag/apriltag-master
 
 # Include any dependencies generated for this target.
 include CMakeFiles/apriltag.dir/depend.make
@@ -58,8 +58,8 @@ include CMakeFiles/apriltag.dir/progress.make
 include CMakeFiles/apriltag.dir/flags.make
 
 CMakeFiles/apriltag.dir/apriltag.c.o: CMakeFiles/apriltag.dir/flags.make
-CMakeFiles/apriltag.dir/apriltag.c.o: apriltag.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/apriltag.dir/apriltag.c.o"
+CMakeFiles/apriltag.dir/apriltag.c.o: /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/apriltag.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/PinkPanther/Apriltag/apriltag-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/apriltag.dir/apriltag.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/apriltag.dir/apriltag.c.o   -c /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/apriltag.c
 
 CMakeFiles/apriltag.dir/apriltag.c.i: cmake_force
@@ -71,8 +71,8 @@ CMakeFiles/apriltag.dir/apriltag.c.s: cmake_force
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/apriltag.c -o CMakeFiles/apriltag.dir/apriltag.c.s
 
 CMakeFiles/apriltag.dir/apriltag_pose.c.o: CMakeFiles/apriltag.dir/flags.make
-CMakeFiles/apriltag.dir/apriltag_pose.c.o: apriltag_pose.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/apriltag.dir/apriltag_pose.c.o"
+CMakeFiles/apriltag.dir/apriltag_pose.c.o: /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/apriltag_pose.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/PinkPanther/Apriltag/apriltag-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/apriltag.dir/apriltag_pose.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/apriltag.dir/apriltag_pose.c.o   -c /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/apriltag_pose.c
 
 CMakeFiles/apriltag.dir/apriltag_pose.c.i: cmake_force
@@ -84,8 +84,8 @@ CMakeFiles/apriltag.dir/apriltag_pose.c.s: cmake_force
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/apriltag_pose.c -o CMakeFiles/apriltag.dir/apriltag_pose.c.s
 
 CMakeFiles/apriltag.dir/apriltag_quad_thresh.c.o: CMakeFiles/apriltag.dir/flags.make
-CMakeFiles/apriltag.dir/apriltag_quad_thresh.c.o: apriltag_quad_thresh.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/apriltag.dir/apriltag_quad_thresh.c.o"
+CMakeFiles/apriltag.dir/apriltag_quad_thresh.c.o: /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/apriltag_quad_thresh.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/PinkPanther/Apriltag/apriltag-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/apriltag.dir/apriltag_quad_thresh.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/apriltag.dir/apriltag_quad_thresh.c.o   -c /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/apriltag_quad_thresh.c
 
 CMakeFiles/apriltag.dir/apriltag_quad_thresh.c.i: cmake_force
@@ -97,8 +97,8 @@ CMakeFiles/apriltag.dir/apriltag_quad_thresh.c.s: cmake_force
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/apriltag_quad_thresh.c -o CMakeFiles/apriltag.dir/apriltag_quad_thresh.c.s
 
 CMakeFiles/apriltag.dir/common/g2d.c.o: CMakeFiles/apriltag.dir/flags.make
-CMakeFiles/apriltag.dir/common/g2d.c.o: common/g2d.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/apriltag.dir/common/g2d.c.o"
+CMakeFiles/apriltag.dir/common/g2d.c.o: /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/common/g2d.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/PinkPanther/Apriltag/apriltag-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/apriltag.dir/common/g2d.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/apriltag.dir/common/g2d.c.o   -c /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/common/g2d.c
 
 CMakeFiles/apriltag.dir/common/g2d.c.i: cmake_force
@@ -110,8 +110,8 @@ CMakeFiles/apriltag.dir/common/g2d.c.s: cmake_force
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/common/g2d.c -o CMakeFiles/apriltag.dir/common/g2d.c.s
 
 CMakeFiles/apriltag.dir/common/getopt.c.o: CMakeFiles/apriltag.dir/flags.make
-CMakeFiles/apriltag.dir/common/getopt.c.o: common/getopt.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/apriltag.dir/common/getopt.c.o"
+CMakeFiles/apriltag.dir/common/getopt.c.o: /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/common/getopt.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/PinkPanther/Apriltag/apriltag-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/apriltag.dir/common/getopt.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/apriltag.dir/common/getopt.c.o   -c /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/common/getopt.c
 
 CMakeFiles/apriltag.dir/common/getopt.c.i: cmake_force
@@ -123,8 +123,8 @@ CMakeFiles/apriltag.dir/common/getopt.c.s: cmake_force
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/common/getopt.c -o CMakeFiles/apriltag.dir/common/getopt.c.s
 
 CMakeFiles/apriltag.dir/common/homography.c.o: CMakeFiles/apriltag.dir/flags.make
-CMakeFiles/apriltag.dir/common/homography.c.o: common/homography.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/apriltag.dir/common/homography.c.o"
+CMakeFiles/apriltag.dir/common/homography.c.o: /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/common/homography.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/PinkPanther/Apriltag/apriltag-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/apriltag.dir/common/homography.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/apriltag.dir/common/homography.c.o   -c /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/common/homography.c
 
 CMakeFiles/apriltag.dir/common/homography.c.i: cmake_force
@@ -136,8 +136,8 @@ CMakeFiles/apriltag.dir/common/homography.c.s: cmake_force
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/common/homography.c -o CMakeFiles/apriltag.dir/common/homography.c.s
 
 CMakeFiles/apriltag.dir/common/image_u8.c.o: CMakeFiles/apriltag.dir/flags.make
-CMakeFiles/apriltag.dir/common/image_u8.c.o: common/image_u8.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/apriltag.dir/common/image_u8.c.o"
+CMakeFiles/apriltag.dir/common/image_u8.c.o: /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/common/image_u8.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/PinkPanther/Apriltag/apriltag-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/apriltag.dir/common/image_u8.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/apriltag.dir/common/image_u8.c.o   -c /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/common/image_u8.c
 
 CMakeFiles/apriltag.dir/common/image_u8.c.i: cmake_force
@@ -149,8 +149,8 @@ CMakeFiles/apriltag.dir/common/image_u8.c.s: cmake_force
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/common/image_u8.c -o CMakeFiles/apriltag.dir/common/image_u8.c.s
 
 CMakeFiles/apriltag.dir/common/image_u8x3.c.o: CMakeFiles/apriltag.dir/flags.make
-CMakeFiles/apriltag.dir/common/image_u8x3.c.o: common/image_u8x3.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/apriltag.dir/common/image_u8x3.c.o"
+CMakeFiles/apriltag.dir/common/image_u8x3.c.o: /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/common/image_u8x3.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/PinkPanther/Apriltag/apriltag-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/apriltag.dir/common/image_u8x3.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/apriltag.dir/common/image_u8x3.c.o   -c /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/common/image_u8x3.c
 
 CMakeFiles/apriltag.dir/common/image_u8x3.c.i: cmake_force
@@ -162,8 +162,8 @@ CMakeFiles/apriltag.dir/common/image_u8x3.c.s: cmake_force
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/common/image_u8x3.c -o CMakeFiles/apriltag.dir/common/image_u8x3.c.s
 
 CMakeFiles/apriltag.dir/common/image_u8x4.c.o: CMakeFiles/apriltag.dir/flags.make
-CMakeFiles/apriltag.dir/common/image_u8x4.c.o: common/image_u8x4.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/apriltag.dir/common/image_u8x4.c.o"
+CMakeFiles/apriltag.dir/common/image_u8x4.c.o: /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/common/image_u8x4.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/PinkPanther/Apriltag/apriltag-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/apriltag.dir/common/image_u8x4.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/apriltag.dir/common/image_u8x4.c.o   -c /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/common/image_u8x4.c
 
 CMakeFiles/apriltag.dir/common/image_u8x4.c.i: cmake_force
@@ -175,8 +175,8 @@ CMakeFiles/apriltag.dir/common/image_u8x4.c.s: cmake_force
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/common/image_u8x4.c -o CMakeFiles/apriltag.dir/common/image_u8x4.c.s
 
 CMakeFiles/apriltag.dir/common/matd.c.o: CMakeFiles/apriltag.dir/flags.make
-CMakeFiles/apriltag.dir/common/matd.c.o: common/matd.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/apriltag.dir/common/matd.c.o"
+CMakeFiles/apriltag.dir/common/matd.c.o: /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/common/matd.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/PinkPanther/Apriltag/apriltag-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/apriltag.dir/common/matd.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/apriltag.dir/common/matd.c.o   -c /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/common/matd.c
 
 CMakeFiles/apriltag.dir/common/matd.c.i: cmake_force
@@ -188,8 +188,8 @@ CMakeFiles/apriltag.dir/common/matd.c.s: cmake_force
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/common/matd.c -o CMakeFiles/apriltag.dir/common/matd.c.s
 
 CMakeFiles/apriltag.dir/common/pam.c.o: CMakeFiles/apriltag.dir/flags.make
-CMakeFiles/apriltag.dir/common/pam.c.o: common/pam.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/apriltag.dir/common/pam.c.o"
+CMakeFiles/apriltag.dir/common/pam.c.o: /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/common/pam.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/PinkPanther/Apriltag/apriltag-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/apriltag.dir/common/pam.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/apriltag.dir/common/pam.c.o   -c /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/common/pam.c
 
 CMakeFiles/apriltag.dir/common/pam.c.i: cmake_force
@@ -201,8 +201,8 @@ CMakeFiles/apriltag.dir/common/pam.c.s: cmake_force
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/common/pam.c -o CMakeFiles/apriltag.dir/common/pam.c.s
 
 CMakeFiles/apriltag.dir/common/pjpeg-idct.c.o: CMakeFiles/apriltag.dir/flags.make
-CMakeFiles/apriltag.dir/common/pjpeg-idct.c.o: common/pjpeg-idct.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/apriltag.dir/common/pjpeg-idct.c.o"
+CMakeFiles/apriltag.dir/common/pjpeg-idct.c.o: /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/common/pjpeg-idct.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/PinkPanther/Apriltag/apriltag-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/apriltag.dir/common/pjpeg-idct.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/apriltag.dir/common/pjpeg-idct.c.o   -c /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/common/pjpeg-idct.c
 
 CMakeFiles/apriltag.dir/common/pjpeg-idct.c.i: cmake_force
@@ -214,8 +214,8 @@ CMakeFiles/apriltag.dir/common/pjpeg-idct.c.s: cmake_force
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/common/pjpeg-idct.c -o CMakeFiles/apriltag.dir/common/pjpeg-idct.c.s
 
 CMakeFiles/apriltag.dir/common/pjpeg.c.o: CMakeFiles/apriltag.dir/flags.make
-CMakeFiles/apriltag.dir/common/pjpeg.c.o: common/pjpeg.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object CMakeFiles/apriltag.dir/common/pjpeg.c.o"
+CMakeFiles/apriltag.dir/common/pjpeg.c.o: /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/common/pjpeg.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/PinkPanther/Apriltag/apriltag-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object CMakeFiles/apriltag.dir/common/pjpeg.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/apriltag.dir/common/pjpeg.c.o   -c /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/common/pjpeg.c
 
 CMakeFiles/apriltag.dir/common/pjpeg.c.i: cmake_force
@@ -227,8 +227,8 @@ CMakeFiles/apriltag.dir/common/pjpeg.c.s: cmake_force
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/common/pjpeg.c -o CMakeFiles/apriltag.dir/common/pjpeg.c.s
 
 CMakeFiles/apriltag.dir/common/pnm.c.o: CMakeFiles/apriltag.dir/flags.make
-CMakeFiles/apriltag.dir/common/pnm.c.o: common/pnm.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building C object CMakeFiles/apriltag.dir/common/pnm.c.o"
+CMakeFiles/apriltag.dir/common/pnm.c.o: /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/common/pnm.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/PinkPanther/Apriltag/apriltag-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building C object CMakeFiles/apriltag.dir/common/pnm.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/apriltag.dir/common/pnm.c.o   -c /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/common/pnm.c
 
 CMakeFiles/apriltag.dir/common/pnm.c.i: cmake_force
@@ -240,8 +240,8 @@ CMakeFiles/apriltag.dir/common/pnm.c.s: cmake_force
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/common/pnm.c -o CMakeFiles/apriltag.dir/common/pnm.c.s
 
 CMakeFiles/apriltag.dir/common/string_util.c.o: CMakeFiles/apriltag.dir/flags.make
-CMakeFiles/apriltag.dir/common/string_util.c.o: common/string_util.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building C object CMakeFiles/apriltag.dir/common/string_util.c.o"
+CMakeFiles/apriltag.dir/common/string_util.c.o: /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/common/string_util.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/PinkPanther/Apriltag/apriltag-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building C object CMakeFiles/apriltag.dir/common/string_util.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/apriltag.dir/common/string_util.c.o   -c /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/common/string_util.c
 
 CMakeFiles/apriltag.dir/common/string_util.c.i: cmake_force
@@ -253,8 +253,8 @@ CMakeFiles/apriltag.dir/common/string_util.c.s: cmake_force
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/common/string_util.c -o CMakeFiles/apriltag.dir/common/string_util.c.s
 
 CMakeFiles/apriltag.dir/common/svd22.c.o: CMakeFiles/apriltag.dir/flags.make
-CMakeFiles/apriltag.dir/common/svd22.c.o: common/svd22.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building C object CMakeFiles/apriltag.dir/common/svd22.c.o"
+CMakeFiles/apriltag.dir/common/svd22.c.o: /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/common/svd22.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/PinkPanther/Apriltag/apriltag-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building C object CMakeFiles/apriltag.dir/common/svd22.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/apriltag.dir/common/svd22.c.o   -c /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/common/svd22.c
 
 CMakeFiles/apriltag.dir/common/svd22.c.i: cmake_force
@@ -266,8 +266,8 @@ CMakeFiles/apriltag.dir/common/svd22.c.s: cmake_force
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/common/svd22.c -o CMakeFiles/apriltag.dir/common/svd22.c.s
 
 CMakeFiles/apriltag.dir/common/time_util.c.o: CMakeFiles/apriltag.dir/flags.make
-CMakeFiles/apriltag.dir/common/time_util.c.o: common/time_util.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building C object CMakeFiles/apriltag.dir/common/time_util.c.o"
+CMakeFiles/apriltag.dir/common/time_util.c.o: /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/common/time_util.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/PinkPanther/Apriltag/apriltag-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building C object CMakeFiles/apriltag.dir/common/time_util.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/apriltag.dir/common/time_util.c.o   -c /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/common/time_util.c
 
 CMakeFiles/apriltag.dir/common/time_util.c.i: cmake_force
@@ -279,8 +279,8 @@ CMakeFiles/apriltag.dir/common/time_util.c.s: cmake_force
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/common/time_util.c -o CMakeFiles/apriltag.dir/common/time_util.c.s
 
 CMakeFiles/apriltag.dir/common/unionfind.c.o: CMakeFiles/apriltag.dir/flags.make
-CMakeFiles/apriltag.dir/common/unionfind.c.o: common/unionfind.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building C object CMakeFiles/apriltag.dir/common/unionfind.c.o"
+CMakeFiles/apriltag.dir/common/unionfind.c.o: /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/common/unionfind.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/PinkPanther/Apriltag/apriltag-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building C object CMakeFiles/apriltag.dir/common/unionfind.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/apriltag.dir/common/unionfind.c.o   -c /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/common/unionfind.c
 
 CMakeFiles/apriltag.dir/common/unionfind.c.i: cmake_force
@@ -292,8 +292,8 @@ CMakeFiles/apriltag.dir/common/unionfind.c.s: cmake_force
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/common/unionfind.c -o CMakeFiles/apriltag.dir/common/unionfind.c.s
 
 CMakeFiles/apriltag.dir/common/workerpool.c.o: CMakeFiles/apriltag.dir/flags.make
-CMakeFiles/apriltag.dir/common/workerpool.c.o: common/workerpool.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building C object CMakeFiles/apriltag.dir/common/workerpool.c.o"
+CMakeFiles/apriltag.dir/common/workerpool.c.o: /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/common/workerpool.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/PinkPanther/Apriltag/apriltag-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building C object CMakeFiles/apriltag.dir/common/workerpool.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/apriltag.dir/common/workerpool.c.o   -c /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/common/workerpool.c
 
 CMakeFiles/apriltag.dir/common/workerpool.c.i: cmake_force
@@ -305,8 +305,8 @@ CMakeFiles/apriltag.dir/common/workerpool.c.s: cmake_force
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/common/workerpool.c -o CMakeFiles/apriltag.dir/common/workerpool.c.s
 
 CMakeFiles/apriltag.dir/common/zarray.c.o: CMakeFiles/apriltag.dir/flags.make
-CMakeFiles/apriltag.dir/common/zarray.c.o: common/zarray.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building C object CMakeFiles/apriltag.dir/common/zarray.c.o"
+CMakeFiles/apriltag.dir/common/zarray.c.o: /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/common/zarray.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/PinkPanther/Apriltag/apriltag-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building C object CMakeFiles/apriltag.dir/common/zarray.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/apriltag.dir/common/zarray.c.o   -c /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/common/zarray.c
 
 CMakeFiles/apriltag.dir/common/zarray.c.i: cmake_force
@@ -318,8 +318,8 @@ CMakeFiles/apriltag.dir/common/zarray.c.s: cmake_force
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/common/zarray.c -o CMakeFiles/apriltag.dir/common/zarray.c.s
 
 CMakeFiles/apriltag.dir/common/zhash.c.o: CMakeFiles/apriltag.dir/flags.make
-CMakeFiles/apriltag.dir/common/zhash.c.o: common/zhash.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building C object CMakeFiles/apriltag.dir/common/zhash.c.o"
+CMakeFiles/apriltag.dir/common/zhash.c.o: /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/common/zhash.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/PinkPanther/Apriltag/apriltag-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building C object CMakeFiles/apriltag.dir/common/zhash.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/apriltag.dir/common/zhash.c.o   -c /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/common/zhash.c
 
 CMakeFiles/apriltag.dir/common/zhash.c.i: cmake_force
@@ -331,8 +331,8 @@ CMakeFiles/apriltag.dir/common/zhash.c.s: cmake_force
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/common/zhash.c -o CMakeFiles/apriltag.dir/common/zhash.c.s
 
 CMakeFiles/apriltag.dir/common/zmaxheap.c.o: CMakeFiles/apriltag.dir/flags.make
-CMakeFiles/apriltag.dir/common/zmaxheap.c.o: common/zmaxheap.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building C object CMakeFiles/apriltag.dir/common/zmaxheap.c.o"
+CMakeFiles/apriltag.dir/common/zmaxheap.c.o: /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/common/zmaxheap.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/PinkPanther/Apriltag/apriltag-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building C object CMakeFiles/apriltag.dir/common/zmaxheap.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/apriltag.dir/common/zmaxheap.c.o   -c /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/common/zmaxheap.c
 
 CMakeFiles/apriltag.dir/common/zmaxheap.c.i: cmake_force
@@ -344,8 +344,8 @@ CMakeFiles/apriltag.dir/common/zmaxheap.c.s: cmake_force
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/common/zmaxheap.c -o CMakeFiles/apriltag.dir/common/zmaxheap.c.s
 
 CMakeFiles/apriltag.dir/tag16h5.c.o: CMakeFiles/apriltag.dir/flags.make
-CMakeFiles/apriltag.dir/tag16h5.c.o: tag16h5.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building C object CMakeFiles/apriltag.dir/tag16h5.c.o"
+CMakeFiles/apriltag.dir/tag16h5.c.o: /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/tag16h5.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/PinkPanther/Apriltag/apriltag-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building C object CMakeFiles/apriltag.dir/tag16h5.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -O0 -o CMakeFiles/apriltag.dir/tag16h5.c.o   -c /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/tag16h5.c
 
 CMakeFiles/apriltag.dir/tag16h5.c.i: cmake_force
@@ -357,8 +357,8 @@ CMakeFiles/apriltag.dir/tag16h5.c.s: cmake_force
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -O0 -S /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/tag16h5.c -o CMakeFiles/apriltag.dir/tag16h5.c.s
 
 CMakeFiles/apriltag.dir/tag25h9.c.o: CMakeFiles/apriltag.dir/flags.make
-CMakeFiles/apriltag.dir/tag25h9.c.o: tag25h9.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building C object CMakeFiles/apriltag.dir/tag25h9.c.o"
+CMakeFiles/apriltag.dir/tag25h9.c.o: /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/tag25h9.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/PinkPanther/Apriltag/apriltag-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building C object CMakeFiles/apriltag.dir/tag25h9.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -O0 -o CMakeFiles/apriltag.dir/tag25h9.c.o   -c /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/tag25h9.c
 
 CMakeFiles/apriltag.dir/tag25h9.c.i: cmake_force
@@ -370,8 +370,8 @@ CMakeFiles/apriltag.dir/tag25h9.c.s: cmake_force
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -O0 -S /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/tag25h9.c -o CMakeFiles/apriltag.dir/tag25h9.c.s
 
 CMakeFiles/apriltag.dir/tag36h11.c.o: CMakeFiles/apriltag.dir/flags.make
-CMakeFiles/apriltag.dir/tag36h11.c.o: tag36h11.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building C object CMakeFiles/apriltag.dir/tag36h11.c.o"
+CMakeFiles/apriltag.dir/tag36h11.c.o: /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/tag36h11.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/PinkPanther/Apriltag/apriltag-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building C object CMakeFiles/apriltag.dir/tag36h11.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -O0 -o CMakeFiles/apriltag.dir/tag36h11.c.o   -c /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/tag36h11.c
 
 CMakeFiles/apriltag.dir/tag36h11.c.i: cmake_force
@@ -383,8 +383,8 @@ CMakeFiles/apriltag.dir/tag36h11.c.s: cmake_force
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -O0 -S /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/tag36h11.c -o CMakeFiles/apriltag.dir/tag36h11.c.s
 
 CMakeFiles/apriltag.dir/tagCircle21h7.c.o: CMakeFiles/apriltag.dir/flags.make
-CMakeFiles/apriltag.dir/tagCircle21h7.c.o: tagCircle21h7.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building C object CMakeFiles/apriltag.dir/tagCircle21h7.c.o"
+CMakeFiles/apriltag.dir/tagCircle21h7.c.o: /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/tagCircle21h7.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/PinkPanther/Apriltag/apriltag-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building C object CMakeFiles/apriltag.dir/tagCircle21h7.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -O0 -o CMakeFiles/apriltag.dir/tagCircle21h7.c.o   -c /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/tagCircle21h7.c
 
 CMakeFiles/apriltag.dir/tagCircle21h7.c.i: cmake_force
@@ -396,8 +396,8 @@ CMakeFiles/apriltag.dir/tagCircle21h7.c.s: cmake_force
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -O0 -S /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/tagCircle21h7.c -o CMakeFiles/apriltag.dir/tagCircle21h7.c.s
 
 CMakeFiles/apriltag.dir/tagCircle49h12.c.o: CMakeFiles/apriltag.dir/flags.make
-CMakeFiles/apriltag.dir/tagCircle49h12.c.o: tagCircle49h12.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building C object CMakeFiles/apriltag.dir/tagCircle49h12.c.o"
+CMakeFiles/apriltag.dir/tagCircle49h12.c.o: /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/tagCircle49h12.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/PinkPanther/Apriltag/apriltag-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building C object CMakeFiles/apriltag.dir/tagCircle49h12.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -O0 -o CMakeFiles/apriltag.dir/tagCircle49h12.c.o   -c /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/tagCircle49h12.c
 
 CMakeFiles/apriltag.dir/tagCircle49h12.c.i: cmake_force
@@ -409,8 +409,8 @@ CMakeFiles/apriltag.dir/tagCircle49h12.c.s: cmake_force
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -O0 -S /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/tagCircle49h12.c -o CMakeFiles/apriltag.dir/tagCircle49h12.c.s
 
 CMakeFiles/apriltag.dir/tagCustom48h12.c.o: CMakeFiles/apriltag.dir/flags.make
-CMakeFiles/apriltag.dir/tagCustom48h12.c.o: tagCustom48h12.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building C object CMakeFiles/apriltag.dir/tagCustom48h12.c.o"
+CMakeFiles/apriltag.dir/tagCustom48h12.c.o: /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/tagCustom48h12.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/PinkPanther/Apriltag/apriltag-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building C object CMakeFiles/apriltag.dir/tagCustom48h12.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -O0 -o CMakeFiles/apriltag.dir/tagCustom48h12.c.o   -c /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/tagCustom48h12.c
 
 CMakeFiles/apriltag.dir/tagCustom48h12.c.i: cmake_force
@@ -422,8 +422,8 @@ CMakeFiles/apriltag.dir/tagCustom48h12.c.s: cmake_force
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -O0 -S /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/tagCustom48h12.c -o CMakeFiles/apriltag.dir/tagCustom48h12.c.s
 
 CMakeFiles/apriltag.dir/tagStandard41h12.c.o: CMakeFiles/apriltag.dir/flags.make
-CMakeFiles/apriltag.dir/tagStandard41h12.c.o: tagStandard41h12.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building C object CMakeFiles/apriltag.dir/tagStandard41h12.c.o"
+CMakeFiles/apriltag.dir/tagStandard41h12.c.o: /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/tagStandard41h12.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/PinkPanther/Apriltag/apriltag-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building C object CMakeFiles/apriltag.dir/tagStandard41h12.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -O0 -o CMakeFiles/apriltag.dir/tagStandard41h12.c.o   -c /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/tagStandard41h12.c
 
 CMakeFiles/apriltag.dir/tagStandard41h12.c.i: cmake_force
@@ -435,8 +435,8 @@ CMakeFiles/apriltag.dir/tagStandard41h12.c.s: cmake_force
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -O0 -S /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/tagStandard41h12.c -o CMakeFiles/apriltag.dir/tagStandard41h12.c.s
 
 CMakeFiles/apriltag.dir/tagStandard52h13.c.o: CMakeFiles/apriltag.dir/flags.make
-CMakeFiles/apriltag.dir/tagStandard52h13.c.o: tagStandard52h13.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building C object CMakeFiles/apriltag.dir/tagStandard52h13.c.o"
+CMakeFiles/apriltag.dir/tagStandard52h13.c.o: /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/tagStandard52h13.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/PinkPanther/Apriltag/apriltag-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building C object CMakeFiles/apriltag.dir/tagStandard52h13.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -O0 -o CMakeFiles/apriltag.dir/tagStandard52h13.c.o   -c /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/tagStandard52h13.c
 
 CMakeFiles/apriltag.dir/tagStandard52h13.c.i: cmake_force
@@ -515,7 +515,7 @@ libapriltag.so.3.1.0: CMakeFiles/apriltag.dir/tagStandard41h12.c.o
 libapriltag.so.3.1.0: CMakeFiles/apriltag.dir/tagStandard52h13.c.o
 libapriltag.so.3.1.0: CMakeFiles/apriltag.dir/build.make
 libapriltag.so.3.1.0: CMakeFiles/apriltag.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Linking C shared library libapriltag.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/pi/PinkPanther/Apriltag/apriltag-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Linking C shared library libapriltag.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/apriltag.dir/link.txt --verbose=$(VERBOSE)
 	$(CMAKE_COMMAND) -E cmake_symlink_library libapriltag.so.3.1.0 libapriltag.so.3 libapriltag.so
 
@@ -535,6 +535,6 @@ CMakeFiles/apriltag.dir/clean:
 .PHONY : CMakeFiles/apriltag.dir/clean
 
 CMakeFiles/apriltag.dir/depend:
-	cd /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master/CMakeFiles/apriltag.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/pi/PinkPanther/Apriltag/apriltag-master && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master /home/pi/Desktop/PinkPanther/Apriltag/apriltag-master /home/pi/PinkPanther/Apriltag/apriltag-master /home/pi/PinkPanther/Apriltag/apriltag-master /home/pi/PinkPanther/Apriltag/apriltag-master/CMakeFiles/apriltag.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/apriltag.dir/depend
 

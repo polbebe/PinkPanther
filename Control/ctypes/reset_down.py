@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
-import numpy as np
 from ServoMotor import *
-import math as m
 import time
 
 

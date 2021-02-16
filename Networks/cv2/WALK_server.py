@@ -78,7 +78,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
 	conn, addr = s.accept()
 	# What to do with 
 	with conn:
-		print('Connected by: ', addr)
+		#print('Connected by: ', addr)
 		i = 0
 		j = 0
 		max_time = 400
@@ -86,7 +86,8 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
 		while j<max_time:
 			# Receive connection from client
 			data = conn.recv(1024)
-			print(np.frombuffer(data, dtype=np.float32))
+			print("Received at: {}".format(time.time()-start))
+			#print(np.frombuffer(data, dtype=np.float32))
 			# Calculate servo positions
 			pos[0] = 510
 			pos[1] = servo12(v[3] + v[4]*m.sin(i*v[36] + v[5]))
@@ -103,8 +104,10 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
 			# Prepare and send position data to client
 			pos_data = pos.tobytes()
 			conn.sendall(pos_data)
+			print("Sent at: {}".format(time.time()-start))
+			print('---')
 			# Calculate the actions/second
-			sys.stdout.write(str(i)+' in: '+str(round(time.time()-start,3))+' Averaging: '+str(round(i/(time.time()-start),2))+' actions/s\r')
+			#sys.stdout.write(str(i)+' in: '+str(round(time.time()-start,3))+' Averaging: '+str(round(i/(time.time()-start),2))+' actions/s\r')
 			i += 4
 			j += 1
 		print(str(j)+' in: '+str(round(time.time()-start,3))+' Averaging: '+str(round(j/(time.time()-start),2))+' actions/s')

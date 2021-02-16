@@ -43,7 +43,10 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     s.connect((HOST, PORT))
 
     servo_values = np.zeros(12, dtype=np.float32)
-
+    
+    start = time.time()
+    print(start)
+    
     # Start walking
     while True:
         # Get position data to be sent back
@@ -61,8 +64,13 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         servo_values[11] = motor.readPosition(41)
         # Send state
         s.sendall(servo_values.tobytes())
+        t = time.time()-start
+        print("Sent at: {}".format(t))
+        print('---')
         # Get position data from server
         pos_data = s.recv(1024)
+        t = time.time()-start
+        print("Received at: {}".format(t))
         pos = np.frombuffer(pos_data, dtype=np.float32)
         # If there's no more data break the loop
         if not pos_data:

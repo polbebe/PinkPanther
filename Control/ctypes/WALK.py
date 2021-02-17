@@ -64,6 +64,7 @@ v = np.array(df['Best Values'], dtype=np.float32)
 # Create positons array that will be calculated on each step
 # and sent to client
 pos = np.zeros(12, dtype=np.float32)
+prev_pos = np.zeros(12, dtype=np.float32)
 
 filename = "/dev/ttyUSB0"
 motor = ServoMotor(filename)
@@ -93,6 +94,8 @@ motor.setServoMode(42)
 motor.setServoMode(41)
 
 
+max_diff = 0
+
 i = 0
 j = 0
 max_time = 400
@@ -111,6 +114,26 @@ while j<max_time:
 	pos[9] = 500
 	pos[10] = servo42(v[30] + v[31]*m.sin(i*v[36] + v[32]))
 	pos[11] = servo41(v[33] + v[34]*m.sin(i*v[36] + v[35]))
+
+	prev_pos[0] = pos[0] 
+	prev_pos[1] = pos[1]
+	prev_pos[2] = pos[2] 
+	prev_pos[3] = pos[3] 
+	prev_pos[4] = pos[4] 
+	prev_pos[5] = pos[5] 
+	prev_pos[6] = pos[6] 
+	prev_pos[7] = pos[7] 
+	prev_pos[8] = pos[8] 
+	prev_pos[9] = pos[9] 
+	prev_pos[10] = pos[10]
+	prev_pos[11] = pos[11]
+
+	j = 0
+	for i in pos:
+		diff = abs(i - prev_pos[j])
+		if diff > max_diff:
+			max_diff = diff
+		j += 1
 	
 	# Move all servos to their corresponding position
 	# LEFT front
@@ -137,6 +160,7 @@ while j<max_time:
 	i += 4
 	j += 1
 
-print(str(j)+' in: '+str(round(time.time()-start,3))+' Averaging: '+str(round(j/(time.time()-start),2))+' actions/s')
+print(str(i)+' in: '+str(round(time.time()-start,3))+' Averaging: '+str(round(i/(time.time()-start),2))+' actions/s')
+print('Max difference between positions is: {}'.format(max_diff))
 
 

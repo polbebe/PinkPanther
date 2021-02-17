@@ -121,7 +121,7 @@ while j<max_time:
 		for pos_i, prev_pos_i in zip_object:
 			diff.append(abs(pos_i - prev_pos_i))
 		if max(diff) > max_diff:
-            max_diff = max(diff)
+			max_diff = max(diff)
 	
 	prev_pos[0] = pos[0] 
 	prev_pos[1] = pos[1]

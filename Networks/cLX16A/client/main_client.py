@@ -24,8 +24,7 @@ class Listener():
         # Servo position values that will be updated
         self.pos = None
 
-        # 
-        self.socket = True
+        self.socket = False
 
         # Initialize both IMU client and SERVO client
         self.imu = ImuData()
@@ -52,7 +51,7 @@ class Listener():
 
         # If there's no more data being received, break the loop
         if not p:
-            print('Stopped')
+            print('CONNECTION BROKEN')
             self.socket = False
             return None
 

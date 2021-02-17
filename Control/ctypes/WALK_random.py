@@ -32,7 +32,7 @@ max_actions = 100 #Real = max_actions*4
 start = time.time()
 
 # WALK
-while j<max_time:
+while j<max_actions:
 
 	# Get current position of motors
 	z = 0
@@ -44,13 +44,16 @@ while j<max_time:
 			z += 1
 
 	
-	# Move motors to current position plus delta_pos
+	# Move motors to current position plus RANDOM delta_pos
 	z = 0
 	for k in range(1,5):
 		a = 10*k
 		r = range(a, a+3)
 		for l in r:
-			motor.move(l, int(pos[z] + delta_pos), 100)
+			if random.getrandbits(1) > 0:
+				motor.move(l, int(pos[z] + delta_pos), 100)
+			else:
+				motor.move(l, int(pos[z] - delta_pos), 100)
 			z += 1
 
 	# patience

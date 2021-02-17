@@ -73,8 +73,8 @@ motor = ServoMotor(filename)
 # Initialize USB Port
 IO = motor.IO_Init()
 if IO < 0:
-    print('IO exit')
-    sys.exit()
+	print('IO exit')
+	sys.exit()
 
 # Set servo mode to all servos
 # LEFT front
@@ -117,13 +117,13 @@ while j<max_time:
 	pos[11] = servo41(v[33] + v[34]*m.sin(i*v[36] + v[35]))
 	
 	if j>0:
-        zip_object = zip(pos, prev_pos)
-        for pos_i, prev_pos_i in zip_object:
-            diff.append(abs(pos_i - prev_pos_i))
-    
-    if max(diff) > max_diff:
-        max_diff = max(diff)
-    
+		zip_object = zip(pos, prev_pos)
+		for pos_i, prev_pos_i in zip_object:
+			diff.append(abs(pos_i - prev_pos_i))
+	
+	if max(diff) > max_diff:
+		max_diff = max(diff)
+	
 	prev_pos[0] = pos[0] 
 	prev_pos[1] = pos[1]
 	prev_pos[2] = pos[2] 

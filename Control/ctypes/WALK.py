@@ -65,6 +65,7 @@ v = np.array(df['Best Values'], dtype=np.float32)
 # and sent to client
 pos = np.zeros(12, dtype=np.float32)
 prev_pos = np.zeros(12, dtype=np.float32)
+diff = []
 
 filename = "/dev/ttyUSB0"
 motor = ServoMotor(filename)
@@ -114,7 +115,15 @@ while j<max_time:
 	pos[9] = 500
 	pos[10] = servo42(v[30] + v[31]*m.sin(i*v[36] + v[32]))
 	pos[11] = servo41(v[33] + v[34]*m.sin(i*v[36] + v[35]))
-
+	
+	if j>0:
+        zip_object = zip(pos, prev_pos)
+        for pos_i, prev_pos_i in zip_object:
+            diff.append(abs(pos_i - prev_pos_i))
+    
+    if max(diff) > max_diff:
+        max_diff = max(diff)
+    
 	prev_pos[0] = pos[0] 
 	prev_pos[1] = pos[1]
 	prev_pos[2] = pos[2] 
@@ -128,12 +137,7 @@ while j<max_time:
 	prev_pos[10] = pos[10]
 	prev_pos[11] = pos[11]
 
-	j = 0
-	for i in pos:
-		diff = abs(i - prev_pos[j])
-		if diff > max_diff:
-			max_diff = diff
-		j += 1
+	
 	
 	# Move all servos to their corresponding position
 	# LEFT front
@@ -161,6 +165,6 @@ while j<max_time:
 	j += 1
 
 print(str(i)+' in: '+str(round(time.time()-start,3))+' Averaging: '+str(round(i/(time.time()-start),2))+' actions/s')
-print('Max difference between positions is: {}'.format(max_diff))
+print('Max difference between any two positions was {}'.format(max_diff))
 
 

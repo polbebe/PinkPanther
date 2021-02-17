@@ -27,7 +27,7 @@ class ServoData():
 			a = 10*j
 			r = range(a, a+3)
 			for i in r:
-			self.motor.setServoMode(i)
+				self.motor.setServoMode(i)
 		
 	# Write new current SERVO Values
 	def write(self, pos):

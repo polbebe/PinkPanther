@@ -56,7 +56,7 @@ class ServoData():
 				if l%10 == 0:
 					self.servo_values[z] = 0
 				else:
-					self.servo_values[z] = motor.readPosition(l)
+					self.servo_values[z] = self.motor.readPosition(l)
 				z += 1
 
 		return self.servo_values

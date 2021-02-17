@@ -44,10 +44,12 @@ class Listener():
 	def step(self):
 		# Send current state of robot
 		self.s.sendall(self.read().tobytes())
+		print('sent')
 
 		# Receive new servo positions to be taken
 		p = self.s.recv(1024)
 		self.pos = np.frombuffer(p, dtype=np.int)
+		print('received')
 
 		# If there's no more data being received, break the loop
 		if not p:
@@ -57,6 +59,7 @@ class Listener():
 
 		# Else write 
 		self.servo.write(self.pos)
+		print('written')
 
 	# Check whether socket should still be running
 	def is_true(self):

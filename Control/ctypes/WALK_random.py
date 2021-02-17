@@ -50,10 +50,13 @@ while j<max_actions:
 		a = 10*k
 		r = range(a, a+3)
 		for l in r:
-			if random.getrandbits(1) > 0:
-				motor.move(l, int(pos[z] + delta_pos), 100)
+			if l%10 == 0:
+				motor.move(l, int(pos[z]), 100)
 			else:
-				motor.move(l, int(pos[z] - delta_pos), 100)
+				if random.getrandbits(1) > 0:
+					motor.move(l, int(pos[z] + delta_pos), 100)
+				else:
+					motor.move(l, int(pos[z] - delta_pos), 100)
 			z += 1
 
 	# patience

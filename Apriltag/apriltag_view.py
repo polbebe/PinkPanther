@@ -5,7 +5,7 @@ import cv2
 from apriltag import apriltag
  
 TITLE      = "apriltag_view"  # Window title
-TAG        = "tag16h5"        # Tag family
+TAG        = "tag36h11"        # Tag family, tag16h5, tag36h11
 MIN_MARGIN = 10               # Filter value for tag detection
 FONT       = cv2.FONT_HERSHEY_SIMPLEX  # Font for ID value
 RED        = 0,0,255          # Colour of ident & frame (BGR)
@@ -13,6 +13,9 @@ RED        = 0,0,255          # Colour of ident & frame (BGR)
 if __name__ == '__main__':
     cam = cv2.VideoCapture(0)
     detector = apriltag(TAG)
+    k = 0
+    xstart = 0
+    ystart = 0
     while cv2.waitKey(1) != 0x1b:
         ret, img = cam.read()
         greys = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
@@ -24,6 +27,13 @@ if __name__ == '__main__':
                 ident = str(det["id"])
                 pos = det["center"].astype(int) + (-10,10)
                 cv2.putText(img, ident, tuple(pos), FONT, 1, RED, 2)
-                print("%s: %6.1f,%6.1f" % (det["id"], det["center"][0], det["center"][1]))
+                if k == 0:
+                    xstart = det["center"][0]
+                    ystart = det["center"][1]
+                    print('Start pos, x: {}, y: {}'.format(xstart, ystart))
+                deltax = det["center"][0] - xstart
+                deltay = det["center"][1] - ystart
+                print("Tag %s: x: %6.1f, y: %6.1f" % (det["id"], deltax, deltay))
+                k = k+1
         cv2.imshow(TITLE, img)
     cv2.destroyAllWindows()

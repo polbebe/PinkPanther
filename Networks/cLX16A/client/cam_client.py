@@ -8,9 +8,9 @@ import time
 
 class CamData():
     # Constructor method
-    def __init__(self, tag):
+    def __init__(self):
         
-        self.TAG = tag
+        self.TAG = "tag36h11"
         self.MIN_MARGIN = 10
 
         self.k = 0
@@ -20,37 +20,37 @@ class CamData():
         self.currenty = 0
 
         self.cam = cv2.VideoCapture(0)
-        self.detector = apriltag(TAG)
+        self.detector = apriltag(self.TAG)
 
-        self.ret, self.img = cam.read()
-        self.greys = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-        self.det = detector.detect(greys)
+        self.ret, self.img = self.cam.read()
+        self.greys = cv2.cvtColor(self.img, cv2.COLOR_BGR2GRAY)
+        self.dets = self.detector.detect(self.greys)
         self.rect = 0
 
 
     # Read next position in camera
     def read(self):
+        for det in self.dets:
+            if det["margin"] >= self.MIN_MARGIN:
 
-        if self.det["margin"] >= self.MIN_MARGIN:
+                self.rect = det["lb-rb-rt-lt"].astype(int).reshape((-1,1,2))
 
-            self.rect = self.det["lb-rb-rt-lt"].astype(int).reshape((-1,1,2))
+                if self.k == 0:
+                    self.xstart = det["center"][0]
+                    self.ystart = det["center"][1]
+                    print('Start pos, x: {}, y: {}'.format(self.xstart, self.ystart))
 
-            if self.k == 0:
-                self.xstart = self.det["center"][0]
-                self.ystart = self.det["center"][1]
-                print('Start pos, x: {}, y: {}'.format(self.xstart, self.ystart))
+                self.currentx = det["center"][0] - self.xstart
+                self.currenty = det["center"][1] - self.ystart
 
-            self.currentx = det["center"][0] - self.xstart
-            self.currenty = det["center"][1] - self.ystart
+                self.k += 1
 
-            self.k += 1
-
-            return [self.currentx, self.currenty]
+                return [self.currentx, self.currenty]
 
 if __name__ == '__main__':
     # Construct Cam object and allow use of methods
-    i = CamData("tag36h11")
+    i = CamData()
 
     while True:
         pos = i.read()
-        print('x:{}, y:{}'.format(pos[0], pos[1]))
+        #print(pos)

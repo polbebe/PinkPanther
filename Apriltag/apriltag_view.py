@@ -24,5 +24,6 @@ if __name__ == '__main__':
                 ident = str(det["id"])
                 pos = det["center"].astype(int) + (-10,10)
                 cv2.putText(img, ident, tuple(pos), FONT, 1, RED, 2)
+                print("%s: %6.1f,%6.1f" % (det["id"], det["center"][0], det["center"][1]))
         cv2.imshow(TITLE, img)
     cv2.destroyAllWindows()

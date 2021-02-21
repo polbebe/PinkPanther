@@ -2,6 +2,9 @@ from sense_hat import SenseHat
 
 import numpy as np
 
+import time
+import sys
+
 class ImuData():
 	# Constructor method
 	def __init__(self):
@@ -27,3 +30,9 @@ class ImuData():
 if __name__ == '__main__':
 	# Construct IMU object and allow use of methods
 	i = ImuData()
+
+	# UNIT TEST
+	while True:
+		# Get IMU data from robot
+		a = i.read()
+		print(a)

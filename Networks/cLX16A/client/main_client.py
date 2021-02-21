@@ -72,4 +72,3 @@ if __name__ == '__main__':
 		client.step()
 		
 		#time.sleep(0.001)
-

@@ -44,7 +44,6 @@ class CamData():
 					self.x0 = det["center"][0]
 					self.y0 = det["center"][1]
 					print('Start pos, x: {}, y: {}'.format(self.x0, self.y0))
-					k = 1
 
 				# Calculate delta pos
 				deltax = det["center"][0] - self.x0
@@ -54,6 +53,7 @@ class CamData():
 				self.x0 = det["center"][0]
 				self.y0 = det["center"][1]
 
+				k += 1
 				return [deltax, deltay]
 
 

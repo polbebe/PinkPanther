@@ -51,14 +51,15 @@ class CamData():
                 # Keep track of previous pos
                 self.x0 = det["center"][0]
                 self.y0 = det["center"][1]
-                
+
                 # Print and advance counter
-                print("Tag %s: x: %6.1f, y: %6.1f" % (det["id"], deltax, deltay))
+                #print("Tag %s: x: %6.1f, y: %6.1f" % (det["id"], deltax, deltay))
                 self.k += 1
+                return [deltax, deltay]
 
 
 if __name__=='__main__':
     i = CamData()
     while True:
-        i.frame()
-        print('hello')
+        a = i.frame()
+        print(a)

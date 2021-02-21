@@ -20,13 +20,16 @@ class CamData():
         self.x0 = 0
         self.y0 = 0
 
+        self.cam = cv2.VideoCapture(0)
+        self.detector = apriltag(self.TAG)
+
     def frame(self):
-        cam = cv2.VideoCapture(0)
-        detector = apriltag(self.TAG)
-        while cv2.waitKey(1) != 0x1b:
-            ret, img = cam.read()
+        #cam = cv2.VideoCapture(0)
+        #detector = apriltag(self.TAG)
+        while True:
+            ret, img = self.cam.read()
             greys = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-            dets = detector.detect(greys)
+            dets = self.detector.detect(greys)
             for det in dets:
                 if det["margin"] >= self.MIN_MARGIN:
                     rect = det["lb-rb-rt-lt"].astype(int).reshape((-1,1,2))

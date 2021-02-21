@@ -9,56 +9,48 @@ import time
 class CamData():
     # Constructor method
     def __init__(self):
-        
-        self.TAG = "tag36h11"
-        self.MIN_MARGIN = 10
-        
-        #
-        self.TITLE = "apriltag_view"
-        self.FONT = cv2.FONT_HERSHEY_SIMPLEX
-        self.RED = 0,0,255
-        #
-
-        self.cam = cv2.VideoCapture(0)
-        self.detector = apriltag(self.TAG)
+ 
+        self.TITLE      = "apriltag_view"  # Window title
+        self.TAG        = "tag36h11"        # Tag family, tag16h5, tag36h11
+        self.MIN_MARGIN = 10               # Filter value for tag detection
+        self.FONT       = cv2.FONT_HERSHEY_SIMPLEX  # Font for ID value
+        self.RED        = 0,0,255          # Colour of ident & frame (BGR)
 
         self.k = 0
         self.x0 = 0
         self.y0 = 0
 
-        self.ret, self.img = self.cam.read()
-        self.greys = cv2.cvtColor(self.img, cv2.COLOR_BGR2GRAY)
-        self.dets = self.detector.detect(self.greys)
 
-    # Read next position in camera
-    def read(self):
+    def cam(self):
+        cam = cv2.VideoCapture(0)
+        detector = apriltag(self.TAG)
 
-        for det in self.dets:
-            if det["margin"] >= self.MIN_MARGIN:
+        self.frame()
 
-                rect = det["lb-rb-rt-lt"].astype(int).reshape((-1,1,2))
-                cv2.polylines(self.img, [rect], True, RED, 2)
-                ident = str(det["id"])
-                pos = det["center"].astype(int) + (-10,10)
-                cv2.putText(self.img, ident, tuple(pos), self.FONT, 1, self.RED, 2)
+    def frame(self):
+        while cv2.waitKey(1) != 0x1b:
+            ret, img = cam.read()
+            greys = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+            dets = detector.detect(greys)
+            for det in dets:
+                if det["margin"] >= self.MIN_MARGIN:
+                    rect = det["lb-rb-rt-lt"].astype(int).reshape((-1,1,2))
+                    cv2.polylines(img, [rect], True, self.RED, 2)
+                    ident = str(det["id"])
+                    pos = det["center"].astype(int) + (-10,10)
+                    cv2.putText(img, ident, tuple(pos), self.FONT, 1, self.RED, 2)
+                    if self.k == 0:
+                        self.x0 = det["center"][0]
+                        self.y0 = det["center"][1]
+                        print('Start pos, x: {}, y: {}'.format(self.x0, self.y0))
+                    deltax = det["center"][0] - self.x0
+                    deltay = det["center"][1] - self.y0
+                    print("Tag %s: x: %6.1f, y: %6.1f" % (det["id"], deltax, deltay))
+                    self.k += 1
+            cv2.imshow(self.TITLE, img)
+        cv2.destroyAllWindows()
 
-                if self.k == 0:
-                    self.x0 = det["center"][0]
-                    self.y0 = det["center"][1]
-                    print('Start pos, x: {}, y: {}'.format(self.x0, self.y0))
-
-                deltax = det["center"][0] - self.x0
-                deltay = det["center"][1] - self.y0
-
-                self.k += 1
-
-                return [deltax, deltay]
-
-if __name__ == '__main__':
-    # Construct Cam object and allow use of methods
+if __name__=='__main__':
     i = CamData()
-    print('Started...')
 
-    while True:
-        pos = i.read()
-        print(pos)
+    i.cam()

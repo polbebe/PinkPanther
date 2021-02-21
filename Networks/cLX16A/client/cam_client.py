@@ -63,12 +63,14 @@ if __name__=='__main__':
 
 	# UNIT TEST
 	# Count actions/second
-	start = time.start()
+	start = time.time()
 	j = 0
 
 	while True:
 		# Get delta pos of robot at each frame
 		a = i.frame()
-		print(a)
-		# Print actions/second
-		sys.stdout.write(str(j)+' in: '+str(round(time.time()-start,3))+' Averaging: '+str(round(j/(time.time()-start),2))+' actions/s\r')
+        if a != None:
+            print(a)
+            # Print actions/second
+            sys.stdout.write(str(j)+' in: '+str(round(time.time()-start,3))+' Averaging: '+str(round(j/(time.time()-start),2))+' actions/s\r')
+        j += 1

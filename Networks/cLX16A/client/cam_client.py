@@ -20,14 +20,9 @@ class CamData():
         self.x0 = 0
         self.y0 = 0
 
-
-    def cam(self):
+    def frame(self):
         cam = cv2.VideoCapture(0)
         detector = apriltag(self.TAG)
-
-        self.frame()
-
-    def frame(self):
         while cv2.waitKey(1) != 0x1b:
             ret, img = cam.read()
             greys = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
@@ -53,4 +48,4 @@ class CamData():
 if __name__=='__main__':
     i = CamData()
 
-    i.cam()
+    i.frame()

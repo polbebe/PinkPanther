@@ -31,6 +31,7 @@ class ServoData():
 		
 	# Write new current SERVO Values
 	def write(self, pos):
+		print(pos)
 		# Move motors to next position
 		z = 0
 		for k in range(1,5):

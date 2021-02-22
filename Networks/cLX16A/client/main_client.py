@@ -67,6 +67,7 @@ class Listener():
 			print('CONNECTION BROKEN')
 			self.socket = False
 			return None
+		print(self.pos)
 		self.servo.write(self.pos)
 
 		time.sleep(1)

@@ -45,8 +45,6 @@ class NetEnv(gym.Env):
 
 	def reset(self):
 
-		print('Resetting')
-
 		# Set robot to position
 		# Stand down
 		self.robot_state = np.frombuffer(self.conn.recv(1024), dtype=np.float32)

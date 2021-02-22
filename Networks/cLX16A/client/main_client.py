@@ -81,6 +81,7 @@ class Listener():
 			return None
 		print(self.pos)
 		self.servo.write(self.pos)
+		print(self.servo.read())
 
 		time.sleep(1)
 

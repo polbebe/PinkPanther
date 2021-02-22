@@ -35,7 +35,7 @@ class NetEnv(gym.Env):
 		# Robot State values that will be bounced with client
 		self.robot_state = None
 		# Servo positions that will be sent to client
-		self.servo_pos = np.zeros(12, dtype=np.float32)
+		self.servo_pos = np.zeros(12, dtype=int)
 		# abs(Value) of random change between robot positions
 		self.delta_pos = 25
 
@@ -49,12 +49,12 @@ class NetEnv(gym.Env):
 		# Stand down
 		self.robot_state = np.frombuffer(self.conn.recv(1024), dtype=np.float32)
 		data = [500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500]
-		pos = np.array(data, dtype=np.float32)
+		pos = np.array(data, dtype=int)
 		self.conn.sendall(pos.tobytes())
 		# Stand up
 		self.robot_state = np.frombuffer(self.conn.recv(1024), dtype=np.float32)
 		data = [510, 583, 750, 500, 417, 250, 500, 583, 750, 500, 417, 250]
-		pos = np.array(data, dtype=np.float32)
+		pos = np.array(data, dtype=int)
 		self.conn.sendall(pos.tobytes())
 
 		# Get input from user

@@ -47,7 +47,7 @@ class Listener():
 
 		# Receive new servo positions to be taken
 		p = self.s.recv(1024)
-		self.pos = np.frombuffer(p, dtype=np.float32)
+		self.pos = np.frombuffer(p, dtype=int)
 
 		# If there's no more data being received, break the loop
 		if not p:
@@ -62,7 +62,7 @@ class Listener():
 	def reset(self):
 		self.s.sendall(self.read().tobytes())
 		p = self.s.recv(1024)
-		self.pos = np.frombuffer(p, dtype=np.float32)
+		self.pos = np.frombuffer(p, dtype=int)
 		if not p:
 			print('CONNECTION BROKEN')
 			self.socket = False
@@ -74,7 +74,7 @@ class Listener():
 
 		self.s.sendall(self.read().tobytes())
 		p = self.s.recv(1024)
-		self.pos = np.frombuffer(p, dtype=np.float32)
+		self.pos = np.frombuffer(p, dtype=int)
 		if not p:
 			print('CONNECTION BROKEN')
 			self.socket = False

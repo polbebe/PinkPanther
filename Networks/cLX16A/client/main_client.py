@@ -67,7 +67,6 @@ class Listener():
 			print('CONNECTION BROKEN')
 			self.socket = False
 			return None
-		print(self.pos)
 		self.servo.write(self.pos)
 
 		time.sleep(1)
@@ -82,7 +81,7 @@ class Listener():
 		print(self.pos)
 		self.servo.write(self.pos)
 		for i in self.pos:
-			print(int(round(i))
+			print(int(round(i)))
 		print(self.servo.read())
 
 		time.sleep(1)

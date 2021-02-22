@@ -59,7 +59,7 @@ class ServoData():
 
 		return self.servo_values
 
-'''
+
 if __name__ == '__main__':
 	# Construct SERVO object and allow use of methods
 	i = ServoData()
@@ -70,16 +70,8 @@ if __name__ == '__main__':
 	while True:
 		# Give random movement to robot at each step
 		pos = [500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500]
-		for l in range(12):
-			if l%3 == 0:
-				continue
-			else:
-				if random.getrandbits(1) > 0:
-					pos[l] += delta_pos
-				else:
-					pos[l] -= delta_pos
+		pos = np.frombuffer(np.array(pos, dtype=np.float32).tobytes())
 		a = i.write(pos)
 		
 		b = i.read()
 		print(b)
-'''

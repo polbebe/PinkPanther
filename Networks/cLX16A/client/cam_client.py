@@ -56,7 +56,7 @@ class CamData():
 				k += 1
 				return [deltax, deltay]
 
-
+'''
 if __name__=='__main__':
 	# Construct CAM object and allow use of methods
 	i = CamData()
@@ -74,3 +74,4 @@ if __name__=='__main__':
 			# Print actions/second
 			sys.stdout.write(str(j)+' in: '+str(round(time.time()-start,3))+' Averaging: '+str(round(j/(time.time()-start),2))+' actions/s\r')
 		j += 1
+'''

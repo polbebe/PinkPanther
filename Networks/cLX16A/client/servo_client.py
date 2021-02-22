@@ -59,6 +59,7 @@ class ServoData():
 
 		return self.servo_values
 
+'''
 if __name__ == '__main__':
 	# Construct SERVO object and allow use of methods
 	i = ServoData()
@@ -81,3 +82,4 @@ if __name__ == '__main__':
 		
 		b = i.read()
 		print(b)
+'''

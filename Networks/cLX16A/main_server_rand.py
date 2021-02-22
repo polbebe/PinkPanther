@@ -44,8 +44,17 @@ class NetEnv(gym.Env):
 
 
 	def reset(self):
-		# Make robot stand up
-		# TO DO
+		# Set robot to position
+		# Stand down
+		self.robot_state = np.frombuffer(self.conn.recv(1024), dtype=np.float32)
+		data = [500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500]
+		pos = np.array(data, dtype=np.float32)
+		self.conn.sendall(pos.tobytes())
+		# Stand up
+		self.robot_state = np.frombuffer(self.conn.recv(1024), dtype=np.float32)
+		data = [510, 583, 750, 500, 417, 250, 500, 583, 750, 500, 417, 250]
+		pos = np.array(data, dtype=np.float32)
+		self.conn.sendall(pos.tobytes())
 
 		# Get input from user
 		input('Press any key to begin episode: ')
@@ -85,12 +94,12 @@ if __name__ == '__main__':
 	env = NetEnv()
 
 	# Reset environment
-	# r_state = env.reset()
+	r_state = env.reset()
 
 	# Keep track of time for average actions/second calculation
 	start = time.time()
 	
-	# Walk the robot
+	# WALK
 	for i in range(400):
 		# Return current robot state on every loop
 		r_state = env.step()

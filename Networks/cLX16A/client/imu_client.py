@@ -27,6 +27,7 @@ class ImuData():
 
 		return self.imu_values
 
+'''
 if __name__ == '__main__':
 	# Construct IMU object and allow use of methods
 	i = ImuData()
@@ -36,3 +37,4 @@ if __name__ == '__main__':
 		# Get IMU data from robot
 		a = i.read()
 		print(a)
+'''

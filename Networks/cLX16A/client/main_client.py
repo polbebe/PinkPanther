@@ -81,6 +81,8 @@ class Listener():
 			return None
 		print(self.pos)
 		self.servo.write(self.pos)
+		for i in self.pos:
+			print(int(round(i))
 		print(self.servo.read())
 
 		time.sleep(1)

@@ -40,7 +40,7 @@ class ServoData():
 				self.motor.move(l, int(pos[z]), 100)
 				z += 1
 		
-		time.sleep(1)
+		time.sleep(0.1)
 
 	# Read and return SERVO Values
 	def read(self):
@@ -71,13 +71,12 @@ if __name__ == '__main__':
 		pos = [500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500]
 		for l in range(12):
 			if l%3 == 0:
-				break
+				continue
 			else:
 				if random.getrandbits(1) > 0:
 					pos[l] += delta_pos
 				else:
 					pos[l] -= delta_pos
-		
 		a = i.write(pos)
 		
 		b = i.read()

@@ -33,11 +33,13 @@ class ServoData():
 	def write(self, pos):
 		# Move motors to next position
 		z = 0
+		print(pos)
 		for k in range(1,5):
 			a = 10*k
 			r = range(a, a+3)
 			for l in r:
-				self.motor.move(l, int(round(pos[z])), 100)
+				self.motor.move(l, int(pos[z]), 100)
+				print('{}: {}'.format(l,int(pos[z])))
 				z += 1
 		
 		time.sleep(0.1)
@@ -45,6 +47,7 @@ class ServoData():
 	# Read and return SERVO Values
 	def read(self):
 		# Get the servo values from servos
+		print('Reading')
 		z = 0
 		for k in range(1,5):
 			a = 10*k
@@ -65,13 +68,22 @@ if __name__ == '__main__':
 	i = ServoData()
 
 	delta_pos = 25
-
+	a = True
 	# UNIT TEST
-	while True:
+	while a == True:
 		# Give random movement to robot at each step
-		pos = [500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500]
-		pos = np.frombuffer(np.array(pos, dtype=np.float32).tobytes())
+		pos = [510, 750, 583, 500, 250, 417, 500, 750, 583, 500, 250, 417]
+		#print(pos)
+		pos = np.array(pos, dtype=np.float32)
+		#print(pos)
+		pos = np.frombuffer(pos.tobytes(), dtype=np.float32)
+		#print(pos)
 		a = i.write(pos)
+		
+		time.sleep(2)
 		
 		b = i.read()
 		print(b)
+		
+		a = False
+		

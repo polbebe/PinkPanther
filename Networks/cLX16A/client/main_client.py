@@ -60,30 +60,18 @@ class Listener():
 
 	# Reset the robot
 	def reset(self):
+		# Set robot to position
+		# Stand down
 		self.s.sendall(self.read().tobytes())
 		p = self.s.recv(1024)
 		self.pos = np.frombuffer(p, dtype=np.float32)
-		if not p:
-			print('CONNECTION BROKEN')
-			self.socket = False
-			return None
 		self.servo.write(self.pos)
-
 		time.sleep(1)
-
+		# Stand up
 		self.s.sendall(self.read().tobytes())
 		p = self.s.recv(1024)
 		self.pos = np.frombuffer(p, dtype=np.float32)
-		if not p:
-			print('CONNECTION BROKEN')
-			self.socket = False
-			return None
-		print(self.pos)
 		self.servo.write(self.pos)
-		for i in self.pos:
-			print(int(round(i)))
-		print(self.servo.read())
-
 		time.sleep(1)
 
 	# Check whether socket should still be running

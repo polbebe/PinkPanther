@@ -52,12 +52,10 @@ class NetEnv(gym.Env):
 		self.conn.sendall(pos.tobytes())
 		# Stand up
 		self.robot_state = np.frombuffer(self.conn.recv(1024), dtype=np.float32)
-		data = [510, 583, 750, 500, 417, 250, 500, 583, 750, 500, 417, 250]
+		data = [510, 750, 583, 500, 250, 417, 500, 750, 583, 500, 250, 417]
 		pos = np.array(data, dtype=np.float32)
 		self.conn.sendall(pos.tobytes())
 
-		# Get input from user
-		input('Press any key to begin episode: ')
 		self.i = 0
 
 		self.robot_state = None
@@ -95,6 +93,9 @@ if __name__ == '__main__':
 
 	# Reset environment
 	r_state = env.reset()
+
+	# Get input from user
+	input('Press any key to begin episode: ')
 
 	# Keep track of time for average actions/second calculation
 	start = time.time()

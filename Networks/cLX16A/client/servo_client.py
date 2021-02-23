@@ -33,13 +33,11 @@ class ServoData():
 	def write(self, pos):
 		# Move motors to next position
 		z = 0
-		print(pos)
 		for k in range(1,5):
 			a = 10*k
 			r = range(a, a+3)
 			for l in r:
 				self.motor.move(l, int(pos[z]), 100)
-				print('{}: {}'.format(l,int(pos[z])))
 				z += 1
 		
 		time.sleep(0.1)
@@ -47,7 +45,6 @@ class ServoData():
 	# Read and return SERVO Values
 	def read(self):
 		# Get the servo values from servos
-		print('Reading')
 		z = 0
 		for k in range(1,5):
 			a = 10*k
@@ -55,14 +52,14 @@ class ServoData():
 			for l in r:
 				# NOT READING SHOULDER SERVOS!!! (their ids are 10,20,30,40)
 				if l%10 == 0:
-					self.servo_values[z] = 0
+					self.servo_values[z] = 500
 				else:
 					self.servo_values[z] = self.motor.readPosition(l)
 				z += 1
 
 		return self.servo_values
 
-
+'''
 if __name__ == '__main__':
 	# Construct SERVO object and allow use of methods
 	i = ServoData()
@@ -86,4 +83,4 @@ if __name__ == '__main__':
 		print(b)
 		
 		a = False
-		
+'''

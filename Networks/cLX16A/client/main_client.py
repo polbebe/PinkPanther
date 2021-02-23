@@ -46,8 +46,7 @@ class Listener():
 		self.s.sendall(self.read().tobytes())
 
 		# Receive new servo positions to be taken
-		p = self.s.recv(1024)
-		self.pos = np.frombuffer(p, dtype=np.float32)
+		self.pos = np.frombuffer(self.s.recv(1024), dtype=np.float32)
 
 		# If there's no more data being received, break the loop
 		if not p:
@@ -55,8 +54,9 @@ class Listener():
 			self.socket = False
 			return None
 
-		# Else write 
-		self.servo.write(self.pos)
+		print(self.pos)
+		# Else write
+		#self.servo.write(self.pos)
 
 	# Reset the robot
 	def reset(self):

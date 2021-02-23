@@ -64,7 +64,6 @@ class NetEnv(gym.Env):
 
 
 	def step(self):
-
 		# Receive Robot State from client
 		self.robot_state = np.frombuffer(self.conn.recv(1024), dtype=np.float32)
 
@@ -78,6 +77,7 @@ class NetEnv(gym.Env):
 				else:
 					self.servo_pos[l] = self.robot_state[l] - self.delta_pos
 
+		print(servo_pos)
 		# Prepare and send position data to clients
 		self.conn.sendall(self.servo_pos.tobytes())
 

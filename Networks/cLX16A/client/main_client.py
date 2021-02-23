@@ -54,10 +54,9 @@ class Listener():
 			print('CONNECTION BROKEN')
 			self.socket = False
 			return None
-
-		print(self.pos)
+		
 		# Else write
-		#self.servo.write(self.pos)
+		self.servo.write(self.pos)
 
 	# Reset the robot
 	def reset(self):

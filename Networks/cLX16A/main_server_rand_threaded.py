@@ -17,7 +17,7 @@ class NetEnv(gym.Env):
 
 	def __init__(self):
 		# Robot State values that will be bounced with client
-		self.robot_state = None
+		self.robot_state = np.zeros(17, dtype=np.float32)
 		# Servo positions that will be sent to client
 		self.servo_pos = np.array([500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500], dtype=np.float32)
 		# abs(Value) of random change between robot positions
@@ -58,14 +58,19 @@ class NetEnv(gym.Env):
 		# Send motor position to main client
 		conn.sendall(self.servo_pos.tobytes())
 		# Receive Robot State from main client
-		self.robot_state = np.frombuffer(conn.recv(1024), dtype=np.float32)
+		pp_state = np.frombuffer(conn.recv(1024), dtype=np.float32)
+		for i in range(13):
+			self.robot_state[i] = pp_state[i]
 
 
 	def cam_client_thread(self, conn):
 		# Send connection test to cam client
 		conn.sendall(str.encode('i'))
 		# Receive xy state from cam client & append to Robot State
-		self.robot_state.append(np.frombuffer(conn.recv(1024), dtype=np.float32))
+		cam_state = np.frombuffer(conn.recv(1024), dtype=np.float32)
+		self.robot_state[13] = cam_state[0]
+		self.robot_state[14] = cam_state[1]
+
 
 
 	def reset(self):

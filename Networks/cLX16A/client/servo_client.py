@@ -30,14 +30,14 @@ class ServoData():
 				self.motor.setServoMode(i)
 		
 	# Write new current SERVO Values
-	def write(self, pos):
+	def write(self, pos, t):
 		# Move motors to next position
 		z = 0
 		for k in range(1,5):
 			a = 10*k
 			r = range(a, a+3)
 			for l in r:
-				self.motor.move(l, int(pos[z]), 100)
+				self.motor.move(l, int(pos[z]), t)
 				z += 1
 		
 		time.sleep(0.1)

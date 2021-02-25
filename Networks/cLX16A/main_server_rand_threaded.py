@@ -19,7 +19,7 @@ class NetEnv(gym.Env):
 		# Robot State values that will be bounced with client
 		self.robot_state = None
 		# Servo positions that will be sent to client
-		self.servo_pos = None
+		self.servo_pos = np.array([500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500], dtype=np.float32)
 		# abs(Value) of random change between robot positions
 		self.delta_pos = 25
 
@@ -42,6 +42,8 @@ class NetEnv(gym.Env):
 
 		print('Waiting for connection[s]...')
 		
+		self.s.listen()
+
 		# Wait for client[s] to join socket
 		self.conn1, addr1 = self.s.accept()
 		print('Connected by: ', addr1)
@@ -56,14 +58,14 @@ class NetEnv(gym.Env):
 		# Send motor position to main client
 		conn.sendall(self.servo_pos.tobytes())
 		# Receive Robot State from main client
-		self.robot_state = np.frombuffer(self.conn.recv(1024), dtype=np.float32)
+		self.robot_state = np.frombuffer(conn.recv(1024), dtype=np.float32)
 
 
 	def cam_client_thread(self, conn):
 		# Send connection test to cam client
 		conn.sendall(str.encode('i'))
 		# Receive xy state from cam client & append to Robot State
-		self.robot_state.append(np.frombuffer(self.conn.recv(1024), dtype=np.float32))
+		self.robot_state.append(np.frombuffer(conn.recv(1024), dtype=np.float32))
 
 
 	def reset(self):

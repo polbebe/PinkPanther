@@ -53,7 +53,7 @@ class Listener():
 			return None
 		
 		# Else write
-		self.servo.write(self.pos)
+		self.servo.write(self.pos, 100)
 
 		# Send current state of robot
 		self.s.sendall(self.read().tobytes())
@@ -64,13 +64,13 @@ class Listener():
 		# Stand down
 		p = self.s.recv(1024)
 		self.pos = np.frombuffer(p, dtype=np.float32)
-		self.servo.write(self.pos)
+		self.servo.write(self.pos, 1000)
 		time.sleep(1)
 		self.s.sendall(self.read().tobytes())
 		# Stand up
 		p = self.s.recv(1024)
 		self.pos = np.frombuffer(p, dtype=np.float32)
-		self.servo.write(self.pos)
+		self.servo.write(self.pos, 1000)
 		time.sleep(1)
 		self.s.sendall(self.read().tobytes())
 

@@ -5,8 +5,10 @@ import cv2
 from apriltag import apriltag
 
 import socket
+
 import sys
 import time
+import numpy as np
 
 class CamData():
 	# Constructor method
@@ -14,6 +16,10 @@ class CamData():
 		# Tag Family & Filter value for detection
 		self.TAG        = "tag36h11"
 		self.MIN_MARGIN = 10
+		# Socket Conneciton
+		HOST = '192.168.1.29'
+		PORT = 65432
+		self.socket = True
 
 		# Initialize counter and previous x,y location for delta pos calculations
 		self.k = 0
@@ -23,6 +29,13 @@ class CamData():
 		# Access camera and use apriltags library to detect the fiducial
 		self.cam = cv2.VideoCapture(0)
 		self.detector = apriltag(self.TAG)
+
+		# Connect to Socket set up by server
+		self.s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+		try:
+			self.s.connect((HOST, PORT))
+		except socket.error as e:
+			print(str(e))
 
 	# Analysis of one frame
 	def frame(self):
@@ -56,22 +69,26 @@ class CamData():
 				k += 1
 				return [deltax, deltay]
 
-'''
+	# Step
+	def step(self):
+		# Receive new servo positions to be taken
+		p = self.s.recv(1024).decode('utf-8')
+		# If there's no more data being received, break the loop
+		if not p:
+			print('CONNECTION BROKEN')
+		# Send current state of robot
+		self.s.sendall(np.array(self.frame(), dtype=np.float32).tobytes())
+
+	# Check whether socket should still be running
+	def is_true(self):
+		return self.socket
+
+
 if __name__=='__main__':
 	# Construct CAM object and allow use of methods
-	i = CamData()
+	client = CamData()
 
-	# UNIT TEST
-	# Count actions/second
-	start = time.time()
-	j = 0
+	while client.is_true() == True:
+		# Get next frame
+		client.step()
 
-	while True:
-		# Get delta pos of robot at each frame
-		a = i.frame()
-		if a != None:
-			print(a)
-			# Print actions/second
-			sys.stdout.write(str(j)+' in: '+str(round(time.time()-start,3))+' Averaging: '+str(round(j/(time.time()-start),2))+' actions/s\r')
-		j += 1
-'''

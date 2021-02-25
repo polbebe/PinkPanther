@@ -42,9 +42,6 @@ class Listener():
 
 	# Interaction with server on every step of the robot
 	def step(self):
-		# Send current state of robot
-		self.s.sendall(self.read().tobytes())
-		
 		# Receive new servo positions to be taken
 		p = self.s.recv(1024)
 		self.pos = np.frombuffer(p, dtype=np.float32)
@@ -58,21 +55,24 @@ class Listener():
 		# Else write
 		self.servo.write(self.pos)
 
+		# Send current state of robot
+		self.s.sendall(self.read().tobytes())
+
 	# Reset the robot
 	def reset(self):
 		# Set robot to position
 		# Stand down
-		self.s.sendall(self.read().tobytes())
 		p = self.s.recv(1024)
 		self.pos = np.frombuffer(p, dtype=np.float32)
 		self.servo.write(self.pos)
 		time.sleep(1)
+		self.s.sendall(self.read().tobytes())
 		# Stand up
-		self.s.sendall(self.read().tobytes())
 		p = self.s.recv(1024)
 		self.pos = np.frombuffer(p, dtype=np.float32)
 		self.servo.write(self.pos)
 		time.sleep(1)
+		self.s.sendall(self.read().tobytes())
 
 	# Check whether socket should still be running
 	def is_true(self):

@@ -53,15 +53,17 @@ class NetEnv(gym.Env):
 
 
 	def main_client_thread(self, conn):
-		# Receive Robot State from client
-		self.robot_state = np.frombuffer(self.conn.recv(1024), dtype=np.float32)
+		# Send motor position to main client
 		conn.sendall(self.servo_pos.tobytes())
+		# Receive Robot State from main client
+		self.robot_state = np.frombuffer(self.conn.recv(1024), dtype=np.float32)
 
 
 	def cam_client_thread(self, conn):
-		data = conn.recv(1024)
-		print('Cam client says: {}'.format(data.decode('utf-8')))
-		conn.sendall(str.encode('Hi'))
+		# Send connection test to cam client
+		conn.sendall(str.encode('i'))
+		# Receive xy state from cam client & append to Robot State
+		self.robot_state.append(np.frombuffer(self.conn.recv(1024), dtype=np.float32))
 
 
 	def reset(self):
@@ -71,29 +73,16 @@ class NetEnv(gym.Env):
 		self.main_client_thread(self.conn1)
 		# Stand up
 		self.servo_pos = np.array([510, 750, 583, 500, 250, 417, 500, 750, 583, 500, 250, 417], dtype=np.float32)
-		self.main_client_thread(self.conn2)
+		self.main_client_thread(self.conn1)
 
-
-		self.robot_state = np.frombuffer(self.conn.recv(1024), dtype=np.float32)
-		data = [500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500]
-		pos = np.array(data, dtype=np.float32)
-		self.conn.sendall(pos.tobytes())
-		# Stand up
-		self.robot_state = np.frombuffer(self.conn.recv(1024), dtype=np.float32)
-		data = [510, 750, 583, 500, 250, 417, 500, 750, 583, 500, 250, 417]
-		pos = np.array(data, dtype=np.float32)
-		self.conn.sendall(pos.tobytes())
 
 		self.i = 0
-
-		self.robot_state = None
 
 		return self.robot_state
 
 
 	def step(self):
-		
-
+		# MAIN CLIENT
 		# Move motors to current position plus RANDOM delta_pos
 		for l in range(12):
 			if l%3 == 0:
@@ -104,8 +93,12 @@ class NetEnv(gym.Env):
 				else:
 					self.servo_pos[l] = self.robot_state[l] - self.delta_pos
 
-		# Prepare and send position data to clients
-		self.conn.sendall(self.servo_pos.tobytes())
+		# Send new position data to clients
+		self.main_client_thread(self.conn1)
+
+		# CAM CLIENT
+		# Get xy position from camera
+		self.cam_client_thread(self.conn2)
 
 		# Update counter
 		self.i += 1

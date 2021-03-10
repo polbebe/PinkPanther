@@ -68,9 +68,9 @@ class NetEnv(gym.Env):
 		conn.sendall(str.encode('i'))
 		# Receive xy state from cam client & append to Robot State
 		cam_state = np.frombuffer(conn.recv(1024), dtype=np.float32)
-		self.robot_state[13] = cam_state[0]
-		self.robot_state[14] = cam_state[1]
-
+		if m.isnan(cam_state[0]) != True:
+			self.robot_state[13] = cam_state[0]
+			self.robot_state[14] = cam_state[1]
 
 
 	def reset(self):
@@ -131,8 +131,8 @@ if __name__ == '__main__':
 		# Return current robot state on every loop
 		r_state = env.step()
 		# Print only every 10 loops
-		if i%10 == 0:
-			print(r_state)
+		#if i%10 == 0:
+		print(r_state)
 		j+=4
 		# Keep track of number of actions/second
 		sys.stdout.write(str(i)+' in: '+str(round(time.time()-start,3))+' Averaging: '+str(round(j/(time.time()-start),2))+' actions/s\r')

@@ -1,5 +1,5 @@
 # Detect Apriltag fiducials in Raspbery Pi camera image by iosoft.blog
-# Object oriented implementation with threading by polbebe
+# Object oriented implementation with multi-socket threading by polbebe
 
 import cv2
 from apriltag import apriltag
@@ -66,7 +66,7 @@ class CamData():
 				self.x0 = det["center"][0]
 				self.y0 = det["center"][1]
 
-				k += 1
+				self.k += 1
 				return [deltax, deltay]
 
 	# Step
@@ -75,6 +75,7 @@ class CamData():
 		p = self.s.recv(1024).decode('utf-8')
 		# If there's no more data being received, break the loop
 		if not p:
+			self.socket = False
 			print('CONNECTION BROKEN')
 		# Send current state of robot
 		self.s.sendall(np.array(self.frame(), dtype=np.float32).tobytes())

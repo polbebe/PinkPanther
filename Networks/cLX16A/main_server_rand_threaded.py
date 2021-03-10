@@ -59,7 +59,7 @@ class NetEnv(gym.Env):
 		conn.sendall(self.servo_pos.tobytes())
 		# Receive Robot State from main client
 		pp_state = np.frombuffer(conn.recv(1024), dtype=np.float32)
-		for i in range(13):
+		for i in range(15):
 			self.robot_state[i] = pp_state[i]
 
 
@@ -69,11 +69,12 @@ class NetEnv(gym.Env):
 		# Receive xy state from cam client & append to Robot State
 		cam_state = np.frombuffer(conn.recv(1024), dtype=np.float32)
 		if m.isnan(cam_state[0]) != True:
-			self.robot_state[13] = cam_state[0]
-			self.robot_state[14] = cam_state[1]
+			self.robot_state[15] = cam_state[0]
+			self.robot_state[16] = cam_state[1]
 
 
 	def reset(self):
+		print("Resetting")
 		# Set robot to position
 		# Stand down
 		self.servo_pos = np.array([500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500], dtype=np.float32)
@@ -82,7 +83,7 @@ class NetEnv(gym.Env):
 		self.servo_pos = np.array([510, 750, 583, 500, 250, 417, 500, 750, 583, 500, 250, 417], dtype=np.float32)
 		self.main_client_thread(self.conn1)
 
-
+		print("Resetted")
 		self.i = 0
 
 		return self.robot_state

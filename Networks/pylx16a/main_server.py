@@ -14,7 +14,7 @@ class NetEnv(gym.Env):
     def __init__(self):
         # Socket Conneciton
         # MAC find WiFi IP - ipconfig getifaddr en0
-        HOST = '192.168.1.201'
+        HOST = '192.168.1.29'
         # Port to listen on (non-privileged ports are > 1023)
         PORT = 65432
 

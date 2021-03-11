@@ -7,6 +7,8 @@ import socket
 from _thread import *
 import os
 
+import csv
+
 import numpy as np
 import pandas as pd
 import math as m
@@ -20,9 +22,9 @@ class NetEnv(gym.Env):
 		self.robot_state = np.zeros(17, dtype=np.float32)
 		# Servo positions that will be sent to client
 		self.servo_pos = np.array([500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500], dtype=np.float32)
-		self.servo_pos_0 = np.array([500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500], dtype=np.float32)
+		self.servo_pos_0 = np.array([510, 750, 583, 500, 250, 417, 500, 750, 583, 500, 250, 417], dtype=np.float32)
 		# abs(Value) of random change between robot positions
-		self.delta_pos = 25
+		self.delta_pos = 5
 
 		# Socket Conneciton
 		# MAC find WiFi IP - ipconfig getifaddr en0
@@ -100,6 +102,8 @@ class NetEnv(gym.Env):
 
 		self.servo_pos_0 = self.servo_pos
 
+		self.write_csv_theory(self.servo_pos_0)
+
 		# Send new position data to clients
 		self.main_client_thread(self.conn1)
 
@@ -109,6 +113,11 @@ class NetEnv(gym.Env):
 
 		return self.robot_state
 
+	def write_csv_theory(data):
+		with open('theory.csv', 'a') as outfile:
+			writer = csv.writer(outfile)
+			writer.writerow(data)
+
 
 if __name__ == '__main__':
 	# Construct MAIN SERVER object
@@ -117,6 +126,11 @@ if __name__ == '__main__':
 	# Reset environment
 	r_state = env.reset()
 
+	def write_csv_real(data):
+		with open('real.csv', 'a') as outfile:
+			writer = csv.writer(outfile)
+			writer.writerow(data)
+
 	# Get input from user
 	input('Press any key to begin episode: ')
 
@@ -124,12 +138,13 @@ if __name__ == '__main__':
 	start = time.time()
 	j = 0
 	# WALK
-	for i in range(100):
+	for i in range(200):
 		# Return current robot state on every loop
 		r_state = env.step()
 		# Print only every 10 loops
 		#if i%10 == 0:
-		print(r_state)
+		#print(r_state)
+		write_csv_real(r_state)
 		j+=4
 		# Keep track of number of actions/second
 		sys.stdout.write(str(i)+' in: '+str(round(time.time()-start,3))+' Averaging: '+str(round(j/(time.time()-start),2))+' actions/s\r')

@@ -45,7 +45,7 @@ class ServoData():
 	# Read and return SERVO Values
 	def read(self):
 		# Get the servo values from servos
-		'''
+		
 		z = 0
 		for k in range(1,5):
 			a = 10*k
@@ -57,9 +57,7 @@ class ServoData():
 				else:
 					self.servo_values[z] = self.motor.readPosition(l)
 				z += 1
-		'''
 
-		self.servo_values = [69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69]
 
 
 		return self.servo_values

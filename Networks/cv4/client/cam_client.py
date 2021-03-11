@@ -40,7 +40,7 @@ class CamData():
 	# Analysis of one frame
 	def frame(self):
 		# Read frame and detect apriltag
-		'''
+		
 		ret, img = self.cam.read()
 		greys = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 		dets = self.detector.detect(greys)
@@ -69,8 +69,6 @@ class CamData():
 
 				self.k += 1
 				return [deltax, deltay]
-		'''
-		return [69, 69]
 
 	# Step
 	def step(self):

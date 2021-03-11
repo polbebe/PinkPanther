@@ -18,16 +18,14 @@ class ImuData():
 	# Read and return IMU Values
 	def read(self):
 		# Get the roll-pitch-yaw values from sense hat
-		'''
+		
 		o = self.sense.get_orientation()
 
 		# Write new IMU values
 		self.imu_values[0] = o["roll"]
 		self.imu_values[1] = o["pitch"]
 		self.imu_values[2] = o["yaw"]
-		'''
 
-		self.imu_values = [69, 69, 69]
 
 		return self.imu_values
 

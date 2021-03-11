@@ -7,6 +7,8 @@ import socket
 from _thread import *
 import os
 
+import csv
+
 import numpy as np
 import pandas as pd
 import math as m
@@ -115,6 +117,14 @@ class NetEnv(gym.Env):
 
 
 if __name__ == '__main__':
+
+	# Function to save r_state strings in a csv file
+	def write_csv(data):
+		with open('test.csv', 'a') as outfile:
+			writer = csv.writer(outfile)
+			writer.writerow(data)
+
+
 	# Construct MAIN SERVER object
 	env = NetEnv()
 

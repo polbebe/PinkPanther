@@ -40,7 +40,7 @@ class ServoData():
 				self.motor.move(l, int(pos[z]), t)
 				z += 1
 		
-		time.sleep(0.1)
+		time.sleep(0.5)
 
 	# Read and return SERVO Values
 	def read(self):

@@ -24,7 +24,7 @@ class NetEnv(gym.Env):
 		self.servo_pos = np.array([500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500], dtype=np.float32)
 		self.servo_pos_0 = np.array([510, 750, 583, 500, 250, 417, 500, 750, 583, 500, 250, 417], dtype=np.float32)
 		# abs(Value) of random change between robot positions
-		self.delta_pos = 5
+		self.delta_pos = 25
 
 		# Socket Conneciton
 		# MAC find WiFi IP - ipconfig getifaddr en0
@@ -74,18 +74,14 @@ class NetEnv(gym.Env):
 
 
 	def reset(self):
-		print("Resetting")
 		# Set robot to position
 		# Stand down
 		self.servo_pos = np.array([500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500], dtype=np.float32)
 		self.main_client_thread(self.conn1)
+		time.sleep(1)
 		# Stand up
 		self.servo_pos = np.array([510, 750, 583, 500, 250, 417, 500, 750, 583, 500, 250, 417], dtype=np.float32)
 		self.main_client_thread(self.conn1)
-
-		print("Resetted")
-
-		return self.robot_state
 
 
 	def step(self):
@@ -101,7 +97,6 @@ class NetEnv(gym.Env):
 					self.servo_pos[l] = self.servo_pos_0[l] - self.delta_pos
 
 		self.servo_pos_0 = self.servo_pos
-
 		self.write_csv_theory(self.servo_pos_0)
 
 		# Send new position data to clients
@@ -113,7 +108,7 @@ class NetEnv(gym.Env):
 
 		return self.robot_state
 
-	def write_csv_theory(data):
+	def write_csv_theory(self, data):
 		with open('theory.csv', 'a') as outfile:
 			writer = csv.writer(outfile)
 			writer.writerow(data)
@@ -124,15 +119,15 @@ if __name__ == '__main__':
 	env = NetEnv()
 
 	# Reset environment
-	r_state = env.reset()
+	env.reset()
+
+	# Get input from user
+	input('Press any key to begin episode: ')
 
 	def write_csv_real(data):
 		with open('real.csv', 'a') as outfile:
 			writer = csv.writer(outfile)
 			writer.writerow(data)
-
-	# Get input from user
-	input('Press any key to begin episode: ')
 
 	# Keep track of time for average actions/second calculation
 	start = time.time()
@@ -145,7 +140,7 @@ if __name__ == '__main__':
 		#if i%10 == 0:
 		#print(r_state)
 		write_csv_real(r_state)
-		j+=4
+		j+=1
 		# Keep track of number of actions/second
 		sys.stdout.write(str(i)+' in: '+str(round(time.time()-start,3))+' Averaging: '+str(round(j/(time.time()-start),2))+' actions/s\r')
 	

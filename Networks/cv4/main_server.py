@@ -20,6 +20,7 @@ class NetEnv(gym.Env):
 		self.robot_state = np.zeros(17, dtype=np.float32)
 		# Servo positions that will be sent to client
 		self.servo_pos = np.array([500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500], dtype=np.float32)
+		self.servo_pos_0 = np.array([500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500], dtype=np.float32)
 		# abs(Value) of random change between robot positions
 		self.delta_pos = 25
 
@@ -90,12 +91,14 @@ class NetEnv(gym.Env):
 		# Move motors to current position plus RANDOM delta_pos
 		for l in range(12):
 			if l%3 == 0:
-				self.servo_pos[l] = self.robot_state[l]
+				self.servo_pos[l] = self.servo_pos_0[l]
 			else:
 				if random.getrandbits(1) > 0:
-					self.servo_pos[l] = self.robot_state[l] + self.delta_pos
+					self.servo_pos[l] = self.servo_pos_0[l] + self.delta_pos
 				else:
-					self.servo_pos[l] = self.robot_state[l] - self.delta_pos
+					self.servo_pos[l] = self.servo_pos_0[l] - self.delta_pos
+
+		self.servo_pos_0 = self.servo_pos
 
 		# Send new position data to clients
 		self.main_client_thread(self.conn1)

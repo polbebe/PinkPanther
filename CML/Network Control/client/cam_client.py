@@ -19,7 +19,7 @@ class CamData():
 		self.MIN_MARGIN = 10
 		# Socket Conneciton
 		HOST = '192.168.1.29'
-		PORT = 65432
+		PORT = 65433
 		self.socket = True
 
 		# Initialize counter and previous x,y location for delta pos calculations

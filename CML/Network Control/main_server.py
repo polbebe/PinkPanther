@@ -53,7 +53,7 @@ class NetEnv(gym.Env):
 	def __init__(self):
 		# Servo positions that will be sent to client
 		self.servo_pos = np.array([500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500], dtype=np.float32)
-		self.servo_pos_0 = np.array([510, 750, 583, 500, 250, 417, 500, 750, 583, 500, 250, 417], dtype=np.float32)
+		self.servo_pos_0 = np.array([500, 650, 533, 500, 350, 467, 500, 650, 533, 500, 350, 467], dtype=np.float32)
 		# abs(Value) of random change between robot positions
 		self.delta_pos = 25
 		self.act_dim = 12
@@ -118,12 +118,8 @@ class NetEnv(gym.Env):
 
 	def reset(self):
 		# Set robot to position
-		# Stand down
-		self.servo_pos = np.array([500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500], dtype=np.float32)
-		self.main_client_thread(self.conn1)
-		time.sleep(1)
 		# Stand up
-		self.servo_pos = np.array([510, 750, 583, 500, 250, 417, 500, 750, 583, 500, 250, 417], dtype=np.float32)
+		self.servo_pos = np.array([500, 650, 533, 500, 350, 467, 500, 650, 533, 500, 350, 467], dtype=np.float32)
 		self.main_client_thread(self.conn1)
 		self.i = 0
 
@@ -199,10 +195,10 @@ if __name__ == '__main__':
 		# Print only every 10 loops
 		# if i%10 == 0:
 		# print(r_state)
-		write_csv_real(obs)
+		write_csv_real(obs[0])
 		j += 1
 		# Keep track of number of actions/second
 		sys.stdout.write(str(j) + ' in: ' + str(round(time.time() - start, 3)) + ' Averaging: ' + str(
 			round(j / (time.time() - start), 2)) + ' actions/s\r')
-
+	
 	print('Done')

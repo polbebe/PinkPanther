@@ -86,7 +86,12 @@ class CamData():
 		# Send current state of robot
 		self.s.sendall(np.array(self.frame(), dtype=np.float32).tobytes())
 		'''
-		print(self.frame())
+		f = self.frame()
+		print(f)
+		
+		if f == None:
+            self.socket = False
+            print('Bye')
 
 	# Check whether socket should still be running
 	def is_true(self):

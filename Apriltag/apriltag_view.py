@@ -8,7 +8,7 @@ TITLE      = "apriltag_view"  # Window title
 TAG        = "tag36h11"        # Tag family, tag16h5, tag36h11
 MIN_MARGIN = 10               # Filter value for tag detection
 FONT       = cv2.FONT_HERSHEY_SIMPLEX  # Font for ID value
-RED        = 0,0,255          # Colour of ident & frame (BGR)
+RED        = 255,0,0          # Colour of ident & frame (BGR)
  
 if __name__ == '__main__':
     cam = cv2.VideoCapture(0)

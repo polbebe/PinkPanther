@@ -68,7 +68,8 @@ class CamData():
 
 				self.k += 1
 
-				print([deltax, deltay])
+				
+				print([det["center"][0], det["center"][1]])
 				
 				return [deltax, deltay]
 

@@ -31,11 +31,13 @@ class CamData():
 		self.detector = apriltag(self.TAG)
 
 		# Connect to Socket set up by server
+		'''
 		self.s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 		try:
 			self.s.connect((HOST, PORT))
 		except socket.error as e:
 			print(str(e))
+		'''
 
 	# Analysis of one frame
 	def frame(self):
@@ -75,6 +77,7 @@ class CamData():
 	# Step
 	def step(self):
 		# Receive new servo positions to be taken
+		'''
 		p = self.s.recv(1024)
 		# If there's no more data being received, break the loop
 		if not p:
@@ -82,6 +85,8 @@ class CamData():
 			self.socket = False
 		# Send current state of robot
 		self.s.sendall(np.array(self.frame(), dtype=np.float32).tobytes())
+		'''
+		print(self.frame())
 
 	# Check whether socket should still be running
 	def is_true(self):

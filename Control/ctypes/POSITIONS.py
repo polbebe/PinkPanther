@@ -26,6 +26,15 @@ motor.setServoMode(40)
 motor.setServoMode(42)
 motor.setServoMode(41)
 
+
+#motor.setPositionOffset(22, 20)
+motor.setPositionOffset(22, 20)
+motor.setPositionOffset(32, 100)
+print(motor.getPositionOffset(12))
+print(motor.getPositionOffset(22))
+print(motor.getPositionOffset(32))
+print(motor.getPositionOffset(42))
+
 pos = [500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500]
 motor.move(10, int(pos[0]), 1000)
 motor.move(12, int(pos[1]), 1000)

@@ -29,6 +29,10 @@ class ServoData():
 			for i in r:
 				self.motor.setServoMode(i)
 		
+		# Set motor offsets
+		self.motor.setPositionOffset(22,20)
+		self.motor.setPositionOffset(32,100)
+		
 	# Write new current SERVO Values
 	def write(self, pos, t):
 		# Move motors to next position

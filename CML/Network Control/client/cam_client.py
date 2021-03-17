@@ -90,8 +90,8 @@ class CamData():
 		print(f)
 		
 		if f == None:
-            self.socket = False
-            print('Bye')
+			self.socket = False
+			print('Bye')
 
 	# Check whether socket should still be running
 	def is_true(self):

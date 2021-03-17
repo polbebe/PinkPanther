@@ -9,6 +9,7 @@ import socket
 import sys
 import time
 import numpy as np
+import math as m
 
 class CamData():
 	# Constructor method
@@ -31,13 +32,11 @@ class CamData():
 		self.detector = apriltag(self.TAG)
 
 		# Connect to Socket set up by server
-		'''
 		self.s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 		try:
 			self.s.connect((HOST, PORT))
 		except socket.error as e:
 			print(str(e))
-		'''
 
 	# Analysis of one frame
 	def frame(self):
@@ -77,21 +76,20 @@ class CamData():
 	# Step
 	def step(self):
 		# Receive new servo positions to be taken
-		'''
+		
 		p = self.s.recv(1024)
 		# If there's no more data being received, break the loop
 		if not p:
 			print('CONNECTION BROKEN')
 			self.socket = False
-		# Send current state of robot
-		self.s.sendall(np.array(self.frame(), dtype=np.float32).tobytes())
-		'''
+		# Get current state of robot
 		f = self.frame()
-		print(f)
-		
+		# Break connection by sending NaN if apriltag is not discoverable
 		if f == None:
 			self.socket = False
-			print('Bye')
+			f = m.nan
+		# Send current state of robot
+		self.s.sendall(np.array(f, dtype=np.float32).tobytes())
 
 	# Check whether socket should still be running
 	def is_true(self):

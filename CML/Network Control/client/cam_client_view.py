@@ -15,8 +15,11 @@ class CamData():
 	# Constructor method
 	def __init__(self):
 		# Tag Family & Filter value for detection
+		self.TITLE      = "apriltag_view"  # Window title
 		self.TAG        = "tag36h11"
 		self.MIN_MARGIN = 10
+		self.FONT       = cv2.FONT_HERSHEY_SIMPLEX  # Font for ID value
+		self.RED        = 255,0,0 # Colour of ident & frame (BGR)
 		# Socket Conneciton
 		HOST = '192.168.1.29'
 		PORT = 65432
@@ -54,6 +57,11 @@ class CamData():
 				rect = det["lb-rb-rt-lt"].astype(int).reshape((-1,1,2))
 				pos = det["center"].astype(int) + (-10,10)
 
+				cv2.polylines(img, [rect], True, self.RED, 2)
+				ident = str(det["id"])
+				pos = det["center"].astype(int) + (-10,10)
+				cv2.putText(img, ident, tuple(pos), self.FONT, 1, self.RED, 2)
+
 				# Initial position
 				if self.k == 0:
 					self.x0 = det["center"][0]
@@ -72,6 +80,7 @@ class CamData():
 				print([deltax, deltay])
 				
 				return [deltax, deltay]
+		cv2.imshow(self.TITLE, img)
 
 	# Step
 	def step(self):
@@ -103,4 +112,6 @@ if __name__=='__main__':
 	while client.is_true() == True:
 		# Get next frame
 		client.step()
+	
+	cv2.destroyAllWindows()
 

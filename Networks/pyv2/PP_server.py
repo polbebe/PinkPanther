@@ -13,7 +13,7 @@ from threading import Thread
 class NetEnv(gym.Env):
 
     def __init__(self, port):
-        HOST = '192.168.1.201'   # Standard loopback interface address (localhost)
+        HOST = '192.168.1.29'   # Standard loopback interface address (localhost)
                                 # Mac - 192.168.1.29
         PORT = port             # Port to listen on (non-privileged ports are > 1023)
 
@@ -129,7 +129,7 @@ class NetEnv(gym.Env):
 
 
 if __name__ == '__main__':
-    env = NetEnv(65432)
+    env = NetEnv(65433)
 
     start = time.time()
     

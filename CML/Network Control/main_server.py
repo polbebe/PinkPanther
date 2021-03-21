@@ -192,10 +192,12 @@ if __name__ == '__main__':
 		action[0::3] = 0
 
 		obs = env.step(action)
-		# Print only every 10 loops
-		# if i%10 == 0:
-		# print(r_state)
+
+		# Append the action number to end of list
+		obs[0].append(j)
+		# Add state to csv
 		write_csv_real(obs[0])
+		
 		j += 1
 		# Keep track of number of actions/second
 		sys.stdout.write(str(j) + ' in: ' + str(round(time.time() - start, 3)) + ' Averaging: ' + str(

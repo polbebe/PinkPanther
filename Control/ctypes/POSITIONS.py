@@ -12,30 +12,21 @@ if IO < 0:
     print('IO exit')
     sys.exit()
 
-# Set servo mode to all servos
-motor.setServoMode(10)
-motor.setServoMode(12)
-motor.setServoMode(11)
-motor.setServoMode(30)
-motor.setServoMode(32)
-motor.setServoMode(31)
-motor.setServoMode(20)
-motor.setServoMode(22)
-motor.setServoMode(21)
-motor.setServoMode(40)
-motor.setServoMode(42)
-motor.setServoMode(41)
 
+offsets = [30, 0, 64, 0, 70, 50, 26, 0, 55, 80, 90, 35]
 
-#motor.setPositionOffset(22, 20)
-motor.setPositionOffset(22, 20)
-motor.setPositionOffset(32, 100)
-print(motor.getPositionOffset(12))
-print(motor.getPositionOffset(22))
-print(motor.getPositionOffset(32))
-print(motor.getPositionOffset(42))
+h = 0
+# Set servo mode to all servos with their offset
+for j in range(1,5):
+	u = 10*j
+	r = range(u, u+3)
+	for i in r:
+		motor.setServoMode(i)
+		if offsets[h]!=0:
+			motor.setPositionOffset(i,offsets[h])
+		h+=1
 
-pos = [500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500]
+pos = [500, 354, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500]
 motor.move(10, int(pos[0]), 1000)
 motor.move(12, int(pos[1]), 1000)
 motor.move(11, int(pos[2]), 1000)

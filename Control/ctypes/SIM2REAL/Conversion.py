@@ -74,7 +74,7 @@ if IO < 0:
 	print('IO exit')
 	sys.exit()
 
-offsets = [30, 0, 64, 0, 60, 20, 26, 0, 70, 80, 95, 35]
+offsets = [30, 0, 64, 0, 70, 50, 26, 0, 55, 80, 90, 35]
 
 h = 0
 # Set servo mode to all servos with their offset

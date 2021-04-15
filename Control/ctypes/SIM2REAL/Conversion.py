@@ -1,7 +1,7 @@
 import numpy as np
 from ServoMotor import *
 import sys
-import time
+import time as timer
 
 a = 0.75
 b = 0.1
@@ -104,7 +104,7 @@ while t<300:
 	#motor.move(42, int(servo42_sim2real(movement(a,b,c,t))), time)
 	#motor.move(41, int(servo41_sim2real(movement(a,b,c,t))), time)
 
-	time.sleep(100)
+	timer.sleep(100)
 
 	t+=1
 

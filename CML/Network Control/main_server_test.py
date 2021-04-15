@@ -73,7 +73,7 @@ class NetEnv(gym.Env):
 		# MAC find WiFi IP - ipconfig getifaddr en0
 		HOST = '192.168.1.29'
 		# Port to listen on (non-privileged ports are > 1023)
-		PORT = 65439
+		PORT = 65434
 		print('Connected')
 
 		# Set up Socket
@@ -105,6 +105,8 @@ class NetEnv(gym.Env):
 		# Receive Robot State from main client
 		pp_state = np.frombuffer(conn.recv(1024), dtype=np.float32)
 		for i in range(15):
+			if i < 12:
+				self.servo_pos[i] = pp_state[i]
 			self.robot_state[i] = pp_state[i]
 
 	def cam_client_thread(self, conn):
@@ -152,68 +154,155 @@ class NetEnv(gym.Env):
 
 		return self.robot_state, r, done, {}
 
-	def write_csv_theory(self, data):
-		with open('commanded_pos.csv', 'a') as outfile:
-			writer = csv.writer(outfile)
-			data = np.append(data, self.i)
-			writer.writerow(data)
-
+	
 	# Check whether socket should still be running
 	def is_true(self):
 		return self.socket
 
 
 if __name__ == '__main__':
+
+	def servo12(pos12):
+		if pos12>=583.3:
+			targ12 = (140 - (6/25)*pos12)*(1.2/65)
+		else:
+			targ12 = -((6/25)*pos12 - 140)*(1/25)
+		return targ12
+	def servo11(pos11):
+		if pos11>=750:
+			targ11 = ((6/25)*pos11 - 180)*(1.5/60)
+		else:
+			targ11 = -(180 - (6/25)*pos11)*(0.6/40)
+		return targ11
+
+	def servo32(pos32):
+		if pos32>=583.3:
+			targ32 = (140 - (6/25)*pos32)*(1.2/65)
+		else:
+			targ32 = -((6/25)*pos32 - 140)*(1/25)
+		return targ32
+	def servo31(pos31):
+		if pos31>=750:
+			targ31 = ((6/25)*pos31 - 180)*(1.5/60)
+		else:
+			targ31 = -(180 - (6/25)*pos31)*(0.6/40)
+		return targ31
+
+	def servo22(pos22):
+		if pos22>=416.6:
+			targ22 = ((6/25)*pos22 - 100)*(1.2/65)
+		else:
+			targ22 = -(100 - (6/25)*pos22)*(1/25)
+		return targ22
+	def servo21(pos21):
+		if pos21>=250:
+			targ21 = (60 - (6/25)*pos21)*(1.5/60)
+		else:
+			targ21 = -((6/25)*pos21 - 60)*(0.6/60)
+		return targ21
+
+	def servo42(pos42):
+		if pos42>=416.6:
+			targ42 = ((6/25)*pos42 - 100)*(1.2/65)
+		else:
+			targ42 = -(100 - (6/25)*pos42)*(1/25)
+		return targ42
+	def servo41(pos41):
+		if pos41>=250:
+			targ41 = (60 - (6/25)*pos41)*(1.5/60)
+		else:
+			targ41 = -((6/25)*pos41 - 60)*(0.6/60)
+		return targ41
+
+	def transformMotors(pos):
+		null = lambda x: (x-500)/500
+		fns = [null, servo11, servo12, null, servo21, servo22, null, servo31, servo32, null, servo41, servo42]
+		targ = np.zeros(12)
+		for i in range(len(pos)):
+			targ[i] = fns[i](pos[i])
+		return targ
+
+	def real2sim(obs):
+		obs = np.array(obs)
+		pos, rp, xy = obs[0:12], obs[12:14], obs[15:]
+		pos = transformMotors(pos) / 4
+		# pos = (pos - 500) / 500
+		rp = (rp-180) / 180
+		xy = xy[::-1] * 0.0025
+		return np.concatenate([pos, rp, xy])
+
+
 	# A parameter to determine if we read actions from the server or select them randomly
 	train = False
 
 	# Construct MAIN SERVER object
 	env = NetEnv()
 
-	# Setting up the interface if we are in test mod
-	'''
-	if train:
-		interface = None
-	else:
-		interface = Interface(act_dim=env.act_dim, state_dim=env.state_dim)
-	'''
-	interface = Interface(act_dim=env.act_dim, state_dim=env.state_dim)
-
+	#interface = Interface(act_dim=env.act_dim, state_dim=env.state_dim)
 	# Construct Agent object
-	agent = Agent(env.act_dim, env.state_dim, interface)
-
+	#agent = Agent(env.act_dim, env.state_dim, interface)
 	# Reset environment
 	obs = env.reset()
+	obs = real2sim(obs)
+
+	def act(obs, t, a, b, c):
+		current_p = obs[:12]
+		desired_p = np.zeros(12)
+		v = a * np.sin(t * b) + c
+		#print(obs)
+		#print(t, a, b, c, v)
+		pos = [1, 10, 2, 11]
+		neg = [4, 7, 5, 8]
+		zero = [0, 3, 6, 9]
+		desired_p[pos] = v
+		desired_p[neg] = -v
+		desired_p[zero] = 0
+
+		delta_p = (desired_p - current_p)
+		delta_p = np.clip(delta_p, -1, 1)
+		return delta_p
+
+	def get_action(state, steps):
+		params = np.array([-0.57472189, -0.97479314, 0.04835059]) # with 10x actions
+		#params = np.array([0.83972287, 0.79753211, 0.04102455]) # without 10x actions
+		return act(state, steps, *params)
+
+	def write_csv_real(data):
+		with open('floor_data.csv', 'a') as outfile:
+			writer = csv.writer(outfile)
+			writer.writerow(data)
 
 	# Get input from user
 	input('Press any key to begin episode: ')
 
-
-	def write_csv_real(data):
-		with open('real_pos.csv', 'a') as outfile:
-			writer = csv.writer(outfile)
-			writer.writerow(data)
-
 	# Keep track of time for average actions/second calculation
 	start = time.time()
 	j = 0
+
 	# WALK
 	while env.is_true() == True:
 		# Return current robot state on every loop
-		action = agent.policy(obs)
-		print(action)
-		print(time.time())
+		obs = real2sim(obs)
+		action = get_action(obs, j)
+		#print(action)
+		#print(time.time())
+		print(j)
+
 		# if we want every 3rd to be frozen
 		action[0::3] = 0
 
 		obs, r, done, info = env.step(action)
-
 		# Append the action number to end of list
 		data = np.append(obs[0], j)
+
 		# Add state to csv
-		#write_csv_real(data)
+		write_csv_real(obs[:12])
 
 		j += 1
+
+		if j == 37:
+			obs
+
 		# Keep track of number of actions/second
 		sys.stdout.write(str(j) + ' in: ' + str(round(time.time() - start, 3)) + ' Averaging: ' + str(
 			round(j / (time.time() - start), 2)) + ' actions/s\r')

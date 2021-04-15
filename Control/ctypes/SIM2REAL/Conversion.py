@@ -3,9 +3,9 @@ from ServoMotor import *
 import sys
 import time
 
-a = 0.3
-b = 3
-c = 0.1
+a = 0.75
+b = 0.1
+c = 0.45
 
 def movement(a, b, c, t):
 	v = a * np.sin(t * b) + c
@@ -14,9 +14,9 @@ def movement(a, b, c, t):
 # SIM 2 REAL
 def servo12_sim2real(targ12):
 	if targ12>=0:
-		pos12 = (140 - (targ12/1.2)*65)*(25/6)
+		pos12 = (621 - (targ12/1.2)*(621-354))
 	else:
-		pos12 = ((abs(targ12)/1)*25 + 140)*(25/6)
+		pos12 = (621 + (abs(targ12)/0.3)*(688-621))
 	return int(round(pos12))
 def servo11_sim2real(targ11):
 	if targ11>=0:
@@ -93,16 +93,16 @@ t=0
 time = 100
 while t<300:
 	motor.move(12, int(servo12_sim2real(movement(a,b,c,t))), time)
-	motor.move(11, int(servo11_sim2real(movement(a,b,c,t))), time)
+	#motor.move(11, int(servo11_sim2real(movement(a,b,c,t))), time)
 
-	motor.move(32, int(servo32_sim2real(movement(a,b,c,t))), time)
-	motor.move(31, int(servo31_sim2real(movement(a,b,c,t))), time)
+	#motor.move(32, int(servo32_sim2real(movement(a,b,c,t))), time)
+	#motor.move(31, int(servo31_sim2real(movement(a,b,c,t))), time)
 
-	motor.move(22, int(servo22_sim2real(movement(a,b,c,t))), time)
-	motor.move(21, int(servo21_sim2real(movement(a,b,c,t))), time)
+	#motor.move(22, int(servo22_sim2real(movement(a,b,c,t))), time)
+	#motor.move(21, int(servo21_sim2real(movement(a,b,c,t))), time)
 
-	motor.move(42, int(servo42_sim2real(movement(a,b,c,t))), time)
-	motor.move(41, int(servo41_sim2real(movement(a,b,c,t))), time)
+	#motor.move(42, int(servo42_sim2real(movement(a,b,c,t))), time)
+	#motor.move(41, int(servo41_sim2real(movement(a,b,c,t))), time)
 
 	time.sleep(100)
 

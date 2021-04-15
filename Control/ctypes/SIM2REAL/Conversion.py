@@ -1,6 +1,7 @@
 import numpy as np
 from ServoMotor import *
 import sys
+import time
 
 a = 0.3
 b = 3
@@ -89,7 +90,7 @@ for j in range(1,5):
 
 
 t=0
-time = 10
+time = 100
 while t<300:
 	motor.move(12, int(servo12_sim2real(movement(a,b,c,t))), time)
 	motor.move(11, int(servo11_sim2real(movement(a,b,c,t))), time)
@@ -102,6 +103,8 @@ while t<300:
 
 	motor.move(42, int(servo42_sim2real(movement(a,b,c,t))), time)
 	motor.move(41, int(servo41_sim2real(movement(a,b,c,t))), time)
+
+	time.sleep(100)
 
 	t+=1
 

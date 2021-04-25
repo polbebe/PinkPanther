@@ -16,31 +16,31 @@ def movement(a, b, c, t):
 	return v
 
 # SIM 2 REAL
-def servo_left_shoulder_sim2real(targ12):
-	if targ12>=0:
-		pos12 = (621 - (targ12/1.2)*(621-354))
+def servo_left_shoulder_sim2real(targ):
+	if targ>=0:
+		pos = (621 - (targ/1.2)*(621-354))
 	else:
-		pos12 = (621 + (abs(targ12)/0.3)*(688-621))
-	return int(round(pos12))
-def servo_left_elbow_sim2real(targ11):
-	if targ11>=0:
-		pos11 = (721 + (targ11/1.2)*(1000-721))
+		pos = (621 + (abs(targ)/0.3)*(688-621))
+	return int(round(pos))
+def servo_left_elbow_sim2real(targ):
+	if targ>=0:
+		pos = (721 + (targ/1.2)*(1000-721))
 	else:
-		pos11 = (721 - (abs(targ11)/0.6)*(721-500))
-	return int(round(pos11))
+		pos = (721 - (abs(targ)/0.6)*(721-500))
+	return int(round(pos))
 
-def servo_right_shoulder_sim2real(targ22):
-	if targ22>=0:
-		pos22 = ((targ22/1.2)*65 + 100)*(25/6)
+def servo_right_shoulder_sim2real(targ):
+	if targ>=0:
+		pos = (375 + (targ/1.2)*(625-375))
 	else:
-		pos22 = (100 - (abs(targ22)/1)*25)*(25/6)
-	return int(round(pos22))
-def servo_right_elbow_sim2real(targ21):
-	if targ21>=0:
-		pos21 = (60 - (targ21/1.5)*60)*(25/6)
+		pos = (375 - (abs(targ)/0.3)*(375-313))
+	return int(round(pos))
+def servo_right_elbow_sim2real(targ):
+	if targ>=0:
+		pos = (279 - (targ/1.2)*(279-0))
 	else:
-		pos21 = ((abs(targ21)/0.6)*60 + 60)*(25/6)
-	return int(round(pos21))
+		pos = (279 + (abs(targ)/0.6)*(500-279))
+	return int(round(pos))
 
 
 # Initialize ServoMotor class

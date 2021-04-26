@@ -162,61 +162,37 @@ class NetEnv(gym.Env):
 
 if __name__ == '__main__':
 
-	def servo12(pos12):
-		if pos12>=583.3:
-			targ12 = (140 - (6/25)*pos12)*(1.2/65)
+	# SIM 2 REAL
+	def servo_left_shoulder_sim2real(targ):
+		if targ>=0:
+			pos = (621 - (targ/1.2)*(621-290))
 		else:
-			targ12 = -((6/25)*pos12 - 140)*(1/25)
-		return targ12
-	def servo11(pos11):
-		if pos11>=750:
-			targ11 = ((6/25)*pos11 - 180)*(1.5/60)
+			pos = (621 + (abs(targ)/0.3)*(688-621))
+		return int(round(pos))
+	def servo_left_elbow_sim2real(targ):
+		if targ>=0:
+			pos = (721 + (targ/1.2)*(1000-721))
 		else:
-			targ11 = -(180 - (6/25)*pos11)*(0.6/40)
-		return targ11
+			pos = (721 - (abs(targ)/0.9)*(721-500))
+		return int(round(pos))
 
-	def servo32(pos32):
-		if pos32>=583.3:
-			targ32 = (140 - (6/25)*pos32)*(1.2/65)
+	def servo_right_shoulder_sim2real(targ):
+		if targ>=0:
+			pos = (375 + (targ/1.2)*(700-375))
 		else:
-			targ32 = -((6/25)*pos32 - 140)*(1/25)
-		return targ32
-	def servo31(pos31):
-		if pos31>=750:
-			targ31 = ((6/25)*pos31 - 180)*(1.5/60)
+			pos = (375 - (abs(targ)/0.3)*(375-313))
+		return int(round(pos))
+	def servo_right_elbow_sim2real(targ):
+		if targ>=0:
+			pos = (279 - (targ/1.2)*(279-0))
 		else:
-			targ31 = -(180 - (6/25)*pos31)*(0.6/40)
-		return targ31
-
-	def servo22(pos22):
-		if pos22>=416.6:
-			targ22 = ((6/25)*pos22 - 100)*(1.2/65)
-		else:
-			targ22 = -(100 - (6/25)*pos22)*(1/25)
-		return targ22
-	def servo21(pos21):
-		if pos21>=250:
-			targ21 = (60 - (6/25)*pos21)*(1.5/60)
-		else:
-			targ21 = -((6/25)*pos21 - 60)*(0.6/60)
-		return targ21
-
-	def servo42(pos42):
-		if pos42>=416.6:
-			targ42 = ((6/25)*pos42 - 100)*(1.2/65)
-		else:
-			targ42 = -(100 - (6/25)*pos42)*(1/25)
-		return targ42
-	def servo41(pos41):
-		if pos41>=250:
-			targ41 = (60 - (6/25)*pos41)*(1.5/60)
-		else:
-			targ41 = -((6/25)*pos41 - 60)*(0.6/60)
-		return targ41
+			pos = (279 + (abs(targ)/0.9)*(500-279))
+		return int(round(pos))
 
 	def transformMotors(pos):
 		null = lambda x: (x-500)/500
-		fns = [null, servo11, servo12, null, servo21, servo22, null, servo31, servo32, null, servo41, servo42]
+		fns =	[null, servo_left_elbow_sim2real, servo_left_shoulder_sim2real, null, servo_right_elbow_sim2real, servo_right_shoulder_sim2real, 
+				null, servo_left_elbow_sim2real, servo_left_shoulder_sim2real, null, servo_right_elbow_sim2real, servo_right_shoulder_sim2real]
 		targ = np.zeros(12)
 		for i in range(len(pos)):
 			targ[i] = fns[i](pos[i])
@@ -249,15 +225,12 @@ if __name__ == '__main__':
 		current_p = obs[:12]
 		desired_p = np.zeros(12)
 		v = a * np.sin(t * b) + c
-		#print(obs)
-		#print(t, a, b, c, v)
 		pos = [1, 10, 2, 11]
 		neg = [4, 7, 5, 8]
 		zero = [0, 3, 6, 9]
 		desired_p[pos] = v
 		desired_p[neg] = -v
 		desired_p[zero] = 0
-
 		delta_p = (desired_p - current_p)
 		delta_p = np.clip(delta_p, -1, 1)
 		return delta_p
@@ -268,14 +241,11 @@ if __name__ == '__main__':
 		return act(state, steps, *params)
 
 	def write_csv_real(data):
-		with open('floor_data.csv', 'a') as outfile:
+		with open('gait_v1_platform_data.csv', 'a') as outfile:
 			writer = csv.writer(outfile)
 			writer.writerow(data)
 
-	# Get input from user
 	input('Press any key to begin episode: ')
-
-	# Keep track of time for average actions/second calculation
 	start = time.time()
 	j = 0
 
@@ -284,9 +254,6 @@ if __name__ == '__main__':
 		# Return current robot state on every loop
 		obs = real2sim(obs)
 		action = get_action(obs, j)
-		#print(action)
-		#print(time.time())
-		print(j)
 
 		# if we want every 3rd to be frozen
 		action[0::3] = 0
@@ -299,9 +266,6 @@ if __name__ == '__main__':
 		write_csv_real(obs[:12])
 
 		j += 1
-
-		if j == 37:
-			obs
 
 		# Keep track of number of actions/second
 		sys.stdout.write(str(j) + ' in: ' + str(round(time.time() - start, 3)) + ' Averaging: ' + str(

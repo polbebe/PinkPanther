@@ -35,10 +35,10 @@ for x in range(len(data)):
 
 	# Move all servos to next position specified in csv
 	for j in range(1,5):
-	u = 10*j
-	r = range(u, u+3)
-	for i in r:
-		motor.move(i, int(data['{}'.format(i)][x]), time)
+		u = 10*j
+		r = range(u, u+3)
+		for i in r:
+			motor.move(i, int(data['{}'.format(i)][x]), time)
 
 	timer.sleep(0.1)
 

@@ -5,7 +5,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # Initialize the port that the controller board is connected to
-LX16A.initialize("COM3")
+# LX16A.initialize("COM3")
+LX16A.initialize("/dev/ttyUSB0")
 
 # Initialize ALL servos & write their angle limits (only once is enough)
 # LEFT

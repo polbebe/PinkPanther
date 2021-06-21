@@ -29,7 +29,7 @@ for j in range(1,5):
 		h+=1
 
 # Time allowed for servos to take their positions
-time = 100
+time = 500
 
 for x in range(len(data)):
 
@@ -40,6 +40,6 @@ for x in range(len(data)):
 		for i in r:
 			motor.move(i, int(data['{}'.format(i)][x]), time)
 
-	timer.sleep(0.1)
+	timer.sleep(0.3)
 
 

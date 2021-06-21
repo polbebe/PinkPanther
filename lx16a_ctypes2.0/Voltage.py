@@ -24,4 +24,8 @@ for j in range(1,5):
 			motor.setPositionOffset(i,offsets[h])
 		h+=1
 
-print(motor.getVoltage(10))
+for j in range(1,5):
+	u = 10*j
+	r = range(u, u+3)
+	for i in r:
+		print(motor.getVoltage(i))

@@ -41,7 +41,7 @@ class ServoData():
 			a = 10*k
 			r = range(a, a+3)
 			for l in r:
-				self.motor.move(l, int(pos[z]), t)
+				self.motor.move(l, int(pos[z]), t) #t=100
 				z += 1
 		
 		time.sleep(0.5)

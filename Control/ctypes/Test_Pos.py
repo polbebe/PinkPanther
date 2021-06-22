@@ -36,7 +36,7 @@ for j in range(1,5):
 			motor.move(i, int(pos[h]), 1000)
 		h+=1
 
-time.sleep(10)
+time.sleep(3)
 
 h = 0
 for j in range(1,5):
@@ -45,6 +45,8 @@ for j in range(1,5):
 	for i in r:
 		print("Motor {}: {} Pos Error".format(i, abs(pos[h] - motor.readPosition(i))))
 		h+=1
+
+print("-----------------")
 
 time.sleep(1)
 
@@ -57,7 +59,7 @@ for j in range(1,5):
 		motor.move(i, int(pos[h]), 1000)
 		h+=1
 
-time.sleep(10)
+time.sleep(3)
 
 h = 0
 for j in range(1,5):
@@ -66,5 +68,7 @@ for j in range(1,5):
 	for i in r:
 		print("Motor {}: {} Pos Error".format(i, abs(pos[h] - motor.readPosition(i))))
 		h+=1
+
+print("-----------------")
 
 time.sleep(1)

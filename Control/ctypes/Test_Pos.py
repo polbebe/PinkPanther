@@ -24,8 +24,40 @@ for j in range(1,5):
 			motor.setPositionOffset(i,offsets[h])
 		h+=1
 
+pos = [510, 750, 583, 500, 250, 417, 500, 750, 583, 500, 250, 417]
+h = 0
 for j in range(1,5):
 	u = 10*j
 	r = range(u, u+3)
 	for i in r:
-		print("Motor {}: {} mV ?".format(i, motor.getVoltage(i)))
+		if h>5:
+			motor.move(i, int(pos[h]), 700)
+		else:
+			motor.move(i, int(pos[h]), 1000)
+		h+=1
+
+h = 0
+for j in range(1,5):
+	u = 10*j
+	r = range(u, u+3)
+	for i in r:
+		print("Motor {}: {} Pos Error".format(i, abs(pos[h] - motor.readPosition(i))))
+		h+=1
+
+
+pos = [500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500]
+h = 0
+for j in range(1,5):
+	u = 10*j
+	r = range(u, u+3)
+	for i in r:
+		motor.move(i, int(pos[h]), 1000)
+		h+=1
+
+h = 0
+for j in range(1,5):
+	u = 10*j
+	r = range(u, u+3)
+	for i in r:
+		print("Motor {}: {} Pos Error".format(i, abs(pos[h] - motor.readPosition(i))))
+		h+=1

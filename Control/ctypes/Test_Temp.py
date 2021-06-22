@@ -28,4 +28,4 @@ for j in range(1,5):
 	u = 10*j
 	r = range(u, u+3)
 	for i in r:
-		print("Motor {}: {} ºC ?".format(i, motor.getTemp(i)))
+		print("Motor {}: {} ºC".format(i, motor.getTemp(i)))

@@ -84,9 +84,9 @@ if __name__ == '__main__':
 		des[negative] = -v
 		des[zero] = 0
 		# Convert desired position to real motor position 
-		action = sim2real(des)
+		action = sim2real(0.1*des)
 		# Define target position
-		target_pos = pos + 0.1*action
+		target_pos = pos + action
 		return target_pos
 
 	# Return position to take
@@ -118,7 +118,6 @@ if __name__ == '__main__':
 
 
 	# RESET position and stand up before walking
-	for i in range(3):
 	pos = [500, 750, 583, 500, 250, 417, 500, 750, 583, 500, 250, 417]
 	h = 0
 	for j in range(1,5):
@@ -133,7 +132,7 @@ if __name__ == '__main__':
 	time.sleep(3)
 
 	print('Start Walking!')
-	
+
 	# WALK
 	while j < 10000:
 		# Get current position of motors

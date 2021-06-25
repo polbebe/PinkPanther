@@ -1,0 +1,1 @@
+controller_joint_names: ['', 'lf_armpit_joint', 'lf_shoulder_joint', 'lf_elbow_joint', 'rf_armpit_joint', 'rf_humerus_shoulder', 'rf_elbow_joint', 'lb_armpit_joint', 'lb_shoulder_joint', 'lb_elbow_joint', 'rb_armpit_joint', 'rb_shoulder_joint', 'rb_elbow_joint', ]

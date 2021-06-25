@@ -1,0 +1,743 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-1-g15f4949  Build Version: 1.6.7594.29634
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="PinkPanther_URDF">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.098726 0.15325 0.22213"
+        rpy="0 0 0" />
+      <mass
+        value="0.94318" />
+      <inertia
+        ixx="0.00084375"
+        ixy="-9.0224E-05"
+        ixz="-1.9799E-07"
+        iyy="0.003336"
+        iyz="-6.6739E-08"
+        izz="0.0028008" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://PinkPanther_URDF/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://PinkPanther_URDF/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="Scapula_Front_Left">
+    <inertial>
+      <origin
+        xyz="-0.030748 0.010762 0.045404"
+        rpy="0 0 0" />
+      <mass
+        value="0.083024" />
+      <inertia
+        ixx="1.9514E-05"
+        ixy="2.0836E-07"
+        ixz="3.2177E-07"
+        iyy="1.9059E-05"
+        iyz="-9.8254E-07"
+        izz="2.1776E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://PinkPanther_URDF/meshes/Scapula_Front_Left.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://PinkPanther_URDF/meshes/Scapula_Front_Left.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Armpit_Front_Left"
+    type="revolute">
+    <origin
+      xyz="0.18159 -0.17372 0.16047"
+      rpy="1.5708 -4.0815E-05 3.1416" />
+    <parent
+      link="base_link" />
+    <child
+      link="Scapula_Front_Left" />
+    <axis
+      xyz="1 -4.0815E-05 0" />
+    <limit
+      lower="-0.3"
+      upper="0.3"
+      effort="1.667"
+      velocity="6.545" />
+  </joint>
+  <link
+    name="Humerus_Front_Left">
+    <inertial>
+      <origin
+        xyz="0.059939 -0.034151 0.032348"
+        rpy="0 0 0" />
+      <mass
+        value="0.20523" />
+      <inertia
+        ixx="5.2632E-05"
+        ixy="-6.8702E-06"
+        ixz="-1.703E-08"
+        iyy="0.00020766"
+        iyz="3.2026E-10"
+        izz="0.00019666" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://PinkPanther_URDF/meshes/Humerus_Front_Left.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://PinkPanther_URDF/meshes/Humerus_Front_Left.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Shoulder_Front_Left"
+    type="revolute">
+    <origin
+      xyz="-0.029275 -0.014657 0.02045"
+      rpy="0 0 -0.5236" />
+    <parent
+      link="Scapula_Front_Left" />
+    <child
+      link="Humerus_Front_Left" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-0.3"
+      upper="1.2"
+      effort="1.667"
+      velocity="6.545" />
+  </joint>
+  <link
+    name="Ulna_Front_Left">
+    <inertial>
+      <origin
+        xyz="-0.06023 -0.031143 0.030092"
+        rpy="0 0 0" />
+      <mass
+        value="0.12952" />
+      <inertia
+        ixx="2.7704E-05"
+        ixy="6.5537E-06"
+        ixz="1.0677E-09"
+        iyy="0.00026106"
+        iyz="2.9507E-09"
+        izz="0.0002505" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://PinkPanther_URDF/meshes/Ulna_Front_Left.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://PinkPanther_URDF/meshes/Ulna_Front_Left.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Elbow_Front_Left"
+    type="revolute">
+    <origin
+      xyz="0.14707 -0.034829 0.0025103"
+      rpy="0 0 1.0472" />
+    <parent
+      link="Humerus_Front_Left" />
+    <child
+      link="Ulna_Front_Left" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-0.9"
+      upper="1.2"
+      effort="1.667"
+      velocity="6.545" />
+  </joint>
+  <link
+    name="Scapula_Front_Right">
+    <inertial>
+      <origin
+        xyz="-0.030837 0.010759 -0.045403"
+        rpy="0 0 0" />
+      <mass
+        value="0.083024" />
+      <inertia
+        ixx="1.9513E-05"
+        ixy="2.0798E-07"
+        ixz="-3.2164E-07"
+        iyy="1.9059E-05"
+        iyz="9.825E-07"
+        izz="2.1776E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://PinkPanther_URDF/meshes/Scapula_Front_Right.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://PinkPanther_URDF/meshes/Scapula_Front_Right.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Armpit_Front_Right"
+    type="revolute">
+    <origin
+      xyz="0.18209 -0.26988 0.16047"
+      rpy="1.5708 5.102E-05 -3.1416" />
+    <parent
+      link="base_link" />
+    <child
+      link="Scapula_Front_Right" />
+    <axis
+      xyz="1 5.102E-05 0" />
+    <limit
+      lower="-0.3"
+      upper="0.3"
+      effort="1.667"
+      velocity="6.545" />
+  </joint>
+  <link
+    name="Humerus_Front_Right">
+    <inertial>
+      <origin
+        xyz="0.059939 -0.034151 -0.032347"
+        rpy="0 0 0" />
+      <mass
+        value="0.20523" />
+      <inertia
+        ixx="5.2632E-05"
+        ixy="-6.8704E-06"
+        ixz="1.5183E-08"
+        iyy="0.00020766"
+        iyz="3.1999E-10"
+        izz="0.00019666" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://PinkPanther_URDF/meshes/Humerus_Front_Right.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://PinkPanther_URDF/meshes/Humerus_Front_Right.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Shoulder_Front_Right"
+    type="revolute">
+    <origin
+      xyz="-0.029276 -0.01466 -0.02045"
+      rpy="0 0 -0.5236" />
+    <parent
+      link="Scapula_Front_Right" />
+    <child
+      link="Humerus_Front_Right" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-0.3"
+      upper="1.2"
+      effort="1.667"
+      velocity="6.545" />
+  </joint>
+  <link
+    name="Ulna_Front_Right">
+    <inertial>
+      <origin
+        xyz="-0.06023 -0.031143 -0.030067"
+        rpy="0 0 0" />
+      <mass
+        value="0.12952" />
+      <inertia
+        ixx="2.7704E-05"
+        ixy="6.5537E-06"
+        ixz="1.0677E-09"
+        iyy="0.00026106"
+        iyz="2.9508E-09"
+        izz="0.0002505" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://PinkPanther_URDF/meshes/Ulna_Front_Right.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://PinkPanther_URDF/meshes/Ulna_Front_Right.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Elbow_Front_Right"
+    type="revolute">
+    <origin
+      xyz="0.14707 -0.034829 -0.0025274"
+      rpy="0 0 1.0472" />
+    <parent
+      link="Humerus_Front_Right" />
+    <child
+      link="Ulna_Front_Right" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-0.9"
+      upper="1.2"
+      effort="1.667"
+      velocity="6.545" />
+  </joint>
+  <link
+    name="Scapula_Back_Left">
+    <inertial>
+      <origin
+        xyz="0.021978 0.01076 0.045404"
+        rpy="0 0 0" />
+      <mass
+        value="0.083024" />
+      <inertia
+        ixx="1.9514E-05"
+        ixy="2.0836E-07"
+        ixz="3.2177E-07"
+        iyy="1.9059E-05"
+        iyz="-9.8254E-07"
+        izz="2.1776E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://PinkPanther_URDF/meshes/Scapula_Back_Left.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://PinkPanther_URDF/meshes/Scapula_Back_Left.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Armpit_Back_Left"
+    type="revolute">
+    <origin
+      xyz="0 -0.17372 0.16047"
+      rpy="1.5708 -4.0815E-05 3.1416" />
+    <parent
+      link="base_link" />
+    <child
+      link="Scapula_Back_Left" />
+    <axis
+      xyz="1 -4.0815E-05 0" />
+    <limit
+      lower="-0.3"
+      upper="0.3"
+      effort="1.667"
+      velocity="6.545" />
+  </joint>
+  <link
+    name="Humerus_Back_Left">
+    <inertial>
+      <origin
+        xyz="0.059939 -0.034151 0.032348"
+        rpy="0 0 0" />
+      <mass
+        value="0.20523" />
+      <inertia
+        ixx="5.2632E-05"
+        ixy="-6.8702E-06"
+        ixz="-1.703E-08"
+        iyy="0.00020766"
+        iyz="3.2026E-10"
+        izz="0.00019666" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://PinkPanther_URDF/meshes/Humerus_Back_Left.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://PinkPanther_URDF/meshes/Humerus_Back_Left.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Shoulder_Back_Left"
+    type="revolute">
+    <origin
+      xyz="0.023451 -0.014659 0.02045"
+      rpy="0 0 -0.5236" />
+    <parent
+      link="Scapula_Back_Left" />
+    <child
+      link="Humerus_Back_Left" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-0.3"
+      upper="1.2"
+      effort="1.667"
+      velocity="6.545" />
+  </joint>
+  <link
+    name="Ulna_Back_Left">
+    <inertial>
+      <origin
+        xyz="-0.06023 -0.031143 0.030092"
+        rpy="0 0 0" />
+      <mass
+        value="0.12952" />
+      <inertia
+        ixx="2.7704E-05"
+        ixy="6.5537E-06"
+        ixz="1.0677E-09"
+        iyy="0.00026106"
+        iyz="2.9507E-09"
+        izz="0.0002505" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://PinkPanther_URDF/meshes/Ulna_Back_Left.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://PinkPanther_URDF/meshes/Ulna_Back_Left.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Elbow_Back_Left"
+    type="revolute">
+    <origin
+      xyz="0.14707 -0.034829 0.0025103"
+      rpy="0 0 1.0472" />
+    <parent
+      link="Humerus_Back_Left" />
+    <child
+      link="Ulna_Back_Left" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-0.9"
+      upper="1.2"
+      effort="1.667"
+      velocity="6.545" />
+  </joint>
+  <link
+    name="Scapula_Back_Right">
+    <inertial>
+      <origin
+        xyz="0.02139 0.010762 -0.045403"
+        rpy="0 0 0" />
+      <mass
+        value="0.083024" />
+      <inertia
+        ixx="1.9513E-05"
+        ixy="2.0798E-07"
+        ixz="-3.2164E-07"
+        iyy="1.9059E-05"
+        iyz="9.825E-07"
+        izz="2.1776E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://PinkPanther_URDF/meshes/Scapula_Back_Right.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://PinkPanther_URDF/meshes/Scapula_Back_Right.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Armpit_Back_Right"
+    type="revolute">
+    <origin
+      xyz="0 -0.26988 0.16047"
+      rpy="1.5708 5.102E-05 -3.1416" />
+    <parent
+      link="base_link" />
+    <child
+      link="Scapula_Back_Right" />
+    <axis
+      xyz="1 5.102E-05 0" />
+    <limit
+      lower="-0.3"
+      upper="0.3"
+      effort="1.667"
+      velocity="6.545" />
+  </joint>
+  <link
+    name="Humerus_Back_Right">
+    <inertial>
+      <origin
+        xyz="0.059939 -0.034151 -0.032347"
+        rpy="0 0 0" />
+      <mass
+        value="0.20523" />
+      <inertia
+        ixx="5.2632E-05"
+        ixy="-6.8704E-06"
+        ixz="1.5183E-08"
+        iyy="0.00020766"
+        iyz="3.1999E-10"
+        izz="0.00019666" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://PinkPanther_URDF/meshes/Humerus_Back_Right.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://PinkPanther_URDF/meshes/Humerus_Back_Right.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Shoulder_Back_Right"
+    type="revolute">
+    <origin
+      xyz="0.02295 -0.014657 -0.02045"
+      rpy="0 0 -0.5236" />
+    <parent
+      link="Scapula_Back_Right" />
+    <child
+      link="Humerus_Back_Right" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-0.3"
+      upper="1.2"
+      effort="1.667"
+      velocity="6.545" />
+  </joint>
+  <link
+    name="Ulna_Back_Right">
+    <inertial>
+      <origin
+        xyz="-0.06023 -0.031143 -0.030067"
+        rpy="0 0 0" />
+      <mass
+        value="0.12952" />
+      <inertia
+        ixx="2.7704E-05"
+        ixy="6.5537E-06"
+        ixz="1.0677E-09"
+        iyy="0.00026106"
+        iyz="2.9508E-09"
+        izz="0.0002505" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://PinkPanther_URDF/meshes/Ulna_Back_Right.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://PinkPanther_URDF/meshes/Ulna_Back_Right.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Elbow_Back_Right"
+    type="revolute">
+    <origin
+      xyz="0.14707 -0.034829 -0.0025274"
+      rpy="0 0 1.0472" />
+    <parent
+      link="Humerus_Back_Right" />
+    <child
+      link="Ulna_Back_Right" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-0.9"
+      upper="1.2"
+      effort="1.667"
+      velocity="6.545" />
+  </joint>
+</robot>

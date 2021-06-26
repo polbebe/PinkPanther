@@ -30,8 +30,8 @@ def convFns(pos, convType):
 def act(obs, t):
 	# Calculate desired position
 	desired_p = np.zeros(12)
-	v = 0.3 * np.sin(t * 0.01)
-	desired_p = v
+	v = 0.3 * np.sin(t * 0.1)
+	desired_p[:12] = v
 
 	# Return desired new position as current position + a realisitc delta_p in the right direction
 	return convFns(desired_p, "sim2real")
@@ -47,9 +47,9 @@ def walk(pos):
 		u = 10*j
 		r = range(u, u+3)
 		for i in r:
-			motor.move(i, int(pos[h]), 100)
+			motor.move(i, int(pos[h]), 0)
 			h+=1
-	time.sleep(0.5)
+	time.sleep(0.01)
 
 # Read motor positions
 def get_state():
@@ -90,13 +90,14 @@ for j in range(1,5):
 time.sleep(3)
 
 # WALK
-while j < 10000:
+while j < 100000:
 	# Get current position of motors
 	state = get_state()
 	# Get target position
 	pos = get_action(state, j)
 	# Move robot to target position
 	walk(pos)
+	print("Moving")
 
 	j += 1
 	

@@ -27,30 +27,18 @@ def convFns(pos, convType):
 	return targ
 
 # Return target position
-def act(obs, t, a, b, c):
-	# Convert current position from real to sim
-	current_p = convFns(obs[:12], "real2sim")
+def act(obs, t):
 	# Calculate desired position
 	desired_p = np.zeros(12)
-	v = a * np.sin(t * b) + c
-	pos = [1, 10, 2, 11]
-	neg = [4, 7, 5, 8]
-	zero = [0, 3, 6, 9]
-	desired_p[pos] = v
-	desired_p[neg] = -v
-	desired_p[zero] = 0
-	# Calculate desired delta u position
-	delta_p = (desired_p - current_p)
-	delta_p = np.clip(delta_p, -1, 1)
+	v = 0.3 * np.sin(t * 0.01)
+	desired_p = v
 
 	# Return desired new position as current position + a realisitc delta_p in the right direction
-	return convFns(current_p+0.1*delta_p, "sim2real")
+	return convFns(desired_p, "sim2real")
 
 # Return position to take
 def get_action(state, steps):
-	# Parameters trained in Environment
-	params = np.array([0.9513956, -0.94153748, 0.03503142])
-	return act(state, steps, *params)
+	return act(state, steps)
 
 # MOVE MOTOR TO GIVEN POSITION
 def walk(pos):

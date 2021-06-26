@@ -75,7 +75,8 @@ for j in range(1,5):
 		h+=1
 
 # RESET position and stand up before walking
-pos = [500, 750, 583, 500, 250, 417, 500, 750, 583, 500, 250, 417]
+#pos = [500, 750, 583, 500, 250, 417, 500, 750, 583, 500, 250, 417]
+pos = convFns(np.zeros(12), "sim2real")
 h = 0
 for j in range(1,5):
 	u = 10*j

@@ -59,9 +59,9 @@ def walk(pos):
 		u = 10*j
 		r = range(u, u+3)
 		for i in r:
-			motor.move(i, int(pos[h]), 100)
+			motor.move(i, int(pos[h]), 0)
 			h+=1
-	time.sleep(0.5)
+	time.sleep(0.01)
 
 # Read motor positions
 def get_state():
@@ -87,7 +87,8 @@ for j in range(1,5):
 		h+=1
 
 # RESET position and stand up before walking
-pos = [500, 750, 583, 500, 250, 417, 500, 750, 583, 500, 250, 417]
+# pos = [500, 750, 583, 500, 250, 417, 500, 750, 583, 500, 250, 417]
+pos = convFns(np.zeros(12), "sim2real")
 h = 0
 for j in range(1,5):
 	u = 10*j

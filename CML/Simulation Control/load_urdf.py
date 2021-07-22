@@ -12,7 +12,7 @@ p.setGravity(0,0,-9.81)
 planeId = p.loadURDF("plane/plane.urdf")
 robotStartPos = [0,0,0.2]
 robotStartOrientation = p.getQuaternionFromEuler([0,0,0])
-robotId = p.loadURDF("PinkPanther_CML/urdf/pp_urdf_final.urdf", robotStartPos, robotStartOrientation)
+robotId = p.loadURDF("PinkPanther_CML/urdf/pp_urdf_final.urdf", robotStartPos, robotStartOrientation, flags=p.URDF_USE_SELF_COLLISION)
 mode = p.POSITION_CONTROL
 maxForce = 1.667
 maxVel = 6.545
@@ -33,16 +33,21 @@ def convFns(pos, convType):
             targ[i] = conv[i](pos[i], convType)
     return targ
 
-'''
-print("Joint: {}".format(p.getJointInfo(robotId, 1)))
+
+#print("Joint: {}".format(p.getJointInfo(robotId, 1)))
 
 _link_name_to_index = {p.getBodyInfo(robotId)[0].decode('UTF-8'):-1,}
+
+Dict = {}
         
 for _id in range(p.getNumJoints(robotId)):
     _name = p.getJointInfo(robotId, _id)[12].decode('UTF-8')
     _link_name_to_index[_name] = _id
-    print("{} : {}".format(_id, _name))
+    #print("{} : {}".format(_id, _name))
+    Dict[_id] = _name
 
+Dict[-1] = 'base_link'
+'''
 # Calculate speed
 t_start = time.time()
 for i in range (10):
@@ -54,7 +59,7 @@ p.changeDynamics(robotId, 2, lateralFriction=val)
 p.changeDynamics(robotId, 5, lateralFriction=val)
 p.changeDynamics(robotId, 8, lateralFriction=val, rollingFriction=val-val, spinningFriction=val)
 p.changeDynamics(robotId, 11, lateralFriction=val, rollingFriction=val-val, spinningFriction=val)
-
+'''
 # Reset down
 for j in range(20):
     for i in range(n_sim_steps):
@@ -63,6 +68,8 @@ for j in range(20):
     for i in range(12):
         p.setJointMotorControl2(robotId, i, controlMode=mode, targetPosition=pos[i], force=maxForce, maxVelocity=maxVel/4)
     time.sleep(1./APS)
+print(convFns([500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500], "real2sim"))
+
 
 # Reset up
 for j in range(20):
@@ -75,6 +82,7 @@ for j in range(20):
         p.setJointMotorControl2(robotId, i, controlMode=mode, targetPosition=0, force=maxForce, maxVelocity=maxVel/vel[i])
     time.sleep(1./APS)
 
+'''
 # Reset down
 for j in range(20):
     for i in range(n_sim_steps):
@@ -100,10 +108,15 @@ step = 3
 for j in np.arange(0,10000,step):
     for i in range(n_sim_steps):
         p.stepSimulation()
-    pos = 0.3*m.sin(j*0.1)
+    pos = (0.5)*m.sin(j*0.1)
+
     #print(pos)
-    for i in range(12):
-        p.setJointMotorControl2(robotId, i, controlMode=mode, targetPosition=pos, force=maxForce, maxVelocity=maxVel)
+    #for i in range(12):
+    #p.setJointMotorControl2(robotId, i, controlMode=mode, targetPosition=pos, force=maxForce, maxVelocity=maxVel)
+    p.setJointMotorControl2(robotId, 1, controlMode=mode, targetPosition=pos, force=maxForce+10)
+    p.setJointMotorControl2(robotId, 2, controlMode=mode, targetPosition=pos, force=maxForce+10)
+    p.setJointMotorControl2(robotId, 7, controlMode=mode, targetPosition=-pos, force=maxForce+10)
+    p.setJointMotorControl2(robotId, 8, controlMode=mode, targetPosition=-pos, force=maxForce+10)
     time.sleep(1./APS)
 
 print("GOODBYE")

@@ -49,7 +49,7 @@ def act(obs, t, a, b, c):
 # Return position to take
 def get_action(state, steps):
 	# Parameters trained in Environment
-	params = np.array([0.96851207, -0.20406921, 0.19854834]) # Jul 21, 11pm
+	params = np.array([0.59291304, -0.04207381, 0.56009086]) # Jul 21, 11pm
 	return act(state, steps, *params)
 
 # MOVE MOTOR TO GIVEN POSITION

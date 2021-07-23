@@ -38,12 +38,10 @@ def convFns(pos, convType):
 # Return position to take
 def get_action(state, i):
 
-	currentPos = convFns(state, 'real2sim')
-
-	nextPos = [	currentPos[0], (v[6] + v[7]*m.sin(i*v[36] + v[8])), (v[3] + v[4]*m.sin(i*v[36] + v[5])),
-				currentPos[3], (v[15] + v[16]*m.sin(i*v[36] + v[17])), (v[12] + v[13]*m.sin(i*v[36] + v[14])),
-				currentPos[6], (v[24] + v[25]*m.sin(i*v[36] + v[26])), (v[21] + v[22]*m.sin(i*v[36] + v[23])),
-				currentPos[9], (v[33] + v[34]*m.sin(i*v[36] + v[35])), (v[30] + v[31]*m.sin(i*v[36] + v[32]))]
+	nextPos = [	0, (v[6] + v[7]*m.sin(i*v[36] + v[8])), (v[3] + v[4]*m.sin(i*v[36] + v[5])),
+				0, (v[15] + v[16]*m.sin(i*v[36] + v[17])), (v[12] + v[13]*m.sin(i*v[36] + v[14])),
+				0, (v[24] + v[25]*m.sin(i*v[36] + v[26])), (v[21] + v[22]*m.sin(i*v[36] + v[23])),
+				0, (v[33] + v[34]*m.sin(i*v[36] + v[35])), (v[30] + v[31]*m.sin(i*v[36] + v[32]))]
 
 	return convFns(nextPos, 'sim2real')
 
@@ -107,7 +105,7 @@ time.sleep(3)
 # WALK
 while j < 10000:
 	# Get current position of motors
-	state = get_state()
+	# state = get_state()
 	# Get target position
 	pos = get_action(state, j)
 	# Move robot to target position

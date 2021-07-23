@@ -2,7 +2,7 @@ from lx16a import *
 import math as m
 import time
 import pandas as pd
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 import numpy as np
 
 # Initialize the port that the controller board is connected to
@@ -42,7 +42,7 @@ s41 = LX16A(41)
 #s42.angleLimitWrite(75, 165)
 #s41.angleLimitWrite(0, 120)
 
-version= "0.2.1"
+version= "0.2.0"
 
 # Read v values from those saved from simulation
 df = pd.read_csv('V/Hardcoded_{}.csv'.format(version))

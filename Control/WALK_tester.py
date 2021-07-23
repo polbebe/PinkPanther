@@ -109,7 +109,7 @@ def servo41(targ41):
 # Start walking
 i = 0
 
-while i<400:
+while i<100:
     
     s10.moveTimeWrite(130)
     

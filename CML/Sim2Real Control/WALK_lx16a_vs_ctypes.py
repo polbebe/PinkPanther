@@ -102,19 +102,30 @@ for j in range(1,5):
 		h+=1
 time.sleep(3)
 
-error = []
 
+pos = get_action(0)
+h = 0
+for j in range(1,5):
+	u = 10*j
+	r = range(u, u+3)
+	for i in r:
+		motor.move(i, int(pos[h]), 1000)
+		h+=1
+time.sleep(3)
+
+error = []
+j=0
 # WALK
 while j < 100:
 	# Get current position of motors
 	state = get_state()
-
+	
 	if j>1:
 		diff = []
-		for i in len(state):
+		for i in range(len(state)):
 			diff.append(abs(state[i]-pos[i]))
 		error.append(diff)
-
+	
 	# Get target position
 	pos = get_action(j)
 	# Move robot to target position

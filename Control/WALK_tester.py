@@ -137,6 +137,17 @@ while i<400:
     # Move servo 41 (knee)
     s41.moveTimeWrite(servo41(v[33] + v[34]*m.sin(i*v[36] + v[35])))
     
+    s11.getPhysicalPos()
+    s12.getPhysicalPos()
+    s21.getPhysicalPos()
+    s22.getPhysicalPos()
+    s31.getPhysicalPos()
+    s32.getPhysicalPos()
+    s41.getPhysicalPos()
+    s42.getPhysicalPos()
+    
+    #time.sleep(0.01)
+    
     i += 1
 
 

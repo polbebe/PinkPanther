@@ -36,7 +36,7 @@ def convFns(pos, convType):
 
 
 # Return position to take
-def get_action(state, i):
+def get_action(i):
 
 	nextPos = [	0, (v[6] + v[7]*m.sin(i*v[36] + v[8])), (v[3] + v[4]*m.sin(i*v[36] + v[5])),
 				0, (v[15] + v[16]*m.sin(i*v[36] + v[17])), (v[12] + v[13]*m.sin(i*v[36] + v[14])),
@@ -54,7 +54,7 @@ def walk(pos):
 		for i in r:
 			motor.move(i, int(pos[h]), 0)
 			h+=1
-		#time.sleep(0.015)
+		#time.sleep(0.003)
 
 # Read motor positions
 def get_state():
@@ -88,7 +88,7 @@ for j in range(1,5):
 	for i in r:
 		motor.move(i, int(pos[h]), 1000)
 		h+=1
-time.sleep(5)
+time.sleep(3)
 pos = [500, 750, 583, 500, 250, 417, 500, 750, 583, 500, 250, 417]
 h = 0
 for j in range(1,5):
@@ -105,9 +105,9 @@ time.sleep(3)
 # WALK
 while j < 10000:
 	# Get current position of motors
-	# state = get_state()
+	state = get_state()
 	# Get target position
-	pos = get_action(state, j)
+	pos = get_action(j)
 	# Move robot to target position
 	walk(pos)
 

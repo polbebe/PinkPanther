@@ -102,14 +102,23 @@ for j in range(1,5):
 		h+=1
 time.sleep(3)
 
+error = []
+
 # WALK
 while j < 10000:
 	# Get current position of motors
 	state = get_state()
+
+	if j>1:
+		error.append(abs(state-pos))
+
 	# Get target position
 	pos = get_action(j)
 	# Move robot to target position
 	walk(pos)
 
 	j += 1
-	
+
+error_df = pd.DataFrame(error, columns=[10, 11, 12, 20, 21, 22, 30, 31, 32, 40, 41, 42])
+error_df.to_csv('Errors.csv')
+

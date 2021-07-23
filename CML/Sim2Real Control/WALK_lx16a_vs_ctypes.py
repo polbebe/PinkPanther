@@ -110,9 +110,9 @@ while j < 100:
 	state = get_state()
 
 	if j>1:
-        diff = []
-        for i in len(state):
-            diff.append(abs(state[i]-pos[i]))
+		diff = []
+		for i in len(state):
+			diff.append(abs(state[i]-pos[i]))
 		error.append(diff)
 
 	# Get target position

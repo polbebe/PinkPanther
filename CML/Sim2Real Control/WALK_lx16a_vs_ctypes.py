@@ -105,12 +105,15 @@ time.sleep(3)
 error = []
 
 # WALK
-while j < 10000:
+while j < 100:
 	# Get current position of motors
 	state = get_state()
 
 	if j>1:
-		error.append(abs(state-pos))
+        diff = []
+        for i in len(state):
+            diff.append(abs(state[i]-pos[i]))
+		error.append(diff)
 
 	# Get target position
 	pos = get_action(j)

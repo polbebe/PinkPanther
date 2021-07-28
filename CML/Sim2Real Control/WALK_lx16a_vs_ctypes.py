@@ -54,7 +54,7 @@ def walk(pos):
 		for i in r:
 			motor.move(i, int(pos[h]), 0)
 			h+=1
-		#time.sleep(0.003)
+		time.sleep(0.003)
 
 # Read motor positions
 def get_state():
@@ -116,16 +116,16 @@ time.sleep(3)
 error = []
 j=0
 # WALK
-while j < 100:
+while j < 400:
 	# Get current position of motors
 	state = get_state()
-	
+	'''
 	if j>1:
 		diff = []
 		for i in range(len(state)):
 			diff.append(abs(state[i]-pos[i]))
 		error.append(diff)
-	
+	'''
 	# Get target position
 	pos = get_action(j)
 	# Move robot to target position
@@ -133,6 +133,6 @@ while j < 100:
 
 	j += 1
 
-error_df = pd.DataFrame(error, columns=[10, 11, 12, 20, 21, 22, 30, 31, 32, 40, 41, 42])
-error_df.to_csv('Errors.csv')
-
+#error_df = pd.DataFrame(error, columns=[10, 11, 12, 20, 21, 22, 30, 31, 32, 40, 41, 42])
+#error_df.to_csv('Errors.csv')
+print('donio')

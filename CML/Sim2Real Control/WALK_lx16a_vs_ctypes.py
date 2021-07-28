@@ -54,7 +54,7 @@ def walk(pos):
 		for i in r:
 			motor.move(i, int(pos[h]), 0)
 			h+=1
-		time.sleep(0.003)
+		time.sleep(0.005)
 
 # Read motor positions
 def get_state():

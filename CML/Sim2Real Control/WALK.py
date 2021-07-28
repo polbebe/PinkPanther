@@ -95,7 +95,7 @@ for j in range(1,5):
 	for i in r:
 		motor.move(i, int(pos[h]), 1000)
 		h+=1
-time.sleep(5)
+time.sleep(3)
 pos = [500, 750, 583, 500, 250, 417, 500, 750, 583, 500, 250, 417]
 h = 0
 for j in range(1,5):

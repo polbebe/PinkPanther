@@ -30,17 +30,23 @@ def convFns(pos, convType):
 def act(t, a, b, c, d, e):
 	# Calculate desired position
 	desired_p = np.zeros(12)
-	v_shoulder = a * np.sin(t * e) + b
-	v_elbow = c * np.sin(t * e) + d
+	# Positive
+	pos_v_shoulder = a * np.sin(t * e) + b
+	pos_v_elbow = c * np.sin(t * e) + d
 	pos_shoulder = [2, 11]
 	pos_elbow = [1, 10]
+	# Negative
+	neg_v_shoulder = -a * np.sin(t * e) + b
+	neg_v_elbow = -c * np.sin(t * e) + d
 	neg_shoulder = [5, 8]
 	neg_elbow = [4, 7]
+	# Zero
 	zero = [0, 3, 6, 9]
-	desired_p[pos_shoulder] = v_shoulder
-	desired_p[pos_elbow] = v_elbow
-	desired_p[neg_shoulder] = -v_shoulder
-	desired_p[neg_elbow] = -v_elbow
+	# Assign	
+	desired_p[pos_shoulder] = pos_v_shoulder
+	desired_p[pos_elbow] = pos_v_elbow
+	desired_p[neg_shoulder] = neg_v_shoulder
+	desired_p[neg_elbow] = neg_v_elbow
 	desired_p[zero] = 0
 
 	# Return desired new position
@@ -58,9 +64,9 @@ def walk(pos):
 		u = 10*j
 		r = range(u, u+3)
 		for i in r:
-			motor.move(i, int(pos[h]), 100)
+			motor.move(i, int(pos[h]), 0)
 			h+=1
-		#time.sleep(0.015)
+		time.sleep(0.005)
 
 # Initialize motors as servos and set offset
 offsets = [30, 0, 64, 0, 70, 50, 26, 0, 55, 80, 90, 35]

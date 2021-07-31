@@ -54,7 +54,8 @@ def act(t, a, b, c, d, e):
 
 # Return position to take
 def get_action(steps):
-	params = np.array([0.15, -0.2, 0.2, 0.3, 0.2]) # From Hardcoded_0.2.0
+	#params = np.array([0.15, -0.3, 0.2, 0.3, 0.2]) # From Hardcoded_0.2.0
+	params = np.array([0.15, 0.0, 0.2, 0.25, 0.2]) # From Hardcoded_0.2.0
 	return act(steps, *params)
 
 # MOVE MOTOR TO GIVEN POSITION
@@ -88,28 +89,38 @@ for j in range(1,5):
 	u = 10*j
 	r = range(u, u+3)
 	for i in r:
-		motor.move(i, int(pos[h]), 1000)
+		motor.move(i, int(pos[h]), 1500)
 		h+=1
 time.sleep(3)
-pos = [500, 750, 583, 500, 250, 417, 500, 750, 583, 500, 250, 417]
+#pos = [500, 750, 583, 500, 250, 417, 500, 750, 583, 500, 250, 417]
+pos = get_action(0)
 h = 0
 for j in range(1,5):
 	u = 10*j
 	r = range(u, u+3)
 	for i in r:
 		if h>5:
-			motor.move(i, int(pos[h]), 700)
-		else:
 			motor.move(i, int(pos[h]), 1000)
+		else:
+			motor.move(i, int(pos[h]), 1500)
 		h+=1
 time.sleep(3)
 
 # WALK
-while j < 10000:
+while j < 300:
 	# Get target position
 	pos = get_action(j)
 	# Move robot to target position
 	walk(pos)
 
 	j += 1
-	
+
+# RESET position and stand down & up before walking
+pos = [500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500]
+h = 0
+for j in range(1,5):
+	u = 10*j
+	r = range(u, u+3)
+	for i in r:
+		motor.move(i, int(pos[h]), 1500)
+		h+=1

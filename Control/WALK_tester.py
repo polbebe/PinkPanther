@@ -110,27 +110,27 @@ s10.moveTimeWrite(130)
 i = 0
 # LEFT FRONT
 # Move servo 12 (elbow)
-s12.moveTimeWrite(servo12(v[3] + v[4]*m.sin(i*v[36] + v[5])), 1000)
+s12.moveTimeWrite(servo12(v[3] + (v[4]-0.05)*m.sin(i*v[36] + v[5])), 1000)
 # Move servo 11 (knee)
-s11.moveTimeWrite(servo11(v[6] + v[7]*m.sin(i*v[36] + v[8])), 1000)
+s11.moveTimeWrite(servo11(v[6] + (v[7]-0.05)*m.sin(i*v[36] + v[8])), 1000)
 
 # LEFT BACK
 # Move servo 32 (elbow)
-s32.moveTimeWrite(servo32(v[21] + v[22]*m.sin(i*v[36] + v[23])), 1000)
+s32.moveTimeWrite(servo32(v[21] + (v[22]-0.05)*m.sin(i*v[36] + v[23])), 1000)
 # Move servo 31 (knee)
-s31.moveTimeWrite(servo31(v[24] + v[25]*m.sin(i*v[36] + v[26])), 1000)
+s31.moveTimeWrite(servo31(v[24] + (v[25]-0.05)*m.sin(i*v[36] + v[26])), 1000)
 
 # RIGHT FRONT
 # Move servo 22 (elbow)
-s22.moveTimeWrite(servo22(v[12] + v[13]*m.sin(i*v[36] + v[14])), 1000)
+s22.moveTimeWrite(servo22(v[12] + (v[13]-0.05)*m.sin(i*v[36] + v[14])), 1000)
 # Move servo 21 (knee)
-s21.moveTimeWrite(servo21(v[15] + v[16]*m.sin(i*v[36] + v[17])), 1000)
+s21.moveTimeWrite(servo21(v[15] + (v[16]-0.05)*m.sin(i*v[36] + v[17])), 1000)
 
 # RIGHT BACK
 # Move servo 42 (elbow)
-s42.moveTimeWrite(servo42(v[30] + v[31]*m.sin(i*v[36] + v[32])), 1000)
+s42.moveTimeWrite(servo42(v[30] + (v[31]-0.05)*m.sin(i*v[36] + v[32])), 1000)
 # Move servo 41 (knee)
-s41.moveTimeWrite(servo41(v[33] + v[34]*m.sin(i*v[36] + v[35])), 1000)
+s41.moveTimeWrite(servo41(v[33] + (v[34]-0.05)*m.sin(i*v[36] + v[35])), 1000)
 
 time.sleep(3)
 
@@ -174,7 +174,7 @@ while i<400:
     s41.getPhysicalPos()
     s42.getPhysicalPos()
     
-    #time.sleep(0.01)
+    #time.sleep(0.005)
     
     i += 1
 

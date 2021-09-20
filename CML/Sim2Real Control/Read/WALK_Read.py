@@ -67,7 +67,7 @@ def act(t, a, b, c, d, e):
 	front_pos = [1, 2]
 	front_neg = [4, 5]
 	back_pos = [10, 11]
-	back_neg [7, 8]
+	back_neg = [7, 8]
 
 	zero = [0, 3, 6, 9]
 

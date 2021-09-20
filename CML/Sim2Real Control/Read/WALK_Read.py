@@ -96,7 +96,7 @@ def walk(pos):
 		u = 10*j
 		r = range(u, u+3)
 		for i in r:
-			#real_pos.append(motor.readPosition(i))
+			real_pos.append(motor.readPosition(i))
 			motor.move(i, int(pos[h]), 0)
 			h+=1
 		time.sleep(0.005)

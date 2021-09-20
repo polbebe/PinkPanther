@@ -84,13 +84,14 @@ def act(t, a, b, c, d, e):
 
 # Return position to take
 def get_action(steps):
-	params = np.array([0.15, 0.0, 0.2, 0.15, 0.2]) # Smooth Criminal, Jul 31, 7pm
+	#params = np.array([0.15, -0.3, 0.2, 0.3, 0.2]) # From Hardcoded_0.2.0
+	params = np.array([0.15, 0.0, 0.2, 0.15, 0.2]) # From Hardcoded_0.2.0
 	return act(steps, *params)
 
 # MOVE MOTOR TO GIVEN POSITION
 def walk(pos):
-	real_pos = []
 	h = 0
+	real_pos = []
 	for j in range(1,5):
 		u = 10*j
 		r = range(u, u+3)
@@ -141,7 +142,7 @@ time.sleep(3)
 # WALK
 while j < 300:
 	# Get target position
-	des_pos = get_action(j)
+	pos = get_action(j)
 	# Move robot to target position
 	real_pos = walk(pos)
 

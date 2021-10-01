@@ -66,21 +66,21 @@ def act(t, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15)
 	# Calculate desired position
 	desired_p = np.zeros(12)
 	#LF
-	desired_p[0] = p0 * np.sin(t * 0.2 + p2) + p10
-	desired_p[1] = p6 * np.sin(t * 0.2 + p2) + p12
-	desired_p[2] = p8 * np.sin(t * 0.2 + p2) + p14
+	desired_p[0] = p0 * np.sin(t/8*2*np.pi + p2) + p10
+	desired_p[1] = p6 * np.sin(t/8*2*np.pi + p2) + p12
+	desired_p[2] = p8 * np.sin(t/8*2*np.pi + p2) + p14
 	#RF
-	desired_p[3] = p1 * np.sin(t * 0.2 + p3) + p11
-	desired_p[4] = p7 * np.sin(t * 0.2 + p3) + p13
-	desired_p[5] = p9 * np.sin(t * 0.2 + p3) + p15
+	desired_p[3] = p1 * np.sin(t/8*2*np.pi + p3) + p11
+	desired_p[4] = p7 * np.sin(t/8*2*np.pi + p3) + p13
+	desired_p[5] = p9 * np.sin(t/8*2*np.pi + p3) + p15
 	#LB
-	desired_p[6] = p1 * np.sin(t * 0.2 + p4) + p11
-	desired_p[7] = p7 * np.sin(t * 0.2 + p4) + p13
-	desired_p[8] = p9 * np.sin(t * 0.2 + p4) + p15
+	desired_p[6] = p1 * np.sin(t/8*2*np.pi + p4) + p11
+	desired_p[7] = p7 * np.sin(t/8*2*np.pi + p4) + p13
+	desired_p[8] = p9 * np.sin(t/8*2*np.pi + p4) + p15
 	#RB
-	desired_p[9] = p0 * np.sin(t * 0.2 + p5) + p10
-	desired_p[10] = p6 * np.sin(t * 0.2 + p5) + p12
-	desired_p[11] = p8 * np.sin(t * 0.2 + p5) + p14
+	desired_p[9] = p0 * np.sin(t/8*2*np.pi + p5) + p10
+	desired_p[10] = p6 * np.sin(t/8*2*np.pi + p5) + p12
+	desired_p[11] = p8 * np.sin(t/8*2*np.pi + p5) + p14
 	# Return desired new position
 	return convFns(desired_p, "sim2real")
 

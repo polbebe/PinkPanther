@@ -121,8 +121,8 @@ for j in range(1,5):
 		motor.move(i, int(pos[h]), 1500)
 		h+=1
 time.sleep(3)
-#pos = [500, 750, 583, 500, 250, 417, 500, 750, 583, 500, 250, 417]
-pos = get_action(0)
+pos = [500, 750, 583, 500, 250, 417, 500, 750, 583, 500, 250, 417]
+#pos = get_action(0)
 h = 0
 for j in range(1,5):
 	u = 10*j
@@ -139,6 +139,7 @@ time.sleep(3)
 while j < 300:
 	# Get target position
 	pos = get_action(j)
+	print(pos)
 	# Move robot to target position
 	real_pos = walk(pos)
 

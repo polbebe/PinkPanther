@@ -85,7 +85,7 @@ def act(t, a, b, c, d, e):
 # Return position to take
 def get_action(steps):
 	#params = np.array([0.15, -0.3, 0.2, 0.3, 0.2]) # From Hardcoded_0.2.0
-	params = np.array([0.15, 0.0, 0.2, 0.15, 0.2]) # From Hardcoded_0.2.0
+	params = np.array([0.15, 0.0, 0.2, 0.15, 0.7]) # From Hardcoded_0.2.0
 	return act(steps, *params)
 
 # MOVE MOTOR TO GIVEN POSITION

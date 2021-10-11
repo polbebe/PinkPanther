@@ -84,8 +84,8 @@ def act(t, a, b, c, d, e):
 
 # Return position to take
 def get_action(steps):
-	#params = np.array([0.15, -0.3, 0.2, 0.3, 0.2]) # From Hardcoded_0.2.0
-	params = np.array([0.15, 0.0, 0.2, 0.15, 0.7]) # From Hardcoded_0.2.0
+	params = np.array([0.28334156684116735, 0.21263452798542085, 0.3774846531520771, 0.13494608389873167, -0.5942289712811474]) # Trained sin_gait 2, Oct 11 10:48
+	#params = np.array([0.15, 0.0, 0.2, 0.15, 0.7]) # Smooth Criminal
 	return act(steps, *params)
 
 # MOVE MOTOR TO GIVEN POSITION

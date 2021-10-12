@@ -127,8 +127,8 @@ for j in range(1,5):
 		motor.move(i, int(pos[h]), 1500)
 		h+=1
 time.sleep(3)
-#pos = [500, 750, 583, 500, 250, 417, 500, 750, 583, 500, 250, 417]
-pos = get_action(0)
+pos = [500, 750, 583, 500, 250, 417, 500, 750, 583, 500, 250, 417]
+#pos = get_action(0)
 h = 0
 for j in range(1,5):
 	u = 10*j
@@ -141,14 +141,24 @@ for j in range(1,5):
 		h+=1
 time.sleep(3)
 
+delta_poses = []
+pos_prev = pos
+
 # WALK
+j = 0
 while j < 300:
 	# Get target position
 	pos = get_action(j)
 	# Move robot to target position
-	real_pos = walk(pos)
+	#real_pos = walk(pos)
+	delta_poses.append(abs(pos-pos_prev))
+	pos_prev = pos
 
 	j += 1
+
+print(delta_poses)
+delta_poses.sort(reverse=True)
+print(delta_poses)
 
 # RESET position and stand down & up before walking
 pos = [500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500]

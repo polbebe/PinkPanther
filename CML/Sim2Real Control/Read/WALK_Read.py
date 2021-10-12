@@ -141,45 +141,38 @@ for j in range(1,5):
 		h+=1
 time.sleep(3)
 
-j=0
+j = 0
+pos_prev = pos
 
-# Calculate necessary change in pos from rest to initial
-delta_pos_init = abs(get_action(0) - pos)
-max_i = delta_pos_init[0]
-for i in delta_pos_init:
-	if i>max_i:
-		max_i=i
-
-# If any delta_pos is larger than allowed, we will perform first motion slower
-if max_i > 40:
-	#Move to first position slowly
-	pos = get_action(0)
-	h = 0
-	for j in range(1,5):
-		u = 10*j
-		r = range(u, u+3)
-		for i in r:
-			motor.move(i, int(pos[h]), 100)
-			h+=1
-	j+=1
+while j < 300:
+	if max(abs(get_action(j) - pos_prev)) > 40:
+		#Move to first position slowly
+		pos = get_action(j)
+		pos_prev = pos
+		h = 0
+		for x in range(1,5):
+			u = 10*x
+			r = range(u, u+3)
+			for i in r:
+				motor.move(i, int(pos[h]), 200)
+				h+=1
+		j+=1
+		time.sleep(0.5)
 
 
 # WALK
 while j < 300:
 	# Get target position
 	pos = get_action(j)
+	# Calculate & print delta_pos
+	print(j)
+	delta_pos = abs(pos-pos_prev)
+	print(delta_pos)
+	pos_prev = pos
 	# Move robot to target position
 	#real_pos = walk(pos)
-	delta_pos = abs(pos-pos_prev)
-	for i in delta_pos:
-		delta_poses.append(i)
-	pos_prev = pos
 
 	j += 1
-
-print(delta_poses)
-delta_poses.sort(reverse=True)
-print(delta_poses)
 
 # RESET position and stand down & up before walking
 pos = [500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500]

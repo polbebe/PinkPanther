@@ -151,7 +151,9 @@ while j < 300:
 	pos = get_action(j)
 	# Move robot to target position
 	#real_pos = walk(pos)
-	delta_poses.append(abs(pos-pos_prev))
+	delta_pos = abs(pos-pos_prev)
+	for i in delta_pos:
+		delta_poses.append(i)
 	pos_prev = pos
 
 	j += 1

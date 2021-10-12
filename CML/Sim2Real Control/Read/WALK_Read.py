@@ -141,11 +141,30 @@ for j in range(1,5):
 		h+=1
 time.sleep(3)
 
-delta_poses = []
-pos_prev = pos
+j=0
+
+# Calculate necessary change in pos from rest to initial
+delta_pos_init = abs(get_action(0) - pos)
+max_i = delta_pos_init[0]
+for i in delta_pos_init:
+	if i>max_i:
+		max_i=i
+
+# If any delta_pos is larger than allowed, we will perform first motion slower
+if max_i > 40:
+	#Move to first position slowly
+	pos = get_action(0)
+	h = 0
+	for j in range(1,5):
+		u = 10*j
+		r = range(u, u+3)
+		for i in r:
+			motor.move(i, int(pos[h]), 100)
+			h+=1
+	j+=1
+
 
 # WALK
-j = 0
 while j < 300:
 	# Get target position
 	pos = get_action(j)

@@ -81,7 +81,6 @@ def act(t, a, b, c, d, e):
 	# Return desired new position
 	return convFns(desired_p, "sim2real")
 
-
 # Return position to take
 def get_action(steps):
 	params = np.array([0.2980418533307479, 0.01878523690431866, 0.022546654023646796, -0.2685025304630598, -0.2080157428428239]) # Trained sin_gait 5, Oct 12 13:21
@@ -141,36 +140,30 @@ for j in range(1,5):
 		h+=1
 time.sleep(3)
 
-j = 0
-pos_prev = pos
+# Determine need to smoothen transition to first position
+pos_prev = [500, 750, 583, 500, 250, 417, 500, 750, 583, 500, 250, 417]
+pos = get_action(0)
+delta_pos = abs(pos-pos_prev)
+steps = int(max(delta_pos)/15)
+m = []
+for i in range(len(pos)):
+	m.append(np.linspace(pos_prev[i], pos[i], steps))
+m_t = np.array(m).T.tolist()
+for i in range(len(m_t)):
+	for j in range(len(m_t[0])):
+		m_t[i][j] = int(round(m_t[i][j]))
 
-while j < 300:
-	if max(abs(get_action(j) - pos_prev)) > 40:
-		#Move to first position slowly
-		pos = get_action(j)
-		pos_prev = pos
-		h = 0
-		for x in range(1,5):
-			u = 10*x
-			r = range(u, u+3)
-			for i in r:
-				motor.move(i, int(pos[h]), 200)
-				h+=1
-		j+=1
-		time.sleep(0.5)
-
+# If smoothing is needed, perform actions
+for i in m_t:
+	real_pos = walk(i)
 
 # WALK
+j = 1
 while j < 300:
 	# Get target position
 	pos = get_action(j)
-	# Calculate & print delta_pos
-	print(j)
-	delta_pos = abs(pos-pos_prev)
-	print(delta_pos)
-	pos_prev = pos
 	# Move robot to target position
-	#real_pos = walk(pos)
+	real_pos = walk(pos)
 
 	j += 1
 

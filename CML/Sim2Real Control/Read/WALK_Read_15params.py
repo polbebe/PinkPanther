@@ -56,29 +56,27 @@ def act_shoulders&armpits(t, a, b, c, d, e):
 # Front and back legs diff
 # Return target position
 def get_action(steps):
-	#params = np.array([0.31470387082742857, -0.8154062769257271, -2.0772560424688575, 2.2393159128234656, 5.595364311113712, -4.455943474961648, 0.8324012319915999, 0.8384610746398726,
-	#	-0.962714136526561, 0.5549220113983584, -0.17926266842689542, -0.10680555082706357, -0.01921413464859436, -0.10046876925877438, 0.026450428076952335, 0.3312599623115464]) # Trained Gait 1, Oct 1 1:24
-	params = np.array([0.35332285718099654, 0.5736420744741431, -5.979138131230912, -5.948577956716892, -0.36527256953492687, -3.7619673655447716, -0.8234816592801515, -0.2733447408644949, 
-	-0.8013625337201749, -0.7227010354901618, -0.10443282694344454, -0.4021021656079176, -0.17608276569715917, -0.5704636488269477, 0.08423802606152105, 0.006208623699152057]) # Trained Gait 1, Oct 1 00:56 FAIL - thesis that frequency of joints is too much, pivoting to a test with w=0.2
+	# Test with w=0.21 and armpit joints don't move
+	params = np.array([-0.1452217682136046, 0.5370238181034812, 5.453212634461867, 4.161790918008703, -1.6280157636978125, -2.764998743492415, -0.5724522688587933, 0.7226947508679249, -0.6998402793502201, 0.5072764835093281, 0.03661892351135113, 0.4627483024891589, 0.21236724167077375, 0.1380141387384276, -0.27684548026527517, -0.3643201944698517])
 	return act(steps, *params)
 
 def act(t, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15):
 	# Calculate desired position
 	desired_p = np.zeros(12)
 	#LF
-	desired_p[0] = p0 * np.sin(t/8*2*np.pi + p2) + p10
+	desired_p[0] = 0 #p0 * np.sin(t/8*2*np.pi + p2) + p10
 	desired_p[1] = p6 * np.sin(t/8*2*np.pi + p2) + p12
 	desired_p[2] = p8 * np.sin(t/8*2*np.pi + p2) + p14
 	#RF
-	desired_p[3] = p1 * np.sin(t/8*2*np.pi + p3) + p11
+	desired_p[3] = 0 #p1 * np.sin(t/8*2*np.pi + p3) + p11
 	desired_p[4] = p7 * np.sin(t/8*2*np.pi + p3) + p13
 	desired_p[5] = p9 * np.sin(t/8*2*np.pi + p3) + p15
 	#LB
-	desired_p[6] = p1 * np.sin(t/8*2*np.pi + p4) + p11
+	desired_p[6] = 0 #p1 * np.sin(t/8*2*np.pi + p4) + p11
 	desired_p[7] = p7 * np.sin(t/8*2*np.pi + p4) + p13
 	desired_p[8] = p9 * np.sin(t/8*2*np.pi + p4) + p15
 	#RB
-	desired_p[9] = p0 * np.sin(t/8*2*np.pi + p5) + p10
+	desired_p[9] = 0 #p0 * np.sin(t/8*2*np.pi + p5) + p10
 	desired_p[10] = p6 * np.sin(t/8*2*np.pi + p5) + p12
 	desired_p[11] = p8 * np.sin(t/8*2*np.pi + p5) + p14
 	# Return desired new position

@@ -83,7 +83,8 @@ def act(t, a, b, c, d, e):
 
 # Return position to take
 def get_action(steps):
-	params = np.array([0.24495851730947005, 0.18187873796178136, 0.2020333429029758, -0.3852743697870839, -0.2094960812992037]) # Trained sin_gait 7, Oct 11 19:01
+	params = np.array(np.load('params/best_overall_95.81.npy'))
+	#params = np.array([0.24495851730947005, 0.18187873796178136, 0.2020333429029758, -0.3852743697870839, -0.2094960812992037]) # Trained sin_gait 7, Oct 11 19:01
 	#params = np.array([0.2980418533307479, 0.01878523690431866, 0.022546654023646796, -0.2685025304630598, -0.2080157428428239]) # Trained sin_gait 5, Oct 12 13:21
 	#params = np.array([0.15, 0.0, 0.2, 0.15, 0.3]) # Smooth Criminal
 	return act(steps, *params)

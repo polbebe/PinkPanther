@@ -45,8 +45,8 @@ def act(t, p0, p1, p2, p3, p4, p5, p6, p7, p8):
 
 # Return position to take
 def get_action(steps):
-	params = np.array(np.load('params/best_overall_95.81.npy'))
-	#params = np.array([0.15, 0.0, 0.15, 0.0, 0.2, 0.15, 0.2, 0.15, 0.21]) # Smooth Criminal, Jul 31 19:00
+	#params = np.array(np.load('params/best_overall_5.npy'))
+	params = np.array([0.15, 0.0, 0.15, 0.0, 0.2, 0.15, 0.2, 0.15, 0.21]) # Smooth Criminal, Jul 31 19:00
 
 	return act(steps, *params)
 

@@ -55,28 +55,15 @@ def act_shoulders&armpits(t, a, b, c, d, e):
 
 # Front and back legs diff
 # Return target position
-def act(t, a, b, c, d, e):
+def act(t, a, b, c, d, e, f):
 	# Calculate desired position
-	desired_p = np.zeros(12)
-
-	pos_front_v = a * np.sin(t * e) + b
-	neg_front_v = -a * np.sin(t * e) + b
-	pos_back_v = c * np.sin(t * e) + d
-	neg_back_v = -c * np.sin(t * e) + d
-
-	front_pos = [1, 2]
-	front_neg = [4, 5]
-	back_pos = [10, 11]
-	back_neg = [7, 8]
-
-	zero = [0, 3, 6, 9]
+	f_pos = a * np.sin(t * e) + b
+	f_neg = -a * np.sin(t * e) + b
+	b_pos = c * np.sin(t * e + f) + d
+	b_neg = -c * np.sin(t * e + f) + d
 
 	# Assign	
-	desired_p[front_pos] = pos_front_v
-	desired_p[front_neg] = neg_front_v
-	desired_p[back_pos] = pos_back_v
-	desired_p[back_neg] = neg_back_v
-	desired_p[zero] = 0
+	desired_p = [0, f_pos, f_pos, 0, f_neg, f_neg, 0, b_pos, b_pos, 0, b_neg, b_neg]
 
 	# Return desired new position
 	return convFns(desired_p, "sim2real")
@@ -87,7 +74,7 @@ def get_action(steps):
 	#params = np.array([0.24495851730947005, 0.18187873796178136, 0.2020333429029758, -0.3852743697870839, -0.2094960812992037]) # Trained sin_gait 7, Oct 11 19:01
 	#params = np.array([0.2980418533307479, 0.01878523690431866, 0.022546654023646796, -0.2685025304630598, -0.2080157428428239]) # Trained sin_gait 5, Oct 12 13:21
 	#params = np.array([0.15, 0.0, 0.2, 0.15, 0.2]) # Smooth Criminal
-	params = np.array([0.13, 0.0, 0.17, 0.2, 0.3])
+	params = np.array([0.15, 0.0, 0.19, 0.2, 0.23, 2.05])
 	return act(steps, *params)
 
 # MOVE MOTOR TO GIVEN POSITION
@@ -160,7 +147,7 @@ for i in m_t:
 
 # WALK
 j = 1
-while j < 100:
+while j < 300:
 	# Get target position
 	pos = get_action(j)
 	# Move robot to target position

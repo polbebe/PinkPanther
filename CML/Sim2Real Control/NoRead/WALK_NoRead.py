@@ -137,7 +137,7 @@ for j in range(1,5):
 time.sleep(3)
 
 # WALK
-while j < 300:
+while j < 100:
 	# Get target position
 	pos = get_action(j)
 	# Move robot to target position

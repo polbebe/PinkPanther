@@ -70,11 +70,12 @@ def act(t, a, b, c, d, e, f):
 
 # Return position to take
 def get_action(steps):
-	#params = np.array(np.load('params/best_overall_95.81.npy'))
+	params = np.array(np.load('params/ROB/best_overall-2.npy'))
+	params[4]-=22
 	#params = np.array([0.24495851730947005, 0.18187873796178136, 0.2020333429029758, -0.3852743697870839, -0.2094960812992037]) # Trained sin_gait 7, Oct 11 19:01
 	#params = np.array([0.2980418533307479, 0.01878523690431866, 0.022546654023646796, -0.2685025304630598, -0.2080157428428239]) # Trained sin_gait 5, Oct 12 13:21
 	#params = np.array([0.15, 0.0, 0.2, 0.15, 0.2]) # Smooth Criminal
-	params = np.array([0.15, 0.0, 0.19, 0.2, 0.23, 2.05])
+	#params = np.array([0.15, 0.0, 0.19, 0.2, 0.23, 2.05])
 	return act(steps, *params)
 
 # MOVE MOTOR TO GIVEN POSITION
@@ -92,7 +93,7 @@ def walk(pos):
 	return real_pos
 
 # Initialize motors as servos and set offset
-offsets = [30, 0, 64, 0, 70, 50, 26, 0, 55, 80, 90, 35]
+offsets = [30, 0, 64, 0, 70, 50, 26, 100, 55, 80, 90, 35]
 h = 0
 # Set servo mode to all servos with their offset
 for j in range(1,5):
@@ -127,7 +128,7 @@ for j in range(1,5):
 			motor.move(i, int(pos[h]), 1500)
 		h+=1
 time.sleep(3)
-
+'''
 # Determine need to smoothen transition to first position
 pos_prev = [500, 750, 583, 500, 250, 417, 500, 750, 583, 500, 250, 417]
 pos = get_action(0)
@@ -147,14 +148,14 @@ for i in m_t:
 
 # WALK
 j = 1
-while j < 300:
+while j < 100:
 	# Get target position
 	pos = get_action(j)
 	# Move robot to target position
 	real_pos = walk(pos)
 
 	j += 1
-
+'''
 # RESET position and stand down & up before walking
 pos = [500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500]
 h = 0

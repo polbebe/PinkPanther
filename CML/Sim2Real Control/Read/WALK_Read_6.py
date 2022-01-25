@@ -68,7 +68,7 @@ def read():
 	return real_pos
 
 # MOVE MOTOR TO GIVEN POSITION
-def walk(pos, prev_pos):
+def walk(pos):
 	h = 0
 	real_pos = []
 	for j in range(1,5):

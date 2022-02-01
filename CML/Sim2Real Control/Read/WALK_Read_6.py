@@ -47,7 +47,8 @@ def act(t, a, b, c, d, e, f):
 # Return position to take
 def get_action(steps):
 	#params = np.array(np.load('params/HillClimber/23_01_2022/best_overall.npy'))
-	params = np.array([-0.16476964, 0.02548534, 0.16893791, 0.09441782, 9.44620473, -6.1950588]) # 27_01_2022 params trained on envs auto-tuned to be close to the env I manually tuned
+	#params = np.array([-0.16476964, 0.02548534, 0.16893791, 0.09441782, 9.44620473, -6.1950588]) # 27_01_2022 params trained on envs auto-tuned to be close to the env I manually tuned
+	params = np.array([ 0.22853782, 0.06146434, 0.25060128, 0.09051928, 10.81942692, 2.98455422]) # 31_01_2022 params trained on envs auto-tuned to be close to the env I manually tuned
 	#params[4]-=4
 	#params = np.array([0.24495851730947005, 0.18187873796178136, 0.2020333429029758, -0.3852743697870839, -0.2094960812992037]) # Trained sin_gait 7, Oct 11 19:01
 	#params = np.array([0.2980418533307479, 0.01878523690431866, 0.022546654023646796, -0.2685025304630598, -0.2080157428428239]) # Trained sin_gait 5, Oct 12 13:21

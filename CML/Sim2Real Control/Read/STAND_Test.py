@@ -46,7 +46,7 @@ def act(t, a, b, c, d, e, f):
 
 # Return position to take
 def get_action(steps):
-	params = np.array(np.load('params/HillClimber/01_02_2022_2/best_overall.npy'))
+	params = np.array(np.load('params/HillClimber/23_01_2022/best_overall.npy'))
 	#params = np.array([-0.16476964, 0.02548534, 0.16893791, 0.09441782, 9.44620473, -6.1950588]) # 27_01_2022 params trained on envs auto-tuned to be close to the env I manually tuned
 	#params = np.array([ 0.22853782, 0.06146434, 0.25060128, 0.09051928, 10.81942692, 2.98455422]) # 31_01_2022 params trained on envs auto-tuned to be close to the env I manually tuned
 	#params[4]-=4
@@ -84,7 +84,11 @@ def walk(pos):
 	return real_pos
 
 # Initialize motors as servos and set offset
-offsets = [30, 0, 39, 0, 70, 77, 26, 100, 30, 80, 90, 62]
+offsets_base = [30, 0, 64, 0, 70, 50, 26, 100, 55, 80, 90, 35]
+offsets_add = [0, 0, 25, 0, 0, -27, 0, 0, 25, 0, 0, -27]
+offsets = [offsets_base[i] - offsets_add[i] for i in range(len(offsets_base))]
+print(offsets)
+#offsets = [30, 0, 64, 0, 70, 50, 26, 100, 55, 80, 90, 35]
 h = 0
 # Set servo mode to all servos with their offset
 for j in range(1,5):
@@ -106,7 +110,8 @@ for j in range(1,5):
 		motor.move(i, int(pos[h]), 1500)
 		h+=1
 time.sleep(3)
-pos = [500, 750, 583, 500, 250, 417, 500, 750, 583, 500, 250, 417]
+#pos = [500, 750, 583, 500, 250, 417, 500, 750, 583, 500, 250, 417]
+pos = [500, 750, 608, 500, 250, 390, 500, 750, 608, 500, 250, 390]
 #pos = get_action(0)
 h = 0
 for j in range(1,5):
@@ -118,26 +123,10 @@ for j in range(1,5):
 		else:
 			motor.move(i, int(pos[h]), 1500)
 		h+=1
-time.sleep(3)
+time.sleep(300)
 
 
-# WALK
-j = 1
-real_pos = read()
-while j < 100:
-	# Keep track of previous real robot pos
-	prev_pos = real_pos
-	# Get target position
-	action = get_action(j)
-	# Clip it for max delta_pos
-	delta = np.clip([action[i]-prev_pos[i] for i in range(len(action))], -delta_p, delta_p)
-	pos = [prev_pos[i]+delta[i] for i in range(len(delta))]
-	# Move robot to target position
-	real_pos = walk(pos)
-
-	j += 1
-
-# RESET position and stand down & up before walking
+# RESET position
 pos = [500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500]
 h = 0
 for j in range(1,5):

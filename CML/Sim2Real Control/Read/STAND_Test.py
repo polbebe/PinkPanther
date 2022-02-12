@@ -111,7 +111,8 @@ for j in range(1,5):
 		h+=1
 time.sleep(3)
 #pos = [500, 750, 583, 500, 250, 417, 500, 750, 583, 500, 250, 417]
-pos = [500, 750, 608, 500, 250, 390, 500, 750, 608, 500, 250, 390]
+#pos = [500, 750, 608, 500, 250, 390, 500, 750, 608, 500, 250, 390]
+pos = [500, 1000, 1000, 500, 1000, 1000, 500, 1000, 1000, 500, 1000, 1000]
 #pos = get_action(0)
 h = 0
 for j in range(1,5):
@@ -119,9 +120,9 @@ for j in range(1,5):
 	r = range(u, u+3)
 	for i in r:
 		if h>5:
-			motor.move(i, int(pos[h]), 1000)
+			motor.move(i, int(pos[h]), 10000)
 		else:
-			motor.move(i, int(pos[h]), 1500)
+			motor.move(i, int(pos[h]), 10000)
 		h+=1
 time.sleep(300)
 

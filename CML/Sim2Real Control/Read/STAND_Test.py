@@ -99,7 +99,7 @@ for j in range(1,5):
 		if offsets[h]!=0:
 			motor.setPositionOffset(i,offsets[h])
 		h+=1
-
+'''
 # RESET position and stand down & up before walking
 pos = [500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500]
 h = 0
@@ -110,9 +110,10 @@ for j in range(1,5):
 		motor.move(i, int(pos[h]), 1500)
 		h+=1
 time.sleep(3)
+'''
 #pos = [500, 750, 583, 500, 250, 417, 500, 750, 583, 500, 250, 417]
 #pos = [500, 750, 608, 500, 250, 390, 500, 750, 608, 500, 250, 390]
-pos = [500, 1000, 1000, 500, 1000, 1000, 500, 1000, 1000, 500, 1000, 1000]
+pos = [500, 773, 561, 500, 312, 328, 500, 684, 641, 500, 219, 453]
 #pos = get_action(0)
 h = 0
 for j in range(1,5):
@@ -120,11 +121,11 @@ for j in range(1,5):
 	r = range(u, u+3)
 	for i in r:
 		if h>5:
-			motor.move(i, int(pos[h]), 10000)
+			motor.move(i, int(pos[h]), 000)
 		else:
-			motor.move(i, int(pos[h]), 10000)
+			motor.move(i, int(pos[h]), 000)
 		h+=1
-time.sleep(300)
+time.sleep(30)
 
 
 # RESET position

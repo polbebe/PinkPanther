@@ -135,8 +135,8 @@ while j < 100:
 	pos = [prev_pos[i]+delta[i] for i in range(len(delta))]
 	# Move robot to target position
 	#real_pos = walk(pos)
+	print(pos)
 	real_pos = pos
-	print(real_pos)
 
 	j += 1
 

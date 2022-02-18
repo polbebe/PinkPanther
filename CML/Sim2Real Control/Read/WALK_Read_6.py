@@ -6,6 +6,7 @@ from fns import *
 
 # MAX delta_pos allowed in any given movement
 delta_p = 0.21
+sleep_time = 0.1
 
 # Initialize motor control library & USB Port
 filename = "/dev/ttyUSB0"
@@ -75,7 +76,7 @@ def read():
 		for i in r:
 			real_pos.append(motor.readPosition(i))
 			h+=1
-		time.sleep(0.005)
+		time.sleep(sleep_time/4)
 	return real_pos
 
 # MOVE MOTOR TO GIVEN POSITION
@@ -87,12 +88,8 @@ def walk(pos):
 		r = range(u, u+3)
 		for i in r:
 			motor.move(i, int(pos[h]), 0)
-			real_pos.append(motor.readPosition(i))
 			h+=1
-		time.sleep(0.005)
-		print(pos)
-		print(real_pos)
-		print()
+		time.sleep(sleep_time/20)
 	return real_pos
 
 # Initialize motors as servos and set offset
@@ -142,8 +139,13 @@ while j < 100:
 	# Get target position
 	action = get_action(j, prev_pos)
 	# Move robot to target position
-	real_pos = walk(action)
-
+	pos = walk(action)
+	# Read current position
+	real_pos = read()
+	
+	print([abs(action[i]-real_pos[i]) for i in range(len(action))])
+	print()
+	
 	j += 1
 
 # RESET position and stand down & up before walking

@@ -5,7 +5,7 @@ from ServoMotor import *
 from fns import *
 
 # MAX delta_pos allowed in any given movement
-delta_p = 50.0
+delta_p = 0.21
 
 # Initialize motor control library & USB Port
 filename = "/dev/ttyUSB0"

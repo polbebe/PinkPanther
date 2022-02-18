@@ -63,7 +63,7 @@ def get_action(steps, obs):
 	#params = np.array([0.2980418533307479, 0.01878523690431866, 0.022546654023646796, -0.2685025304630598, -0.2080157428428239]) # Trained sin_gait 5, Oct 12 13:21
 	#params = np.array([0.15, 0.0, 0.2, 0.15, 0.2]) # Smooth Criminal
 	#params = np.array([0.15, 0.0, 0.19, 0.2, 0.23, 2.05])
-	return act(steps, *params)
+	return act(steps, *params, obs)
 
 # Read motor positions
 def read():

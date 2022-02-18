@@ -31,21 +31,29 @@ def convFns(pos, convType):
 
 # Front and back legs diff
 # Return target position
-def act(t, a, b, c, d, e, f):
+def act(t, a, b, c, d, e, f, obs):
 	# Calculate desired position
 	f_pos = a * np.sin(t * e) + b
 	f_neg = -a * np.sin(t * e) + b
 	b_pos = c * np.sin(t * e + f) + d
 	b_neg = -c * np.sin(t * e + f) + d
 
-	# Assign	
+	# Convert obs to sim
+	obs = convFns(obs, "real2sim")
+	# Desired action
 	desired_p = [0, f_pos, f_pos, 0, f_neg, f_neg, 0, b_pos, b_pos, 0, b_neg, b_neg]
+	# Delta action from current position
+	delta = [desired_p[i]-obs[i] for i in range(len(desired_p))]
+	# Clip delta to desired max delta pos
+	delta = np.clip(delta, -delta_p, delta_p)
+	# Update desired action to only change by delta
+	desired_p = [obs[i]+delta[i] for i in range(len(delta))]
 
 	# Return desired new position
 	return convFns(desired_p, "sim2real")
 
 # Return position to take
-def get_action(steps):
+def get_action(steps, obs):
 	#params = np.array(np.load('params/HillClimber/23_01_2022/best_overall.npy'))
 	params = np.array([ 0.31607133, -0.04617572, -0.25435251,  0.09736614, -8.81590009,  6.12591908]) # 12_02_2022 params trained on envs auto-tuned to be close to the env I manually tuned
 	#params = np.array([-0.16476964, 0.02548534, 0.16893791, 0.09441782, 9.44620473, -6.1950588]) # 27_01_2022 params trained on envs auto-tuned to be close to the env I manually tuned
@@ -78,8 +86,8 @@ def walk(pos):
 		u = 10*j
 		r = range(u, u+3)
 		for i in r:
-			real_pos.append(motor.readPosition(i))
 			motor.move(i, int(pos[h]), 0)
+			real_pos.append(motor.readPosition(i))
 			h+=1
 		time.sleep(0.005)
 	return real_pos
@@ -129,14 +137,9 @@ while j < 100:
 	# Keep track of previous real robot pos
 	prev_pos = real_pos
 	# Get target position
-	action = get_action(j)
-	# Clip it for max delta_pos
-	delta = np.clip([action[i]-prev_pos[i] for i in range(len(action))], -delta_p, delta_p)
-	pos = [prev_pos[i]+delta[i] for i in range(len(delta))]
+	action = get_action(j, prev_pos)
 	# Move robot to target position
-	#real_pos = walk(pos)
-	real_pos = pos
-	print(real_pos)
+	real_pos = walk(action)
 
 	j += 1
 

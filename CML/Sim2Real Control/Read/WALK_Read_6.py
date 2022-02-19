@@ -6,7 +6,6 @@ from fns import *
 
 # MAX delta_pos allowed in any given movement
 delta_p = 0.21
-sleep_time = 0.1
 
 # Initialize motor control library & USB Port
 filename = "/dev/ttyUSB0"
@@ -76,7 +75,7 @@ def read():
 		for i in r:
 			real_pos.append(motor.readPosition(i))
 			h+=1
-		time.sleep(sleep_time/4)
+		time.sleep(0.013)
 	return real_pos
 
 # MOVE MOTOR TO GIVEN POSITION
@@ -89,7 +88,7 @@ def walk(pos):
 		for i in r:
 			motor.move(i, int(pos[h]), 0)
 			h+=1
-		time.sleep(sleep_time/20)
+		time.sleep(0.013)
 	return real_pos
 
 # Initialize motors as servos and set offset
@@ -133,7 +132,7 @@ time.sleep(3)
 # WALK
 j = 1
 real_pos = read()
-while j < 100:
+while j < 40:
 	# Keep track of previous real robot pos
 	prev_pos = real_pos
 	# Get target position
@@ -157,32 +156,3 @@ for j in range(1,5):
 	for i in r:
 		motor.move(i, int(pos[h]), 1500)
 		h+=1
-
-
-'''
-# Return target position
-def act_shoulders&armpits(t, a, b, c, d, e):
-	# Calculate desired position
-	desired_p = np.zeros(12)
-	# Positive
-	pos_v_shoulder = a * np.sin(t * e) + b
-	pos_v_elbow = c * np.sin(t * e) + d
-	pos_shoulder = [2, 11]
-	pos_elbow = [1, 10]
-	# Negative
-	neg_v_shoulder = -a * np.sin(t * e) + b
-	neg_v_elbow = -c * np.sin(t * e) + d
-	neg_shoulder = [5, 8]
-	neg_elbow = [4, 7]
-	# Zero
-	zero = [0, 3, 6, 9]
-	# Assign	
-	desired_p[pos_shoulder] = pos_v_shoulder
-	desired_p[pos_elbow] = pos_v_elbow
-	desired_p[neg_shoulder] = neg_v_shoulder
-	desired_p[neg_elbow] = neg_v_elbow
-	desired_p[zero] = 0
-
-	# Return desired new position
-	return convFns(desired_p, "sim2real")
-'''

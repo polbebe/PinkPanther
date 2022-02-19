@@ -6,6 +6,7 @@ from fns import *
 
 # MAX delta_pos allowed in any given movement
 delta_p = 0.21
+episode = time.time()
 
 # Initialize motor control library & USB Port
 filename = "/dev/ttyUSB0"
@@ -44,6 +45,10 @@ def act(t, a, b, c, d, e, f, obs):
 	desired_p = [0, f_pos, f_pos, 0, f_neg, f_neg, 0, b_pos, b_pos, 0, b_neg, b_neg]
 	# Delta action from current position
 	delta = [desired_p[i]-obs[i] for i in range(len(desired_p))]
+	# Add noise to movement
+	for i in range(len(desired_p)):
+		if i%10 != 0:
+			desired_p[i]+np.random.normal(0, 0.5)
 	# Clip delta to desired max delta pos
 	delta = np.clip(delta, -delta_p, delta_p)
 	# Update desired action to only change by delta
@@ -132,24 +137,30 @@ for j in range(1,5):
 		h+=1
 time.sleep(3)
 
+data_collection = []
 
 # WALK
 j = 1
 real_pos = read()
-while j < 40:
+while j < 100:
 	# Keep track of previous real robot pos
 	prev_pos = real_pos
 	# Get target position
 	action = get_action(j, prev_pos)
 	# Move robot to target position
 	pos = walk(action)
+	# Get time
+	timestamp = time.time()
+	# Collect data
+	data = [prev_pos, action, timestamp]
+	data_collection.append(data)
+	
 	# Read current position
 	real_pos = read()
 	
-	print([abs(action[i]-real_pos[i]) for i in range(len(action))])
-	print()
-	
 	j += 1
+
+np.save('19_02_2022_{}_data_collection'.format(episode), data_collection)
 
 # RESET position and stand down & up before walking
 pos = [500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500]

@@ -73,9 +73,12 @@ def read():
 		u = 10*j
 		r = range(u, u+3)
 		for i in r:
-			real_pos.append(motor.readPosition(i))
+			if i%10 != 0:
+				real_pos.append(motor.readPosition(i))
+			else:
+				real_pos.append(500)
 			h+=1
-		time.sleep(0.013)
+		time.sleep(0.01)
 	return real_pos
 
 # MOVE MOTOR TO GIVEN POSITION
@@ -86,9 +89,10 @@ def walk(pos):
 		u = 10*j
 		r = range(u, u+3)
 		for i in r:
-			motor.move(i, int(pos[h]), 0)
+			if i%10 != 0:
+				motor.move(i, int(pos[h]), 75)
 			h+=1
-		time.sleep(0.013)
+		time.sleep(0.01)
 	return real_pos
 
 # Initialize motors as servos and set offset
